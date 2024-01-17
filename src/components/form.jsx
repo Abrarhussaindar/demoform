@@ -159,11 +159,16 @@ function Form() {
 
 
 
+    const logo = require("./logo.png");
     return (
         <div className="container">
-            <h1>
-                Curriculum Vitae
-            </h1>
+            
+            <div className="header">
+                <img className="logo" src={logo} alt="logo" />
+                <h1>
+                    Curriculum <span>Vitae</span>
+                </h1>
+            </div>
             <div className="wrapper">
 
                 <form onSubmit={handleSubmit}>
@@ -215,15 +220,15 @@ function Form() {
                                     </h5>
 
 
-                                    <p>
+                                    <h5>
                                         Post-Graduation
-                                    </p>
-                                    <p>
+                                    </h5>
+                                    <h5>
                                         Graduation
-                                    </p>
-                                    <p className="other">
+                                    </h5>
+                                    <h5 className="other">
                                         Other Professional Certifications
-                                    </p>
+                                    </h5>
 
                                 </div>
                                 <div className="stream">

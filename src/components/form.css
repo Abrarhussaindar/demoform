@@ -15,6 +15,23 @@
   margin: 20px 0 30px 0;
   gap: 20px;
 }
+.container .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.container .header .logo {
+  width: 100px;
+}
+.container .header h1 {
+  margin-top: 20px;
+  font-weight: 600;
+  color: #E45A22;
+}
+.container .header h1 span {
+  color: #2FC12D;
+}
 .container .wrapper {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
@@ -180,19 +197,23 @@
   border-radius: 5px;
   border: none;
   outline: none;
-  background: #333;
+  background: #E45A22;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .container .wrapper form button:hover {
-  background: #fff;
-  color: #333;
-  border: 1px solid #333;
+  background: #2FC12D;
+  color: white;
+  border: 1px solid #2FC12D;
 }
 
 @media screen and (width <= 440px) {
+  .container .header {
+    flex-direction: column;
+    gap: 0 !important;
+  }
   .wrapper {
     width: 80% !important;
     font-size: 14px;
