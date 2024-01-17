@@ -192,6 +192,9 @@
   display: flex;
   gap: 10px;
 }
+.container .wrapper form .uploadContainer label {
+  font-weight: 600;
+}
 .container .wrapper form button {
   margin-top: 20px;
   padding: 10px 30px;
