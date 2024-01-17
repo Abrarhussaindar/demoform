@@ -18,10 +18,13 @@ function Form() {
     const [adhaar, setAdhaar] = useState("");
 
     const [postGradDegree, setPGDegree] = useState("");
+    const [postGradInst, setPGInst] = useState("");
     const [postGradDegreeYear, setPGDegreeYear] = useState("");
+    const [underGradInst, setUGInst] = useState("");
     const [underGradDegree, setUGDegree] = useState("");
     const [underGradDegreeYear, setUGDegreeYear] = useState("");
     const [otherCerti, setOtherCerti] = useState("");
+    const [otherCertiInst, setOtherCertiInst] = useState("");
     const [otherCertiYear, setOtherCertiYear] = useState("");
 
     // dropdown for langs
@@ -118,7 +121,7 @@ function Form() {
         // Validation logic...
 
         // Call the PDF generation function
-        generatePDF({ name, designation, dob, age, YOE, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary }, photoData);
+        generatePDF({ name, designation, dob, age, YOE, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
     };
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -226,28 +229,37 @@ function Form() {
                                     <h5>
                                         Graduation
                                     </h5>
-                                    <h5 className="other">
+                                    <h5 >
                                         Other Professional Certifications
                                     </h5>
 
                                 </div>
                                 <div className="stream">
+                                    <h5>Institute</h5>
+                                    
+
+                                    <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
+                                    <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
+                                    <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
+                                    
+                                </div>
+                                <div className="stream">
                                     <h5>Stream</h5>
-                                    {/* <div className="st-div"> */}
+                                    
 
                                     <input type="text" value={postGradDegree} onChange={(e) => setPGDegree(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={underGradDegree} onChange={(e) => setUGDegree(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={otherCerti} onChange={(e) => setOtherCerti(e.target.value)} name="stream" id="stream" />
-                                    {/* </div> */}
+                                    
                                 </div>
                                 <div className="year">
                                     <h5>Year</h5>
-                                    {/* <div className="st-div"> */}
+                                    
 
                                     <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
                                     <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
                                     <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
-                                    {/* </div> */}
+                                    
                                 </div>
                             </div>
                         </div>

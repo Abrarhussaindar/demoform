@@ -28,9 +28,9 @@ const generatePDF = (formData, photoData) => {
   ];
 
   const educationData = [
-    ["Post Graduation", formData.postGradDegree,  formData.postGradDegreeYear],
-    ["Graduation", formData.underGradDegree,  formData.underGradDegreeYear],
-    ["Other", formData.otherCerti,  formData.otherCertiYear],
+    ["Post Graduation", formData.postGradInst, formData.postGradDegree,  formData.postGradDegreeYear],
+    ["Graduation",formData.underGradInst, formData.underGradDegree,  formData.underGradDegreeYear],
+    ["Other",formData.otherCertiInst, formData.otherCerti,  formData.otherCertiYear],
   ];
 
   const languageData = [
@@ -54,7 +54,7 @@ const generatePDF = (formData, photoData) => {
   // Create a table for education information
   pdf.autoTable({
     startY: pdf.autoTable.previous.finalY + 10, // Start after the previous table
-    head: [['Education Field', 'Degree', 'Year']],
+    head: [['Education Field', 'Institute', 'Degree', 'Year']],
     body: educationData,
   });
 
