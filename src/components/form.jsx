@@ -1,27 +1,13 @@
 import React, { useState } from "react";
 import "./form.css";
-import html2pdf from "html2pdf.js";
-import emailjs from "emailjs-com";
+// import html2pdf from "html2pdf.js";
+// import emailjs from "emailjs-com";
 import generatePDF from "./pdf/pdf";
 
 function Form() {
 
 
-    const [photoData, setPhotoData] = useState(null);
-    const handleFile = (e) => {
-        const file = e.target.files[0];
-        if (e.target.name === "photo") {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setPhotoData(reader.result);
-            };
-            reader.readAsDataURL(file);
-        } else if (e.target.name === "resume") {
-            // Handle resume file
-        } else {
-            window.alert("Please select a file");
-        }
-    };
+
     const [name, setName] = useState("");
     const [designation, setDesignation] = useState("");
     const [dob, setDob] = useState("");
@@ -63,40 +49,54 @@ function Form() {
 
     const [summary, setSummary] = useState("");
 
-    const [photo, setPhoto] = useState();
-    const [resume, setResume] = useState();
-
+    // const [photo, setPhoto] = useState();
+    // const [resume, setResume] = useState();
+    const [photoData, setPhotoData] = useState(null);
+    const handleFile = (e) => {
+        const file = e.target.files[0];
+        if (e.target.name === "photo") {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPhotoData(reader.result);
+            };
+            reader.readAsDataURL(file);
+        } else if (e.target.name === "resume") {
+            // Handle resume file
+        } else {
+            window.alert("Please select a file");
+        }
+    };
     const handleAdhaarInputChange = (e) => {
         const inputValue = e.target.value;
-    
+
         // Ensure the input value doesn't exceed 16 characters
         if (inputValue.length <= 16) {
-          setAdhaar(inputValue);
+            setAdhaar(inputValue);
         }
-      };
+    };
 
-      const handleAgeInputChange = (e) => {
+    const handleAgeInputChange = (e) => {
         const inputValue = e.target.value;
-    
+
         // Ensure the input is a number
         if (!isNaN(inputValue)) {
-          const numericValue = parseInt(inputValue, 10);
-    
-          // Ensure the input is within the specified range (1 to 100)
-          if (numericValue >= 1 && numericValue <= 100) {
-            setAge(numericValue.toString());
-          }
-        }
-      };
+            const numericValue = parseInt(inputValue, 10);
 
-      const handlephoneInputChange = (e) => {
+            // Ensure the input is within the specified range (1 to 100)
+            if (numericValue >= 1 && numericValue <= 100) {
+                setAge(numericValue.toString());
+            }
+        }
+    };
+
+    const handlephoneInputChange = (e) => {
         const inputValue = e.target.value;
-    
+
         // Ensure the input is a number and starts with "+91"
         if (/^\+91\d{0,10}$/.test(inputValue)) {
-          setPhoneNumber(inputValue);
+            setPhoneNumber(inputValue);
         }
-      };
+    };
 
     // const handleFile = (e) => {
     //     const file = e.target.files[0];
@@ -118,7 +118,7 @@ function Form() {
         // Validation logic...
 
         // Call the PDF generation function
-        generatePDF({ name, designation, dob, age, YOE, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, photo }, photoData);
+        generatePDF({ name, designation, dob, age, YOE, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary }, photoData);
     };
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -332,9 +332,9 @@ function Form() {
                         <div className="employeer-details">
                             <h5>
 
-                                    Employment Record
+                                Employment Record
                             </h5>
-                            
+
                             <div className="employeer">
                                 <div className="top">
 
@@ -342,33 +342,33 @@ function Form() {
                                         <h5>
                                             Employer
                                         </h5>
-                                        
 
-                                            <input type="text" value={employeer1} onChange={(e) => setEmployeer1(e.target.value)} name="stream" id="stream" />
-                                            <input type="text" value={employeer2} onChange={(e) => setEmployeer2(e.target.value)} name="stream" id="stream" />
-                                            
+
+                                        <input type="text" value={employeer1} onChange={(e) => setEmployeer1(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={employeer2} onChange={(e) => setEmployeer2(e.target.value)} name="stream" id="stream" />
+
 
                                     </div>
                                     <div className="from">
                                         <h5>From</h5>
-                                        
-                                            <input type="date" value={employeerFrom1} onChange={(e) => setEmployeerFrom1(e.target.value)} name="stream" id="stream" />
-                                            <input type="date" value={employeerFrom2} onChange={(e) => setEmployeerFrom2(e.target.value)} name="stream" id="stream" />
-                                            
+
+                                        <input type="date" value={employeerFrom1} onChange={(e) => setEmployeerFrom1(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={employeerFrom2} onChange={(e) => setEmployeerFrom2(e.target.value)} name="stream" id="stream" />
+
                                     </div>
                                     <div className="to">
                                         <h5>To</h5>
-                                        
-                                            <input type="date" value={employeerTo1} onChange={(e) => setEmployeerTo1(e.target.value)} name="stream" id="stream" />
-                                            <input type="date" value={employeerTo2} onChange={(e) => setEmployeerTo2(e.target.value)} name="stream" id="stream" />
-                                            
+
+                                        <input type="date" value={employeerTo1} onChange={(e) => setEmployeerTo1(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={employeerTo2} onChange={(e) => setEmployeerTo2(e.target.value)} name="stream" id="stream" />
+
                                     </div>
                                     <div className="posi">
                                         <h5>Position held</h5>
-                                        
-                                            <input type="text" value={employeerPosition1} onChange={(e) => setEmployeerPosition1(e.target.value)} name="stream" id="stream" />
-                                            <input type="text" value={employeerPosition2} onChange={(e) => setEmployeerPosition2(e.target.value)} name="stream" id="stream" />
-                                        
+
+                                        <input type="text" value={employeerPosition1} onChange={(e) => setEmployeerPosition1(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={employeerPosition2} onChange={(e) => setEmployeerPosition2(e.target.value)} name="stream" id="stream" />
+
                                     </div>
                                 </div>
                                 <div className="bottom">
@@ -402,10 +402,10 @@ function Form() {
                         </div>
 
                     </div>
-                    
 
-                        <button type="submit">Submit</button>
-                    
+
+                    <button type="submit">Submit</button>
+
                 </form>
             </div>
 
