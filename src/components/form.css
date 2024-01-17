@@ -55,6 +55,7 @@
   justify-content: space-between;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails label {
+  font-weight: 600;
   font-size: 16px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
