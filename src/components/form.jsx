@@ -207,7 +207,7 @@ function Form() {
                         </div>
                         <hr />
                         <div className="ed-details">
-                            <h5>Education</h5>
+                            <h5>Education:</h5>
                             <div className="innder_ed">
                                 <div className="degree">
                                     <h5>
@@ -251,7 +251,7 @@ function Form() {
                         <div className="langs-details">
                             <h5>
 
-                                Languages &amp; Degree of Proficiency
+                                Languages &amp; Degree of Proficiency:
                             </h5>
 
                             <div className="langs_inner">
@@ -332,7 +332,7 @@ function Form() {
                         <div className="employeer-details">
                             <h5>
 
-                                Employment Record
+                                Employment Record:
                             </h5>
 
                             <div className="employeer">
