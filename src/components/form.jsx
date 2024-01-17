@@ -28,7 +28,7 @@ function Form() {
     const [age, setAge] = useState("");
     const [YOE, setYOE] = useState("");
     const [email, setEmail] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("+91");
     const [adhaar, setAdhaar] = useState("");
 
     const [postGradDegree, setPGDegree] = useState("");
@@ -65,6 +65,38 @@ function Form() {
 
     const [photo, setPhoto] = useState();
     const [resume, setResume] = useState();
+
+    const handleAdhaarInputChange = (e) => {
+        const inputValue = e.target.value;
+    
+        // Ensure the input value doesn't exceed 16 characters
+        if (inputValue.length <= 16) {
+          setAdhaar(inputValue);
+        }
+      };
+
+      const handleAgeInputChange = (e) => {
+        const inputValue = e.target.value;
+    
+        // Ensure the input is a number
+        if (!isNaN(inputValue)) {
+          const numericValue = parseInt(inputValue, 10);
+    
+          // Ensure the input is within the specified range (1 to 100)
+          if (numericValue >= 1 && numericValue <= 100) {
+            setAge(numericValue.toString());
+          }
+        }
+      };
+
+      const handlephoneInputChange = (e) => {
+        const inputValue = e.target.value;
+    
+        // Ensure the input is a number and starts with "+91"
+        if (/^\+91\d{0,10}$/.test(inputValue)) {
+          setPhoneNumber(inputValue);
+        }
+      };
 
     // const handleFile = (e) => {
     //     const file = e.target.files[0];
@@ -154,7 +186,7 @@ function Form() {
                             </div>
                             <div className="indiDetails">
                                 <label htmlFor="age">Age</label>
-                                <input type="number" value={age} required onChange={(e) => setAge(e.target.value)} name="age" id="age" />
+                                <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" />
                             </div>
                             <div className="indiDetails">
                                 <label htmlFor="expe">Total Years of Experience</label>
@@ -166,11 +198,11 @@ function Form() {
                             </div>
                             <div className="indiDetails">
                                 <label htmlFor="phone">Phone Number</label>
-                                <input type="tel" value={phoneNumber} required onChange={(e) => setPhoneNumber(e.target.value)} name="phone" id="phone" />
+                                <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" />
                             </div>
                             <div className="indiDetails">
                                 <label htmlFor="adh">Adhaar Number</label>
-                                <input type="number" value={adhaar} required onChange={(e) => setAdhaar(e.target.value)} name="adh" id="adh" />
+                                <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" />
                             </div>
                         </div>
                         <hr />
@@ -362,7 +394,7 @@ function Form() {
                     <div className="uploadContainer">
                         <div className="uploadPhoto">
                             <label htmlFor="photo">Upload Photo</label>
-                            <input type="file" name="photo" className="photo" onChange={handleFile} id="phone" />
+                            <input type="file" name="photo" className="photo" required onChange={handleFile} id="phone" />
                         </div>
                         <div className="uploadResume">
                             <label htmlFor="resume">Upload Resume/CV</label>

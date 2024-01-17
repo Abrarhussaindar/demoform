@@ -232,3 +232,26 @@
         }
     }
 }
+
+@media screen and (width <= 440px){
+
+    .wrapper{
+        width: 80% !important;
+        font-size: 14px;        
+    }
+    .container .wrapper form .pdfContainer .ed-details .innder_ed{
+        overflow-x: scroll;
+        gap: 20px !important;
+    }
+    .container .wrapper form .pdfContainer .langs-details .langs_inner{
+        overflow-x: scroll;
+        gap: 20px !important;
+    }
+    .container .wrapper form .pdfContainer .employeer-details .employeer .top{
+        overflow-x: scroll;
+        gap: 20px !important;
+    }
+    .container .wrapper form .uploadContainer{
+        flex-direction: column;
+    }
+}
