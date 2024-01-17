@@ -48,7 +48,7 @@
 .container .wrapper form .pdfContainer .mainDetails {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails {
   display: flex;
@@ -232,5 +232,11 @@
   }
   .container .wrapper form .uploadContainer {
     flex-direction: column;
+  }
+  .container .wrapper form .pdfContainer .mainDetails .indiDetails label {
+    font-size: 14px !important;
+  }
+  .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
+    width: 50% !important;
   }
 }/*# sourceMappingURL=form.css.map */
