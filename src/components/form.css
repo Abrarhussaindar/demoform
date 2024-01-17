@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 30px 0;
+  gap: 20px;
+}
+.container .wrapper {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  padding: 20px;
+  width: 50%;
+}
+.container .wrapper form hr {
+  margin: 20px 0;
+}
+.container .wrapper form .pdfContainer {
+  display: flex;
+  flex-direction: column;
+}
+.container .wrapper form .pdfContainer .mainDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails {
+  display: flex;
+  justify-content: space-between;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails label {
+  font-size: 16px;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails input {
+  width: 40%;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .ed-details {
+  display: flex;
+  flex-direction: column;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed {
+  display: flex;
+  justify-content: space-between;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .degree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .stream, .container .wrapper form .pdfContainer .ed-details .innder_ed .year {
+  display: flex;
+  flex-direction: column;
+  width: -moz-min-content;
+  width: min-content;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .stream input, .container .wrapper form .pdfContainer .ed-details .innder_ed .year input {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .langs-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.container .wrapper form .pdfContainer .langs-details .langs_inner {
+  display: flex;
+  justify-content: space-between;
+}
+.container .wrapper form .pdfContainer .langs-details .langs_inner .langs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .wrapper form .pdfContainer .langs-details .langs_inner .langs .other_lang {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.container .wrapper form .pdfContainer .langs-details .langs_inner .langs .other_lang input {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .langs-details .langs_inner .read, .container .wrapper form .pdfContainer .langs-details .langs_inner .write, .container .wrapper form .pdfContainer .langs-details .langs_inner .speak {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.container .wrapper form .pdfContainer .langs-details .langs_inner .read select, .container .wrapper form .pdfContainer .langs-details .langs_inner .write select, .container .wrapper form .pdfContainer .langs-details .langs_inner .speak select {
+  padding: 2px 5px;
+  border-radius: 5px;
+  outline: none;
+}
+.container .wrapper form .pdfContainer .employeer-details {
+  display: flex;
+  flex-direction: column;
+}
+.container .wrapper form .pdfContainer .employeer-details .employeer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.container .wrapper form .pdfContainer .employeer-details .employeer .top {
+  display: flex;
+  justify-content: space-between;
+}
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .emp, .container .wrapper form .pdfContainer .employeer-details .employeer .top .from, .container .wrapper form .pdfContainer .employeer-details .employeer .top .to, .container .wrapper form .pdfContainer .employeer-details .employeer .top .posi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .emp input, .container .wrapper form .pdfContainer .employeer-details .employeer .top .from input, .container .wrapper form .pdfContainer .employeer-details .employeer .top .to input, .container .wrapper form .pdfContainer .employeer-details .employeer .top .posi input {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .employeer-details .employeer .bottom {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.container .wrapper form .pdfContainer .employeer-details .employeer .bottom input {
+  width: 40%;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .certify p {
+  font-size: 14px;
+}
+.container .wrapper form .pdfContainer .certify p span {
+  font-weight: 600;
+}
+.container .wrapper form .uploadContainer {
+  display: flex;
+  gap: 10px;
+}
+.container .wrapper form button {
+  margin-top: 20px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.container .wrapper form button:hover {
+  background: #fff;
+  color: #333;
+  border: 1px solid #333;
+}/*# sourceMappingURL=form.css.map */
