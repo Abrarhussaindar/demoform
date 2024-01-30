@@ -169,7 +169,7 @@ function Form() {
             <div className="header">
                 <img className="logo" src={logo} alt="logo" />
                 <h1>
-                    Curriculum <span>Vitae</span>
+                    CV <span>(for job fairs)</span>
                 </h1>
             </div>
             <div className="wrapper">
@@ -179,39 +179,46 @@ function Form() {
 
                         <div className="mainDetails">
 
-
+                            <div className="topIndi">
                             <div className="indiDetails">
                                 <label htmlFor="name">Name</label>
                                 <input type="text" value={name} required onChange={(e) => setName(e.target.value)} name="name" id="name" />
                             </div>
                             <div className="indiDetails">
-                                <label htmlFor="desig">Present Designation</label>
+                                <label htmlFor="desig">Address</label>
                                 <input type="text" value={designation} required onChange={(e) => setDesignation(e.target.value)} name="desig" id="desig" />
                             </div>
                             <div className="indiDetails">
-                                <label htmlFor="dob">Date of Birth</label>
-                                <input type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
-                            </div>
-                            <div className="indiDetails">
-                                <label htmlFor="age">Age</label>
+                                <label htmlFor="age">District</label>
                                 <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" />
                             </div>
+                            </div>
+                            <div className="bottomIndi">
                             <div className="indiDetails">
+                                <label htmlFor="dob">DOB</label>
+                                <input type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
+                            </div>
+                            
+                            {/* <div className="indiDetails">
                                 <label htmlFor="expe">Total Years of Experience</label>
                                 <input type="number" value={YOE} required onChange={(e) => setYOE(e.target.value)} name="expe" id="expe" />
-                            </div>
-                            <div className="indiDetails">
-                                <label htmlFor="email">E-mail</label>
-                                <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
-                            </div>
+                            </div> */}
                             <div className="indiDetails">
                                 <label htmlFor="phone">Phone Number</label>
                                 <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" />
                             </div>
                             <div className="indiDetails">
+                                <label htmlFor="email">E-mail</label>
+                                <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
+                            </div>
+                            
+                            <div className="indiDetails">
                                 <label htmlFor="adh">Adhaar Number</label>
                                 <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" />
                             </div>
+                            </div>
+                            
+                            
                         </div>
                         <hr />
                         <div className="ed-details">
@@ -224,13 +231,13 @@ function Form() {
 
 
                                     <h5>
-                                        Post-Graduation
+                                        10th
                                     </h5>
                                     <h5>
-                                        Graduation
+                                        12th
                                     </h5>
                                     <h5 >
-                                        Other Professional Certifications
+                                    Graduation
                                     </h5>
 
                                 </div>

@@ -29,8 +29,10 @@
   margin-top: 20px;
   font-weight: 600;
   color: #E45A22;
+  font-size: 46px;
 }
 .container .header h1 span {
+  font-size: 14px;
   color: #2FC12D;
 }
 .container .wrapper {
@@ -51,16 +53,22 @@
   flex-direction: column;
   gap: 10px;
 }
+.container .wrapper form .pdfContainer .mainDetails .topIndi, .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 .container .wrapper form .pdfContainer .mainDetails .indiDetails {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails label {
   font-weight: 600;
   font-size: 16px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
-  width: 40%;
+  width: 80%;
   padding: 5px;
   border-radius: 5px;
   border: none;
@@ -242,6 +250,9 @@
     font-size: 14px !important;
   }
   .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
-    width: 50% !important;
+    width: 90% !important;
+  }
+  .container .wrapper form .pdfContainer .mainDetails .topIndi, .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }/*# sourceMappingURL=form.css.map */
