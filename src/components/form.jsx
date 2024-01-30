@@ -27,6 +27,9 @@ function Form() {
     const [otherCertiInst, setOtherCertiInst] = useState("");
     const [otherCertiYear, setOtherCertiYear] = useState("");
 
+    const [ITI1, setITI1] = useState();
+    const [ITI2, setITI2] = useState();
+
     // dropdown for langs
     const [lang2, setLang2] = useState("");
 
@@ -43,10 +46,12 @@ function Form() {
 
 
     const [employeerFrom1, setEmployeerFrom1] = useState("");
+    const [employeerSector1, setEmployeerSector1] = useState("");
     const [employeerTo1, setEmployeerTo1] = useState("");
     const [employeerPosition1, setEmployeerPosition1] = useState("");
 
     const [employeerFrom2, setEmployeerFrom2] = useState("");
+    const [employeerSector2, setEmployeerSector2] = useState("");
     const [employeerTo2, setEmployeerTo2] = useState("");
     const [employeerPosition2, setEmployeerPosition2] = useState("");
 
@@ -221,7 +226,8 @@ function Form() {
                         </div>
                         <hr />
                         <div className="ed-details">
-                            <h5>Education:</h5>
+                            <div className="topInner">
+                            <h5>Educational Qualification:</h5>
                             <div className="innder_ed">
                                 <div className="degree">
                                     <h5>
@@ -268,6 +274,73 @@ function Form() {
                                     
                                 </div>
                             </div>
+                            </div>
+                            <div className="bottomInner">
+                            <h5>Other Professional Courses:</h5>
+                            <div className="innder_ed">
+                                <div className="degree">
+                                    <h5>
+                                        ITI / Diploma
+                                    </h5>
+                                    <select value={ITI1} onChange={(e) => setITI1(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engineering</option>
+                                        <option value="Diploma in ECE">Diploma in ECE</option>
+                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engineering</option>
+                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engineering</option>
+                                        <option value="Diploma in Leather Technology">Diploma in Leather Technology</option>
+                                    </select>
+
+                                    <select value={ITI2} onChange={(e) => setITI2(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engineering</option>
+                                        <option value="Diploma in ECE">Diploma in ECE</option>
+                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engineering</option>
+                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engineering</option>
+                                        <option value="Diploma in Leather Technology">Diploma in Leather Technology</option>
+                                    </select>
+                                    {/* <h5>
+                                        10th
+                                    </h5>
+                                    <h5>
+                                        12th
+                                    </h5>
+                                    <h5 >
+                                    Graduation
+                                    </h5> */}
+
+                                </div>
+                                <div className="stream">
+                                    <h5>Institute</h5>
+                                    
+
+                                    <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
+                                    <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
+                                    {/* <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" /> */}
+                                    
+                                </div>
+                                <div className="stream">
+                                    <h5>Stream</h5>
+                                    
+
+                                    <input type="text" value={postGradDegree} onChange={(e) => setPGDegree(e.target.value)} name="stream" id="stream" />
+                                    <input type="text" value={underGradDegree} onChange={(e) => setUGDegree(e.target.value)} name="stream" id="stream" />
+                                    {/* <input type="text" value={otherCerti} onChange={(e) => setOtherCerti(e.target.value)} name="stream" id="stream" /> */}
+                                    
+                                </div>
+                                <div className="year">
+                                    <h5>Year</h5>
+                                    
+
+                                    <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
+                                    <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
+                                    {/* <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" /> */}
+                                    
+                                </div>
+                            </div>
+                            </div>
+                            
+
                         </div>
 
                         <hr />
@@ -355,7 +428,7 @@ function Form() {
                         <div className="employeer-details">
                             <h5>
 
-                                Employment Record:
+                                Employment / Experience:
                             </h5>
 
                             <div className="employeer">
@@ -370,6 +443,13 @@ function Form() {
                                         <input type="text" value={employeer1} onChange={(e) => setEmployeer1(e.target.value)} name="stream" id="stream" />
                                         <input type="text" value={employeer2} onChange={(e) => setEmployeer2(e.target.value)} name="stream" id="stream" />
 
+
+                                    </div>
+                                    <div className="from">
+                                        <h5>Sector</h5>
+
+                                        <input type="text" value={employeerSector1} onChange={(e) => setEmployeerSector1(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={employeerSector2} onChange={(e) => setEmployeerSector2(e.target.value)} name="stream" id="stream" />
 
                                     </div>
                                     <div className="from">

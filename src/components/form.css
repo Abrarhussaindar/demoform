@@ -80,6 +80,7 @@
 .container .wrapper form .pdfContainer .ed-details {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 .container .wrapper form .pdfContainer .ed-details .innder_ed {
   display: flex;
