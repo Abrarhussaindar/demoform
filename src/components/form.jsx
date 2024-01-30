@@ -11,7 +11,7 @@ function Form() {
     const [name, setName] = useState("");
     const [designation, setDesignation] = useState("");
     const [dob, setDob] = useState("");
-    const [age, setAge] = useState("");
+    const [dis, setDis] = useState();
     // const [YOE, setYOE] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("+91");
@@ -78,19 +78,7 @@ function Form() {
         }
     };
 
-    const handleAgeInputChange = (e) => {
-        const inputValue = e.target.value;
-
-        // Ensure the input is a number
-        if (!isNaN(inputValue)) {
-            const numericValue = parseInt(inputValue, 10);
-
-            // Ensure the input is within the specified range (1 to 100)
-            if (numericValue >= 1 && numericValue <= 100) {
-                setAge(numericValue.toString());
-            }
-        }
-    };
+    
 
     const handlephoneInputChange = (e) => {
         const inputValue = e.target.value;
@@ -121,7 +109,7 @@ function Form() {
         // Validation logic...
 
         // Call the PDF generation function
-        generatePDF({ name, designation, dob, age, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
+        generatePDF({ name, designation, dob, dis, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
     };
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -190,7 +178,18 @@ function Form() {
                             </div>
                             <div className="indiDetails">
                                 <label htmlFor="age">District</label>
-                                <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" />
+                                <select value={dis} onChange={(e) => setDis(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Anantnag">Anantnag</option>
+                                        <option value="Badgam">Badgam</option>
+                                        <option value="Doda">Doda</option>
+                                        <option value="Jammu">Jammu</option>
+                                        <option value="Kargil">Kargil</option>
+                                        <option value="Kulgam">Kulgam</option>
+                                        <option value="Shopain">Shopain</option>
+                                        <option value="Srinagar">Srinagar</option>
+                                    </select>
+                                {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                             </div>
                             </div>
                             <div className="bottomIndi">
