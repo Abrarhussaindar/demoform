@@ -284,20 +284,20 @@ function Form() {
                                     </h5>
                                     <select value={ITI1} onChange={(e) => setITI1(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engineering</option>
+                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engi...</option>
                                         <option value="Diploma in ECE">Diploma in ECE</option>
-                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engineering</option>
-                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engineering</option>
-                                        <option value="Diploma in Leather Technology">Diploma in Leather Technology</option>
+                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engi...</option>
+                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engi...</option>
+                                        <option value="Diploma in Leather Technology">Diploma in Leather Tech...</option>
                                     </select>
 
                                     <select value={ITI2} onChange={(e) => setITI2(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engineering</option>
+                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engi...</option>
                                         <option value="Diploma in ECE">Diploma in ECE</option>
-                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engineering</option>
-                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engineering</option>
-                                        <option value="Diploma in Leather Technology">Diploma in Leather Technology</option>
+                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engi...</option>
+                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engi...</option>
+                                        <option value="Diploma in Leather Technology">Diploma in Leather Tech...</option>
                                     </select>
                                     {/* <h5>
                                         10th
