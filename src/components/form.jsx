@@ -290,11 +290,24 @@ function Form() {
                                     </select>
                                     <select value={UGStream} onChange={(e) => setUGStream(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Computer Science">Computer Science</option>
-                                        <option value="Design">Design</option>
-                                        <option value="Engineering">Engineering</option>
-                                        <option value="Agriculture">Agriculture</option>
-                                        <option value="Digital Media">Digital Media</option>
+                                        <option value="Bachelor Of Applied Science">Bachelor Of Applied Science</option>
+                                        <option value="Bachelor Of Arts">Bachelor Of Arts</option>
+                                        <option value="Bachelor Of Business Administration">Bachelor Of Business Administration</option>
+                                        <option value="Bachelor Of Economics">Bachelor Of Economics</option>
+                                        <option value="Digital Bachelor Of Management Studies">Digital Bachelor Of Management Studies</option>
+                                        
+                                        <option value="Bachelor Of Science">Bachelor Of Science</option>
+                                        <option value=" Bachelor Of Commerce"> Bachelor Of Commerce</option>
+                                        <option value="Bachelor Of Computer Science">Bachelor Of Computer Science</option>
+                                        <option value="Bachelor Of Design">Bachelor Of Design</option>
+                                        <option value="Bachelor Of Fine Arts">Bachelor Of Fine Arts</option>
+
+                                        <option value="Bachelor Of Engineering">Bachelor Of Engineering</option>
+                                        <option value="Bachelor Of Technology">Bachelor Of Technology</option>
+                                        <option value="Bachelor Of Education">Bachelor Of Education</option>
+                                        <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
+
+
                                     </select>
                                     <select value={PGStream} onChange={(e) => setPGStream(e.target.value)}>
                                         <option value="">Select Option</option>
@@ -303,7 +316,19 @@ function Form() {
                                         <option value="Master of Law">Master of Law</option>
                                         <option value="Master of Education">Master of Education</option>
                                         <option value="Master of Research">Master of Research</option>
+
+                                        <option value="Master of Studies">Master of Studies</option>
+                                        <option value="Master of Business Administration">Master of Business Administration</option>
+                                        <option value="Master of Library Science">Master of Library Science</option>
+                                        <option value="Master of Public Administration">Master of Public Administration</option>
+                                        <option value="Master of Public Health">Master of Public Health</option>
+
+                                        <option value="Master of Fine Arts">Master of Fine Arts</option>
+                                        <option value="Master of Music">Master of Music</option>
+                                        <option value="Master of Engineering">Master of Engineering</option>
+                                        <option value="Master of Architecture">Master of Architecture</option>
                                     </select>
+                                        
                                 </div>
                                 <div className="year">
                                     <h5>Year</h5>
