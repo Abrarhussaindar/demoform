@@ -17,18 +17,26 @@ function Form() {
     const [phoneNumber, setPhoneNumber] = useState("+91");
     const [adhaar, setAdhaar] = useState("");
 
-    const [postGradDegree, setPGDegree] = useState("");
+    // const [postGradDegree, setPGDegree] = useState("");
     const [postGradInst, setPGInst] = useState("");
     const [postGradDegreeYear, setPGDegreeYear] = useState("");
     const [underGradInst, setUGInst] = useState("");
-    const [underGradDegree, setUGDegree] = useState("");
+    // const [underGradDegree, setUGDegree] = useState("");
     const [underGradDegreeYear, setUGDegreeYear] = useState("");
-    const [otherCerti, setOtherCerti] = useState("");
+    // const [otherCerti, setOtherCerti] = useState("");
     const [otherCertiInst, setOtherCertiInst] = useState("");
     const [otherCertiYear, setOtherCertiYear] = useState("");
 
-    const [ITI1, setITI1] = useState();
-    const [ITI2, setITI2] = useState();
+    const [stream12, setStream12] = useState();
+    const [UGStream, setUGStream] = useState();
+    const [PGStream, setPGStream] = useState();
+    
+    const [ITI, setITI] = useState();
+    const [diploma, setDiploma] = useState();
+    const [anyOther, setAnyOther] = useState();
+
+
+
 
     // dropdown for langs
     const [lang2, setLang2] = useState("");
@@ -114,7 +122,7 @@ function Form() {
         // Validation logic...
 
         // Call the PDF generation function
-        generatePDF({ name, designation, dob, dis, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
+        generatePDF({ name, designation, dob, dis, email, phoneNumber, adhaar,  postGradDegreeYear,  underGradDegreeYear,  otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
     };
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -244,6 +252,9 @@ function Form() {
                                     <h5 >
                                     Graduation
                                     </h5>
+                                    <h5 >
+                                    Post-Graduation
+                                    </h5>
 
                                 </div>
                                 <div className="stream">
@@ -253,16 +264,46 @@ function Form() {
                                     <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
+                                    <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
                                     
                                 </div>
                                 <div className="stream">
                                     <h5>Stream</h5>
                                     
 
-                                    <input type="text" value={postGradDegree} onChange={(e) => setPGDegree(e.target.value)} name="stream" id="stream" />
+                                    {/* <input type="text" value={postGradDegree} onChange={(e) => setPGDegree(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={underGradDegree} onChange={(e) => setUGDegree(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={otherCerti} onChange={(e) => setOtherCerti(e.target.value)} name="stream" id="stream" />
-                                    
+                                    <input type="text" value={otherCerti} onChange={(e) => setOtherCerti(e.target.value)} name="stream" id="stream" />
+                                     */}
+                                    <select value={lang1Read} onChange={(e) => setLang1Read(e.target.value)}>
+                                        <option value="Not Applicable">Not Applicable</option>
+                                        
+                                    </select>
+                                    <select value={stream12} onChange={(e) => setStream12(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Medical">Medical</option>
+                                        <option value="Non-Medical">Non-Medical</option>
+                                        <option value="Arts">Arts</option>
+                                        <option value="Commerce">Commerce</option>
+                                        
+                                    </select>
+                                    <select value={UGStream} onChange={(e) => setUGStream(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Computer Science">Computer Science</option>
+                                        <option value="Design">Design</option>
+                                        <option value="Engineering">Engineering</option>
+                                        <option value="Agriculture">Agriculture</option>
+                                        <option value="Digital Media">Digital Media</option>
+                                    </select>
+                                    <select value={PGStream} onChange={(e) => setPGStream(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Master of Arts">Master of Arts</option>
+                                        <option value="Master of Science">Master of Science</option>
+                                        <option value="Master of Law">Master of Law</option>
+                                        <option value="Master of Education">Master of Education</option>
+                                        <option value="Master of Research">Master of Research</option>
+                                    </select>
                                 </div>
                                 <div className="year">
                                     <h5>Year</h5>
@@ -270,6 +311,7 @@ function Form() {
 
                                     <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
                                     <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
+                                    <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
                                     <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
                                     
                                 </div>
@@ -280,18 +322,34 @@ function Form() {
                             <div className="innder_ed">
                                 <div className="degree">
                                     <h5>
-                                        ITI / Diploma
+                                        Courses
                                     </h5>
-                                    <select value={ITI1} onChange={(e) => setITI1(e.target.value)}>
+                                    <div className="iti">
+                                        <h5>
+                                            ITI
+                                        </h5>
+                                        <select value={ITI} onChange={(e) => setITI(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engi...</option>
-                                        <option value="Diploma in ECE">Diploma in ECE</option>
-                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engi...</option>
-                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engi...</option>
-                                        <option value="Diploma in Leather Technology">Diploma in Leather Tech...</option>
-                                    </select>
+                                        <option value="Architectural Draughtsman">Architectural Draughtsman </option>
+                                        <option value="Draughtsman (Civil) ">Draughtsman (Civil) </option>
+                                        <option value="Draughtsman (Mechanical)">Draughtsman (Mechanical)</option>
+                                        <option value="Fitter ">Fitter </option>
+                                        <option value="Machinist">Machinist</option>
 
-                                    <select value={ITI2} onChange={(e) => setITI2(e.target.value)}>
+                                        <option value="Turner">Turner </option>
+                                        <option value="Instrument Mechanic ">Instrument Mechanic </option>
+                                        <option value="Electronics Mechanic">Electronics Mechanic</option>
+                                        <option value="Mechanic Motor Vehicle ">Mechanic Motor Vehicle </option>
+                                        <option value="Electrician">Electrician</option>
+                                    </select>
+                                    </div>
+                                    
+
+                                    <div className="iti">
+                                        <h5>
+                                            Diploma
+                                        </h5>
+                                        <select value={diploma} onChange={(e) => setDiploma(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Diploma in Civil Engineering">Diploma in Civil Engi...</option>
                                         <option value="Diploma in ECE">Diploma in ECE</option>
@@ -299,6 +357,21 @@ function Form() {
                                         <option value="Diploma in Automobile Engineering">Diploma in Automobile Engi...</option>
                                         <option value="Diploma in Leather Technology">Diploma in Leather Tech...</option>
                                     </select>
+                                    </div>
+
+                                    <div className="iti">
+                                        <h5>
+                                            Any other
+                                        </h5>
+                                        <select value={anyOther} onChange={(e) => setAnyOther(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Dummy 1">Dummy 1</option>
+                                        <option value="Dummy 2">Dummy 2</option>
+                                        <option value="Dummy 3">Dummy 3</option>
+                                       
+                                    </select>
+                                    </div>
+                                    
                                     {/* <h5>
                                         10th
                                     </h5>
@@ -316,25 +389,25 @@ function Form() {
 
                                     <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
-                                    {/* <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" /> */}
+                                    <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
                                     
                                 </div>
-                                <div className="stream">
+                                {/* <div className="stream">
                                     <h5>Stream</h5>
                                     
 
                                     <input type="text" value={postGradDegree} onChange={(e) => setPGDegree(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={underGradDegree} onChange={(e) => setUGDegree(e.target.value)} name="stream" id="stream" />
-                                    {/* <input type="text" value={otherCerti} onChange={(e) => setOtherCerti(e.target.value)} name="stream" id="stream" /> */}
                                     
-                                </div>
+                                    
+                                </div> */}
                                 <div className="year">
                                     <h5>Year</h5>
                                     
 
                                     <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
                                     <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
-                                    {/* <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" /> */}
+                                    <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
                                     
                                 </div>
                             </div>
@@ -499,10 +572,7 @@ function Form() {
                             <label htmlFor="photo">Upload Photo</label>
                             <input type="file" name="photo" className="photo" required onChange={handleFile} id="phone" />
                         </div>
-                        <div className="uploadResume">
-                            <label htmlFor="resume">Upload Resume/CV</label>
-                            <input type="file" name="resume" className="resume" onChange={handleFile} id="phone" />
-                        </div>
+                        
 
                     </div>
 

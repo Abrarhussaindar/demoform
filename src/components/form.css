@@ -53,7 +53,8 @@
   flex-direction: column;
   gap: 10px;
 }
-.container .wrapper form .pdfContainer .mainDetails .topIndi, .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
+.container .wrapper form .pdfContainer .mainDetails .topIndi,
+.container .wrapper form .pdfContainer .mainDetails .bottomIndi {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
@@ -77,6 +78,15 @@
   font-size: 14px;
   padding-left: 10px;
 }
+.container .wrapper form .pdfContainer .mainDetails .indiDetails select {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
 .container .wrapper form .pdfContainer .ed-details {
   display: flex;
   flex-direction: column;
@@ -89,10 +99,25 @@
 .container .wrapper form .pdfContainer .ed-details .innder_ed .degree {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  gap: 18px;
+  gap: 22px;
 }
-.container .wrapper form .pdfContainer .ed-details .innder_ed .stream, .container .wrapper form .pdfContainer .ed-details .innder_ed .year {
+.container .wrapper form .pdfContainer .ed-details .innder_ed .degree .iti {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .degree .iti select {
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .stream,
+.container .wrapper form .pdfContainer .ed-details .innder_ed .year {
   display: flex;
   flex-direction: column;
   width: -moz-min-content;
@@ -101,7 +126,18 @@
   align-items: center;
   gap: 10px;
 }
-.container .wrapper form .pdfContainer .ed-details .innder_ed .stream input, .container .wrapper form .pdfContainer .ed-details .innder_ed .year input {
+.container .wrapper form .pdfContainer .ed-details .innder_ed .stream input,
+.container .wrapper form .pdfContainer .ed-details .innder_ed .year input {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .stream select {
+  width: 200px;
   padding: 5px;
   border-radius: 5px;
   border: none;
@@ -138,16 +174,25 @@
   font-size: 14px;
   padding-left: 10px;
 }
-.container .wrapper form .pdfContainer .langs-details .langs_inner .read, .container .wrapper form .pdfContainer .langs-details .langs_inner .write, .container .wrapper form .pdfContainer .langs-details .langs_inner .speak {
+.container .wrapper form .pdfContainer .langs-details .langs_inner .read,
+.container .wrapper form .pdfContainer .langs-details .langs_inner .write,
+.container .wrapper form .pdfContainer .langs-details .langs_inner .speak {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.container .wrapper form .pdfContainer .langs-details .langs_inner .read select, .container .wrapper form .pdfContainer .langs-details .langs_inner .write select, .container .wrapper form .pdfContainer .langs-details .langs_inner .speak select {
-  padding: 2px 5px;
+.container .wrapper form .pdfContainer .langs-details .langs_inner .read select,
+.container .wrapper form .pdfContainer .langs-details .langs_inner .write select,
+.container .wrapper form .pdfContainer .langs-details .langs_inner .speak select {
+  width: 200px;
+  padding: 5px;
   border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   outline: none;
+  font-size: 14px;
+  padding-left: 10px;
 }
 .container .wrapper form .pdfContainer .employeer-details {
   display: flex;
@@ -162,13 +207,19 @@
   display: flex;
   justify-content: space-between;
 }
-.container .wrapper form .pdfContainer .employeer-details .employeer .top .emp, .container .wrapper form .pdfContainer .employeer-details .employeer .top .from, .container .wrapper form .pdfContainer .employeer-details .employeer .top .to, .container .wrapper form .pdfContainer .employeer-details .employeer .top .posi {
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .emp,
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .from,
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .to,
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .posi {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
-.container .wrapper form .pdfContainer .employeer-details .employeer .top .emp input, .container .wrapper form .pdfContainer .employeer-details .employeer .top .from input, .container .wrapper form .pdfContainer .employeer-details .employeer .top .to input, .container .wrapper form .pdfContainer .employeer-details .employeer .top .posi input {
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .emp input,
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .from input,
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .to input,
+.container .wrapper form .pdfContainer .employeer-details .employeer .top .posi input {
   padding: 5px;
   border-radius: 5px;
   border: none;
@@ -253,7 +304,8 @@
   .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
     width: 90% !important;
   }
-  .container .wrapper form .pdfContainer .mainDetails .topIndi, .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
+  .container .wrapper form .pdfContainer .mainDetails .topIndi,
+  .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }/*# sourceMappingURL=form.css.map */
