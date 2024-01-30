@@ -12,7 +12,7 @@ function Form() {
     const [designation, setDesignation] = useState("");
     const [dob, setDob] = useState("");
     const [age, setAge] = useState("");
-    const [YOE, setYOE] = useState("");
+    // const [YOE, setYOE] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("+91");
     const [adhaar, setAdhaar] = useState("");
@@ -121,7 +121,7 @@ function Form() {
         // Validation logic...
 
         // Call the PDF generation function
-        generatePDF({ name, designation, dob, age, YOE, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
+        generatePDF({ name, designation, dob, age, email, phoneNumber, adhaar, postGradDegree, postGradDegreeYear, underGradDegree, underGradDegreeYear, otherCerti, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
     };
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
