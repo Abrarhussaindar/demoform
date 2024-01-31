@@ -417,41 +417,36 @@ function Form() {
                                             <option value="Master of Technology (M.Tech.) in Information Security">Master of Technology (M.Tech.) in Information Security</option>
                                             <option value="Master of Technology (M.Tech.) in Intelligent System">Master of Technology (M.Tech.) in Intelligent System</option>
 
-                                            <option value="Bachelor Of Engineering">Bachelor Of Engineering</option>
-                                            <option value="Bachelor Of Technology">Bachelor Of Technology</option>
-                                            <option value="Bachelor Of Education">Bachelor Of Education</option>
-                                            <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
-                                            <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
+                                            <option value="Master of Technology (M.Tech.) in Mechatronics">Master of Technology (M.Tech.) in Mechatronics</option>
+                                            <option value="Master of Science (M.Sc.) in Medical Biochemistry">Master of Science (M.Sc.) in Medical Biochemistry</option>
+                                            <option value="Master of Science (M.Sc.) in Medical Microbiology">Master of Science (M.Sc.) in Medical Microbiology</option>
+                                            <option value="Master of Surgery (MS) in E.N.T.">Master of Surgery (MS) in E.N.T.</option>
+                                            <option value="Master of Surgery (MS) in Ayurveda">Master of Surgery (MS) in Ayurveda</option>
 
-                                            <option value="Bachelor of Science (B.Sc) in Botany">Bachelor of Science (B.Sc) in Botany</option>
-                                            <option value="Bachelor of Science (B.Sc) in Biotechnology">Bachelor of Science (B.Sc) in Biotechnology</option>
-                                            <option value="Bachelor of Science (B.Sc) in Microbiology">Bachelor of Science (B.Sc) in Microbiology</option>
-                                            <option value="Bachelor of Science (B.Sc) in Information Technology">Bachelor of Science (B.Sc) in Information Technology</option>
-                                            <option value="Bachelor of Science (B.Sc) in Statistics">Bachelor of Science (B.Sc) in Statistics</option>
+                                            <option value="Master of Surgery (MS) in Anaesthesiology">Master of Surgery (MS) in Anaesthesiology</option>
+                                            <option value="Master of Science (M.Sc.) in Mathematics">Master of Science (M.Sc.) in Mathematics</option>
+                                            <option value="Master of Science (M.Sc.) in Genetics">Master of Science (M.Sc.) in Genetics</option>
+                                            <option value="Master of Science (M.Sc.) in Geography">Master of Science (M.Sc.) in Geography</option>
+                                            <option value="Master of Science (M.Sc.) in Geoinformatics">Master of Science (M.Sc.) in Geoinformatics</option>
 
-                                            <option value="Bachelor of Science (B.Sc) in Electronics">Bachelor of Science (B.Sc) in Electronics</option>
-                                            <option value="Bachelor of Science (B.Sc) in Biochemistry">Bachelor of Science (B.Sc) in Biochemistry</option>
-                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Mathematics">Bachelor of Science (B.Sc) (Hons.) in Mathematics</option>
-                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Chemistry">Bachelor of Science (B.Sc) (Hons.) in Chemistry</option>
-                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Physics">Bachelor of Science (B.Sc) (Hons.) in Physics</option>
+                                            <option value="Master of Science (M.Sc.) in Geology">Master of Science (M.Sc.) in Geology</option>
+                                            <option value="Master of Arts (M.A.) in various specializations">Master of Arts (M.A.) in various specializations</option>
+                                            <option value="Master of Arts (M.A.) in Public Policy">Master of Arts (M.A.) in Public Policy</option>
+                                            <option value="Master of Arts (M.A.) in Dance">Master of Arts (M.A.) in Dance</option>
+                                            <option value="Master of Arts (M.A.) in Home Science">Master of Arts (M.A.) in Home Science</option>
 
-                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Zoology">Bachelor of Science (B.Sc) (Hons.) in Zoology</option>
-                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Botany">Bachelor of Science (B.Sc) (Hons.) in Botany</option>
-                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Computer Science">Bachelor of Science (B.Sc) (Hons.) in Computer Science</option>
-                                            <option value="Bachelor of Fine Arts (BFA)">Bachelor of Fine Arts (BFA)</option>
-                                            <option value="Bachelor of Hotel Management (BHM)">Bachelor of Hotel Management (BHM)</option>
+                                            <option value="Master of Arts (M.A.) in Astrology">Master of Arts (M.A.) in Astrology</option>
+                                            {/* <option value="Diploma in Labour Law">Diploma in Labour Law</option> */}
+                                            <option value="Post Graduate Diploma in Business Law">Post Graduate Diploma in Business Law</option>
+                                            <option value="Post Graduate Diploma in Corporate Law">Post Graduate Diploma in Corporate Law</option>
+                                            <option value="Post Graduate Diploma in Cyber Law">Post Graduate Diploma in Cyber Law</option>
 
-                                            <option value="Bachelor of Library Science (B.Lib.Sc.)">Bachelor of Library Science (B.Lib.Sc.)</option>
-                                            <option value="Bachelor of Mass Communications (B.M.C.)">Bachelor of Mass Communications (B.M.C.)</option>
-                                            <option value="Bachelor of Physical Therapy (BPT)">Bachelor of Physical Therapy (BPT)</option>
-                                            <option value="Bachelor of Occupational Therapy (BOT)">Bachelor of Occupational Therapy (BOT)</option>
-                                            <option value="Bachelor of Social Work (BSW)">Bachelor of Social Work (BSW)</option>
+                                            <option value="Post Graduate Diploma in Computer Applications">Post Graduate Diploma in Computer Applications</option>
+                                            <option value="Post Graduate Diploma in Forensic Science">Post Graduate Diploma in Forensic Science</option>
+                                            <option value="Post Graduate Diploma in Marketing Management">Post Graduate Diploma in Marketing Management</option>
+                                            <option value="Post Graduate Diploma in Business Analytics">Post Graduate Diploma in Business Analytics</option>
+                                            <option value="Post Graduate Diploma in Industrial Engineering">Post Graduate Diploma in Industrial Engineering</option>
 
-                                            <option value="Bachelor of Travel and Tourism Management (BTTM)">Bachelor of Travel and Tourism Management (BTTM)</option>
-                                            <option value="Bachelor of Visual Arts (BVA)">Bachelor of Visual Arts (BVA)</option>
-                                            <option value="Bachelor of Hospitality and Tourism Management (BHTM)">Bachelor of Hospitality and Tourism Management (BHTM)</option>
-                                            <option value="Bachelor of Public Relations (BPR)">Bachelor of Public Relations (BPR)</option>
-                                            <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
                                         </select>
 
                                     </div>
@@ -470,7 +465,7 @@ function Form() {
                             <div className="bottomInner">
                                 <h5>Other Professional Courses:</h5>
                                 <div className="innder_ed">
-                                    <div className="degree">
+                                    <div className="courses">
                                         <h5>
                                             Courses
                                         </h5>
@@ -491,6 +486,54 @@ function Form() {
                                                 <option value="Electronics Mechanic">Electronics Mechanic</option>
                                                 <option value="Mechanic Motor Vehicle ">Mechanic Motor Vehicle </option>
                                                 <option value="Electrician">Electrician</option>
+
+                                                <option value="Information &amp; Comm Tech System Maintenance">Information &amp; Comm Tech System Maintenance </option>
+                                                <option value="Mechanic Consumer Electronic Appliances ">Mechanic Consumer Electronic Appliances </option>
+                                                <option value="Mechanic Industrial Electronics">Mechanic Industrial Electronics</option>
+                                                <option value="Painter (General) ">Painter (General) </option>
+                                                <option value="Carpenter">Carpenter</option>
+
+                                                <option value="Plumber">Plumber </option>
+                                                <option value="Interior Design and Decoration ">Interior Design and Decoration </option>
+                                                <option value="Welder">Welder</option>
+                                                <option value="Tractor Mechanic ">Tractor Mechanic </option>
+                                                <option value="Mechanic Diesel">Mechanic Diesel</option>
+
+                                                <option value="Mason (Building Constructor)">Mason (Building Constructor) </option>
+                                                <option value="Mechanic Auto Electrical &amp; Electronics ">Mechanic Auto Electrical &amp; Electronics </option>
+                                                <option value="Mechanic Agricultural Machinery">Mechanic Agricultural Machinery</option>
+                                                <option value="Urdu Calligraphy ">Urdu Calligraphy </option>
+                                                <option value="Computer Operator &amp; Programming Assistant">Computer Operator &amp; Programming Assistant</option>
+
+                                                <option value="Computer Hardware &amp; Network Maintenance">Computer Hardware &amp; Network Maintenance </option>
+                                                <option value="Sewing Technology ">Sewing Technology </option>
+                                                <option value="Desktop Publishing Operator">Desktop Publishing Operator</option>
+                                                <option value="Digital Photographer ">Digital Photographer </option>
+                                                <option value="Dress Making">Dress Making</option>
+
+                                                <option value="Fashion Design &amp; Technology">Fashion Design &amp; Technology </option>
+                                                <option value="Front Office Assistant ">Front Office Assistant </option>
+                                                <option value="Cosmetology">Cosmetology</option>
+                                                <option value="Health Sanitary Inspector ">Health Sanitary Inspector </option>
+                                                <option value="Horticulture">Horticulture</option>
+
+                                                <option value="Early Childhood Educator">Early Childhood Educator </option>
+                                                <option value="Fruits and Vegetables Processing ">Fruits and Vegetables Processing </option>
+                                                <option value="Secretarial Practice (English)">Secretarial Practice (English)</option>
+                                                <option value="Stenographer Secretarial Assistant (English) ">Stenographer Secretarial Assistant (English) </option>
+                                                <option value="Tourist Guide">Tourist Guide</option>
+
+                                                <option value="House keeper">House keeper </option>
+                                                <option value=" Multimedia Animation &amp; Special Effects"> Multimedia Animation &amp; Special Effects</option>
+                                                <option value="Floriculture &amp; Landscaping">Floriculture &amp; Landscaping</option>
+                                                <option value="IOT Technician (Smart Agriculture) ">IOT Technician (Smart Agriculture) </option>
+                                                <option value="Dairying">Dairying</option>
+
+                                                <option value="Soil Testing &amp; Crop Technician">Soil Testing &amp; Crop Technician </option>
+                                                <option value="Nursery &amp; Orchard Management ">Nursery &amp; Orchard Management </option>
+                                                <option value="Data Entry Operator">Data Entry Operator</option>
+                                                <option value="Driver cum Mechanic (LMV) ">Driver cum Mechanic (LMV) </option>
+                                                <option value="Corporate House Keeping">Electrician</option>
                                             </select>
                                         </div>
 
@@ -501,11 +544,28 @@ function Form() {
                                             </h5>
                                             <select value={diploma} onChange={(e) => setDiploma(e.target.value)}>
                                                 <option value="">Select Option</option>
-                                                <option value="Diploma in Civil Engineering">Diploma in Civil Engi...</option>
-                                                <option value="Diploma in ECE">Diploma in ECE</option>
-                                                <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engi...</option>
-                                                <option value="Diploma in Automobile Engineering">Diploma in Automobile Engi...</option>
-                                                <option value="Diploma in Leather Technology">Diploma in Leather Tech...</option>
+                                                <option value="Diploma in Civil Engineering">Diploma in Civil Engineering</option>
+                                                <option value="Diploma in Electronics and Communication engineering">Diploma in Electronics and Communication engineering</option>
+                                                <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engineering</option>
+                                                <option value="Diploma in Automobile Engineering">Diploma in Automobile Engineering</option>
+                                                <option value="Diploma in Computer Engineering">Diploma in Computer Engineering</option>
+
+
+                                                <option value="Diploma in  Electronics and communication Engineering">Diploma in  Electronics and communication Engineering</option>
+                                                <option value="Diploma in Leather Technology">Diploma in Leather Technology</option>
+                                                <option value="Diploma in  Instrumentation and Control">Diploma in  Instrumentation and Control</option>
+                                                <option value="Diploma in Wood Technology">Diploma in Wood Technology</option>
+                                                <option value="Diploma in Information technology">Diploma in Information technology</option>
+
+                                                <option value="Diploma in Electrical Engineering">Diploma in Electrical Engineering</option>
+                                                <option value="Diploma in Textile Designing">Diploma in Textile Designing</option>
+                                                <option value="Diploma in Medical Lab Technology">Diploma in Medical Lab Technology</option>
+                                                <option value="Diploma in Architechtute assistantship">Diploma in Architechtute assistantship</option>
+                                                <option value="Diploma in office management and computer Applications">Diploma in office management and computer Applications</option>
+
+                                                <option value="Diploma in Travel and Tourism">Diploma in Travel and Tourism</option>
+                                                <option value="Diploma in Food Technology">Diploma in Food Technology</option>
+                                                <option value=" Diploma in  Garment Technology"> Diploma in  Garment Technology</option>
                                             </select>
                                         </div>
 
@@ -513,13 +573,14 @@ function Form() {
                                             <h5>
                                                 Any other
                                             </h5>
-                                            <select value={anyOther} onChange={(e) => setAnyOther(e.target.value)}>
+                                            <input type="text" value={anyOther} onChange={(e) => setAnyOther(e.target.value)} name="stream" id="stream" />
+                                            {/* <select value={anyOther} onChange={(e) => setAnyOther(e.target.value)}>
                                                 <option value="">Select Option</option>
                                                 <option value="Dummy 1">Dummy 1</option>
                                                 <option value="Dummy 2">Dummy 2</option>
                                                 <option value="Dummy 3">Dummy 3</option>
 
-                                            </select>
+                                            </select> */}
                                         </div>
 
                                         {/* <h5>

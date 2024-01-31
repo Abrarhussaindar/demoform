@@ -96,17 +96,27 @@
   display: flex;
   justify-content: space-between;
 }
-.container .wrapper form .pdfContainer .ed-details .innder_ed .degree {
+.container .wrapper form .pdfContainer .ed-details .innder_ed .degree, .container .wrapper form .pdfContainer .ed-details .innder_ed .courses {
   display: flex;
   flex-direction: column;
   gap: 22px;
 }
-.container .wrapper form .pdfContainer .ed-details .innder_ed .degree .iti {
+.container .wrapper form .pdfContainer .ed-details .innder_ed .degree .iti, .container .wrapper form .pdfContainer .ed-details .innder_ed .courses .iti {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-.container .wrapper form .pdfContainer .ed-details .innder_ed .degree .iti select {
+.container .wrapper form .pdfContainer .ed-details .innder_ed .degree .iti input, .container .wrapper form .pdfContainer .ed-details .innder_ed .courses .iti input {
+  width: 185px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .degree .iti select, .container .wrapper form .pdfContainer .ed-details .innder_ed .courses .iti select {
   width: 200px;
   padding: 5px;
   border-radius: 5px;
@@ -115,6 +125,9 @@
   outline: none;
   font-size: 14px;
   padding-left: 10px;
+}
+.container .wrapper form .pdfContainer .ed-details .innder_ed .courses {
+  gap: 10px !important;
 }
 .container .wrapper form .pdfContainer .ed-details .innder_ed .stream,
 .container .wrapper form .pdfContainer .ed-details .innder_ed .year {
