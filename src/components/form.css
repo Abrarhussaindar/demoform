@@ -231,11 +231,10 @@
 .container .wrapper form .pdfContainer .employeer-details .employeer .bottom {
   display: flex;
   gap: 20px;
-  align-items: center;
+  flex-direction: column;
 }
-.container .wrapper form .pdfContainer .employeer-details .employeer .bottom input {
-  width: 40%;
-  padding: 5px;
+.container .wrapper form .pdfContainer .employeer-details .employeer .bottom textarea {
+  padding: 10px;
   border-radius: 5px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -252,6 +251,42 @@
 .container .wrapper form .uploadContainer {
   display: flex;
   gap: 10px;
+}
+.container .wrapper form .uploadContainer .uploadPhoto {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.container .wrapper form .uploadContainer .uploadPhoto .userImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.container .wrapper form .uploadContainer .uploadPhoto .discrip {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.container .wrapper form .uploadContainer .uploadPhoto .discrip .topP {
+  font-size: 12px;
+  font-weight: 600;
+}
+.container .wrapper form .uploadContainer .uploadPhoto .discrip .bottomP {
+  font-size: 10px;
+}
+.container .wrapper form .uploadContainer .uploadPhoto .discrip .inputFile {
+  border: 2px solid #E45A22;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #E45A22;
+}
+.container .wrapper form .uploadContainer .uploadPhoto .discrip .inputFile input[type=file] {
+  display: none;
 }
 .container .wrapper form .uploadContainer label {
   font-weight: 600;
@@ -280,7 +315,7 @@
     gap: 0 !important;
   }
   .wrapper {
-    width: 80% !important;
+    width: 85% !important;
     font-size: 14px;
   }
   .container .wrapper form .pdfContainer .ed-details .innder_ed {

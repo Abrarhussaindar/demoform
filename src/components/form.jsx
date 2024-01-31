@@ -30,7 +30,7 @@ function Form() {
     const [stream12, setStream12] = useState();
     const [UGStream, setUGStream] = useState();
     const [PGStream, setPGStream] = useState();
-    
+
     const [ITI, setITI] = useState();
     const [diploma, setDiploma] = useState();
     const [anyOther, setAnyOther] = useState();
@@ -51,6 +51,7 @@ function Form() {
 
     const [employeer1, setEmployeer1] = useState("");
     const [employeer2, setEmployeer2] = useState("");
+    const [employeer3, setEmployeer3] = useState("");
 
 
     const [employeerFrom1, setEmployeerFrom1] = useState("");
@@ -62,6 +63,11 @@ function Form() {
     const [employeerSector2, setEmployeerSector2] = useState("");
     const [employeerTo2, setEmployeerTo2] = useState("");
     const [employeerPosition2, setEmployeerPosition2] = useState("");
+
+    const [employeerFrom3, setEmployeerFrom3] = useState("");
+    const [employeerSector3, setEmployeerSector3] = useState("");
+    const [employeerTo3, setEmployeerTo3] = useState("");
+    const [employeerPosition3, setEmployeerPosition3] = useState("");
 
     const [summary, setSummary] = useState("");
 
@@ -91,7 +97,7 @@ function Form() {
         }
     };
 
-    
+
 
     const handlephoneInputChange = (e) => {
         const inputValue = e.target.value;
@@ -122,7 +128,7 @@ function Form() {
         // Validation logic...
 
         // Call the PDF generation function
-        generatePDF({ name, designation, dob, dis, email, phoneNumber, adhaar,  postGradDegreeYear,  underGradDegreeYear,  otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
+        generatePDF({ name, designation, dob, dis, email, phoneNumber, adhaar, postGradDegreeYear, underGradDegreeYear, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
     };
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -164,9 +170,10 @@ function Form() {
 
 
     const logo = require("./logo.png");
+    const user = require("./user.png");
     return (
         <div className="container">
-            
+
             <div className="header">
                 <img className="logo" src={logo} alt="logo" />
                 <h1>
@@ -178,20 +185,43 @@ function Form() {
                 <form onSubmit={handleSubmit}>
                     <div className="pdfContainer" id="pdf-content">
 
+                        <div className="uploadContainer">
+                            <div className="uploadPhoto">
+                                {/* <label htmlFor="photo">Upload Photo</label> 
+                                 */}
+                                 <img className="userImg" src={photoData ? photoData : user} alt="img"/>
+                                 <div className="discrip">
+                                    <p className="topP">To add a photo to your resume, click the button and select a file to upload.</p>
+                                    <p className="bottomP">Supported file formats are .jpg, .gif and .png. The file size limit is set at 10 MB.</p>
+                                    <label className="inputFile">
+
+                                    <input type="file" name="photo" className="photo" required onChange={handleFile} id="phone" />
+                                    Upload Photo
+                                    </label>
+                                 </div>
+                            </div>
+
+
+                        </div>
+                        <hr />
+
                         <div className="mainDetails">
 
                             <div className="topIndi">
-                            <div className="indiDetails">
-                                <label htmlFor="name">Name</label>
-                                <input type="text" value={name} required onChange={(e) => setName(e.target.value)} name="name" id="name" />
+                                <div className="indiDetails">
+                                    <label htmlFor="name">Name</label>
+                                    <input type="text" value={name} required onChange={(e) => setName(e.target.value)} name="name" id="name" />
+                                </div>
+                                <div className="indiDetails">
+                                    <label htmlFor="desig">Address</label>
+                                    <input type="text" value={designation} required onChange={(e) => setDesignation(e.target.value)} name="desig" id="desig" />
+                                </div>
+                                
                             </div>
+                            <div className="bottomIndi">
                             <div className="indiDetails">
-                                <label htmlFor="desig">Address</label>
-                                <input type="text" value={designation} required onChange={(e) => setDesignation(e.target.value)} name="desig" id="desig" />
-                            </div>
-                            <div className="indiDetails">
-                                <label htmlFor="age">District</label>
-                                <select value={dis} onChange={(e) => setDis(e.target.value)}>
+                                    <label htmlFor="age">District</label>
+                                    <select value={dis} onChange={(e) => setDis(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Anantnag">Anantnag</option>
                                         <option value="Badgam">Badgam</option>
@@ -202,202 +232,297 @@ function Form() {
                                         <option value="Shopain">Shopain</option>
                                         <option value="Srinagar">Srinagar</option>
                                     </select>
-                                {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
-                            </div>
-                            </div>
-                            <div className="bottomIndi">
-                            <div className="indiDetails">
-                                <label htmlFor="dob">DOB</label>
-                                <input type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
-                            </div>
-                            
-                            {/* <div className="indiDetails">
+                                    {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
+                                </div>
+                                <div className="indiDetails">
+                                    <label htmlFor="dob">DOB</label>
+                                    <input type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
+                                </div>
+
+                                {/* <div className="indiDetails">
                                 <label htmlFor="expe">Total Years of Experience</label>
                                 <input type="number" value={YOE} required onChange={(e) => setYOE(e.target.value)} name="expe" id="expe" />
                             </div> */}
-                            <div className="indiDetails">
-                                <label htmlFor="phone">Phone Number</label>
-                                <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" />
+                                <div className="indiDetails">
+                                    <label htmlFor="phone">Phone Number</label>
+                                    <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" />
+                                </div>
+                                <div className="indiDetails">
+                                    <label htmlFor="email">E-mail</label>
+                                    <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
+                                </div>
+
+                                
                             </div>
                             <div className="indiDetails">
-                                <label htmlFor="email">E-mail</label>
-                                <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
-                            </div>
-                            
-                            <div className="indiDetails">
-                                <label htmlFor="adh">Adhaar Number</label>
-                                <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" />
-                            </div>
-                            </div>
-                            
-                            
+                                    <label htmlFor="adh">Adhaar Number</label>
+                                    <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" />
+                                </div>
+
                         </div>
                         <hr />
                         <div className="ed-details">
                             <div className="topInner">
-                            <h5>Educational Qualification:</h5>
-                            <div className="innder_ed">
-                                <div className="degree">
-                                    <h5>
-                                        Degree(Specialization)
-                                    </h5>
+                                <h5>Educational Qualification:</h5>
+                                <div className="innder_ed">
+                                    <div className="degree">
+                                        <h5>
+                                            Degree(Specialization)
+                                        </h5>
 
 
-                                    <h5>
-                                        10th
-                                    </h5>
-                                    <h5>
-                                        12th
-                                    </h5>
-                                    <h5 >
-                                    Graduation
-                                    </h5>
-                                    <h5 >
-                                    Post-Graduation
-                                    </h5>
+                                        <h5>
+                                            10th
+                                        </h5>
+                                        <h5>
+                                            12th
+                                        </h5>
+                                        <h5 >
+                                            Graduation
+                                        </h5>
+                                        <h5 >
+                                            Post-Graduation
+                                        </h5>
 
-                                </div>
-                                <div className="stream">
-                                    <h5>Institute</h5>
-                                    
+                                    </div>
+                                    <div className="stream">
+                                        <h5>Institute</h5>
 
-                                    <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
-                                    <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
-                                    <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
-                                    <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
-                                    
-                                </div>
-                                <div className="stream">
-                                    <h5>Stream</h5>
-                                    
 
-                                    {/* <input type="text" value={postGradDegree} onChange={(e) => setPGDegree(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
+
+                                    </div>
+                                    <div className="stream">
+                                        <h5>Stream</h5>
+
+
+                                        {/* <input type="text" value={postGradDegree} onChange={(e) => setPGDegree(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={underGradDegree} onChange={(e) => setUGDegree(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={otherCerti} onChange={(e) => setOtherCerti(e.target.value)} name="stream" id="stream" />
                                     <input type="text" value={otherCerti} onChange={(e) => setOtherCerti(e.target.value)} name="stream" id="stream" />
                                      */}
-                                    <select value={lang1Read} onChange={(e) => setLang1Read(e.target.value)}>
-                                        <option value="Not Applicable">Not Applicable</option>
-                                        
-                                    </select>
-                                    <select value={stream12} onChange={(e) => setStream12(e.target.value)}>
+                                        <select value={lang1Read} onChange={(e) => setLang1Read(e.target.value)}>
+                                            <option value="Not Applicable">Not Applicable</option>
+
+                                        </select>
+                                        <select value={stream12} onChange={(e) => setStream12(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <option value="Medical">Medical</option>
+                                            <option value="Non-Medical">Non-Medical</option>
+                                            <option value="Arts">Arts</option>
+                                            <option value="Commerce">Commerce</option>
+
+                                        </select>
+                                        <select value={UGStream} onChange={(e) => setUGStream(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
+                                            <option value="Bachelor of Science (B.Sc.)">Bachelor of Science (B.Sc.)</option>
+                                            <option value="Bachelor of Business Administration (BBA)">Bachelor of Business Administration (BBA)</option>
+                                            <option value="Bachelor of Commerce (B.Com.)">Bachelor of Commerce (B.Com.)</option>
+                                            <option value="Bachelor of Computer">Bachelor of Computer</option>
+
+                                            <option value="Bachelor of Architecture">Bachelor of Architecture</option>
+                                            <option value="Bachelor of Designing & Fashion Courses">Bachelor of Designing & Fashion Courses</option>
+                                            <option value="Bachelor of Physical Education Courses">Bachelor of Physical Education Courses</option>
+                                            <option value="Bachelor of Commercial Pilot Courses">Bachelor of Commercial Pilot Courses</option>
+                                            <option value="Bachelor of Actuarial/Chartered Accountant">Bachelor of Actuarial/Chartered Accountant</option>
+
+                                            <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
+                                            <option value="Bachelor of Technology (B.Tech)">Bachelor of Technology (B.Tech)</option>
+                                            <option value="Bachelor of Medicine, Bachelor of Surgery (MBBS)">Bachelor of Medicine, Bachelor of Surgery (MBBS)</option>
+                                            <option value="Bachelor of Dental Surgery (BDS)">Bachelor of Dental Surgery (BDS)</option>
+                                            <option value="Bachelor of Pharmacy (B.Pharm)">Bachelor of Pharmacy (B.Pharm)</option>
+
+                                            <option value="Bachelor of Education (B.Ed)">Bachelor of Education (B.Ed)</option>
+                                            <option value="Bachelor of Law (LLB)">Bachelor of Law (LLB)</option>
+                                            <option value="Bachelor of Veterinary Science & Animal Husbandry (B.V.Sc & AH)">Bachelor of Veterinary Science & Animal Husbandry (B.V.Sc & AH)</option>
+                                            <option value="Bachelor of Physical Education (B.P.Ed)">Bachelor of Physical Education (B.P.Ed)</option>
+                                            <option value="Bachelor of Social Work (BSW)">Bachelor of Social Work (BSW)</option>
+
+                                            <option value="Bachelor of Science (B.Sc) in Physics">Bachelor of Science (B.Sc) in Physics</option>
+                                            <option value="Bachelor of Science (B.Sc) in Chemistry">Bachelor of Science (B.Sc) in Chemistry</option>
+                                            <option value="Bachelor of Science (B.Sc) in Computer Science">Bachelor of Science (B.Sc) in Computer Science</option>
+                                            <option value="Bachelor of Science (B.Sc) in Mathematics">Bachelor of Science (B.Sc) in Mathematics</option>
+                                            <option value="Bachelor of Science (B.Sc) in Zoology">Bachelor of Science (B.Sc) in Zoology</option>
+
+                                            <option value="Bachelor Of Engineering">Bachelor Of Engineering</option>
+                                            <option value="Bachelor Of Technology">Bachelor Of Technology</option>
+                                            <option value="Bachelor Of Education">Bachelor Of Education</option>
+                                            <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
+                                            <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
+
+                                            <option value="Bachelor of Science (B.Sc) in Botany">Bachelor of Science (B.Sc) in Botany</option>
+                                            <option value="Bachelor of Science (B.Sc) in Biotechnology">Bachelor of Science (B.Sc) in Biotechnology</option>
+                                            <option value="Bachelor of Science (B.Sc) in Microbiology">Bachelor of Science (B.Sc) in Microbiology</option>
+                                            <option value="Bachelor of Science (B.Sc) in Information Technology">Bachelor of Science (B.Sc) in Information Technology</option>
+                                            <option value="Bachelor of Science (B.Sc) in Statistics">Bachelor of Science (B.Sc) in Statistics</option>
+
+                                            <option value="Bachelor of Science (B.Sc) in Electronics">Bachelor of Science (B.Sc) in Electronics</option>
+                                            <option value="Bachelor of Science (B.Sc) in Biochemistry">Bachelor of Science (B.Sc) in Biochemistry</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Mathematics">Bachelor of Science (B.Sc) (Hons.) in Mathematics</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Chemistry">Bachelor of Science (B.Sc) (Hons.) in Chemistry</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Physics">Bachelor of Science (B.Sc) (Hons.) in Physics</option>
+
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Zoology">Bachelor of Science (B.Sc) (Hons.) in Zoology</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Botany">Bachelor of Science (B.Sc) (Hons.) in Botany</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Computer Science">Bachelor of Science (B.Sc) (Hons.) in Computer Science</option>
+                                            <option value="Bachelor of Fine Arts (BFA)">Bachelor of Fine Arts (BFA)</option>
+                                            <option value="Bachelor of Hotel Management (BHM)">Bachelor of Hotel Management (BHM)</option>
+
+                                            <option value="Bachelor of Library Science (B.Lib.Sc.)">Bachelor of Library Science (B.Lib.Sc.)</option>
+                                            <option value="Bachelor of Mass Communications (B.M.C.)">Bachelor of Mass Communications (B.M.C.)</option>
+                                            <option value="Bachelor of Physical Therapy (BPT)">Bachelor of Physical Therapy (BPT)</option>
+                                            <option value="Bachelor of Occupational Therapy (BOT)">Bachelor of Occupational Therapy (BOT)</option>
+                                            <option value="Bachelor of Social Work (BSW)">Bachelor of Social Work (BSW)</option>
+
+                                            <option value="Bachelor of Travel and Tourism Management (BTTM)">Bachelor of Travel and Tourism Management (BTTM)</option>
+                                            <option value="Bachelor of Visual Arts (BVA)">Bachelor of Visual Arts (BVA)</option>
+                                            <option value="Bachelor of Hospitality and Tourism Management (BHTM)">Bachelor of Hospitality and Tourism Management (BHTM)</option>
+                                            <option value="Bachelor of Public Relations (BPR)">Bachelor of Public Relations (BPR)</option>
+                                            <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
+
+                                        </select>
+                                        <select value={PGStream} onChange={(e) => setPGStream(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Medical">Medical</option>
-                                        <option value="Non-Medical">Non-Medical</option>
-                                        <option value="Arts">Arts</option>
-                                        <option value="Commerce">Commerce</option>
-                                        
-                                    </select>
-                                    <select value={UGStream} onChange={(e) => setUGStream(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Bachelor Of Applied Science">Bachelor Of Applied Science</option>
-                                        <option value="Bachelor Of Arts">Bachelor Of Arts</option>
-                                        <option value="Bachelor Of Business Administration">Bachelor Of Business Administration</option>
-                                        <option value="Bachelor Of Economics">Bachelor Of Economics</option>
-                                        <option value="Digital Bachelor Of Management Studies">Digital Bachelor Of Management Studies</option>
-                                        
-                                        <option value="Bachelor Of Science">Bachelor Of Science</option>
-                                        <option value=" Bachelor Of Commerce"> Bachelor Of Commerce</option>
-                                        <option value="Bachelor Of Computer Science">Bachelor Of Computer Science</option>
-                                        <option value="Bachelor Of Design">Bachelor Of Design</option>
-                                        <option value="Bachelor Of Fine Arts">Bachelor Of Fine Arts</option>
+                                            <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
+                                            <option value="Master of Technology (M.Tech.)">Master of Technology (M.Tech.)</option>
+                                            <option value="Master of Science (M.Sc)">Master of Science (M.Sc)</option>
+                                            <option value="Master of Arts (M.A.)">Master of Arts (M.A.)</option>
+                                            <option value="Master of Commerce (M.Com.)">Master of Commerce (M.Com.)</option>
 
-                                        <option value="Bachelor Of Engineering">Bachelor Of Engineering</option>
-                                        <option value="Bachelor Of Technology">Bachelor Of Technology</option>
-                                        <option value="Bachelor Of Education">Bachelor Of Education</option>
-                                        <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
+                                            <option value="Master of Computer Applications (MCA)">Master of Computer Applications (MCA)</option>
+                                            <option value="Master of Surgery (MS)">Master of Surgery (MS)</option>
+                                            <option value="Master of Education (M.Ed.)">Master of Education (M.Ed.)</option>
+                                            <option value="Master of Laws (LLM)">Master of Laws (LLM)</option>
+                                            <option value="Master of Pharmacy (M.Pharm)">Master of Pharmacy (M.Pharm)</option>
+
+                                            <option value="Master of Physical Education (M.P.Ed)">Master of Physical Education (M.P.Ed)</option>
+                                            <option value="Master of Social Work (MSW)">Master of Social Work (MSW)</option>
+                                            <option value="Post Graduate Diploma in Information Technology (PGDIT)">Post Graduate Diploma in Information Technology (PGDIT)</option>
+                                            <option value="Post Graduate Diploma in Taxation">Post Graduate Diploma in Taxation</option>
+                                            <option value="Post Graduate Diploma in Business Law (PGDBL)">Post Graduate Diploma in Business Law (PGDBL)</option>
+
+                                            <option value="Post Graduate Diploma in Corporate Law (PGDCL)">Post Graduate Diploma in Corporate Law (PGDCL)</option>
+                                            <option value="Post Graduate Diploma in Cyber Law">Post Graduate Diploma in Cyber Law</option>
+                                            <option value="Post Graduate courses in Banking and Finance">Post Graduate courses in Banking and Finance</option>
+                                            <option value="Post Graduate courses in Digital Marketing">Post Graduate courses in Digital Marketing</option>
+                                            <option value="Post Graduate courses in Social Work">Post Graduate courses in Social Work</option>
+
+                                            <option value="Master of Philosophy (M.Phil.)">Master of Philosophy (M.Phil.)</option>
+                                            <option value="Master of Technology (M.Tech.) in Advanced Manufacturing">Master of Technology (M.Tech.) in Advanced Manufacturing</option>
+                                            <option value="Master of Technology (M.Tech.) in Embedded Systems">Master of Technology (M.Tech.) in Embedded Systems</option>
+                                            <option value="Master of Technology (M.Tech.) in Information Security">Master of Technology (M.Tech.) in Information Security</option>
+                                            <option value="Master of Technology (M.Tech.) in Intelligent System">Master of Technology (M.Tech.) in Intelligent System</option>
+
+                                            <option value="Bachelor Of Engineering">Bachelor Of Engineering</option>
+                                            <option value="Bachelor Of Technology">Bachelor Of Technology</option>
+                                            <option value="Bachelor Of Education">Bachelor Of Education</option>
+                                            <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
+                                            <option value="Bachelor Of Medicine, Bachelor Of Surgery">Bachelor Of Medicine, Bachelor Of Surgery</option>
+
+                                            <option value="Bachelor of Science (B.Sc) in Botany">Bachelor of Science (B.Sc) in Botany</option>
+                                            <option value="Bachelor of Science (B.Sc) in Biotechnology">Bachelor of Science (B.Sc) in Biotechnology</option>
+                                            <option value="Bachelor of Science (B.Sc) in Microbiology">Bachelor of Science (B.Sc) in Microbiology</option>
+                                            <option value="Bachelor of Science (B.Sc) in Information Technology">Bachelor of Science (B.Sc) in Information Technology</option>
+                                            <option value="Bachelor of Science (B.Sc) in Statistics">Bachelor of Science (B.Sc) in Statistics</option>
+
+                                            <option value="Bachelor of Science (B.Sc) in Electronics">Bachelor of Science (B.Sc) in Electronics</option>
+                                            <option value="Bachelor of Science (B.Sc) in Biochemistry">Bachelor of Science (B.Sc) in Biochemistry</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Mathematics">Bachelor of Science (B.Sc) (Hons.) in Mathematics</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Chemistry">Bachelor of Science (B.Sc) (Hons.) in Chemistry</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Physics">Bachelor of Science (B.Sc) (Hons.) in Physics</option>
+
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Zoology">Bachelor of Science (B.Sc) (Hons.) in Zoology</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Botany">Bachelor of Science (B.Sc) (Hons.) in Botany</option>
+                                            <option value="Bachelor of Science (B.Sc) {Hons.} in Computer Science">Bachelor of Science (B.Sc) (Hons.) in Computer Science</option>
+                                            <option value="Bachelor of Fine Arts (BFA)">Bachelor of Fine Arts (BFA)</option>
+                                            <option value="Bachelor of Hotel Management (BHM)">Bachelor of Hotel Management (BHM)</option>
+
+                                            <option value="Bachelor of Library Science (B.Lib.Sc.)">Bachelor of Library Science (B.Lib.Sc.)</option>
+                                            <option value="Bachelor of Mass Communications (B.M.C.)">Bachelor of Mass Communications (B.M.C.)</option>
+                                            <option value="Bachelor of Physical Therapy (BPT)">Bachelor of Physical Therapy (BPT)</option>
+                                            <option value="Bachelor of Occupational Therapy (BOT)">Bachelor of Occupational Therapy (BOT)</option>
+                                            <option value="Bachelor of Social Work (BSW)">Bachelor of Social Work (BSW)</option>
+
+                                            <option value="Bachelor of Travel and Tourism Management (BTTM)">Bachelor of Travel and Tourism Management (BTTM)</option>
+                                            <option value="Bachelor of Visual Arts (BVA)">Bachelor of Visual Arts (BVA)</option>
+                                            <option value="Bachelor of Hospitality and Tourism Management (BHTM)">Bachelor of Hospitality and Tourism Management (BHTM)</option>
+                                            <option value="Bachelor of Public Relations (BPR)">Bachelor of Public Relations (BPR)</option>
+                                            <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
+                                        </select>
+
+                                    </div>
+                                    <div className="year">
+                                        <h5>Year</h5>
 
 
-                                    </select>
-                                    <select value={PGStream} onChange={(e) => setPGStream(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Master of Arts">Master of Arts</option>
-                                        <option value="Master of Science">Master of Science</option>
-                                        <option value="Master of Law">Master of Law</option>
-                                        <option value="Master of Education">Master of Education</option>
-                                        <option value="Master of Research">Master of Research</option>
+                                        <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
 
-                                        <option value="Master of Studies">Master of Studies</option>
-                                        <option value="Master of Business Administration">Master of Business Administration</option>
-                                        <option value="Master of Library Science">Master of Library Science</option>
-                                        <option value="Master of Public Administration">Master of Public Administration</option>
-                                        <option value="Master of Public Health">Master of Public Health</option>
-
-                                        <option value="Master of Fine Arts">Master of Fine Arts</option>
-                                        <option value="Master of Music">Master of Music</option>
-                                        <option value="Master of Engineering">Master of Engineering</option>
-                                        <option value="Master of Architecture">Master of Architecture</option>
-                                    </select>
-                                        
+                                    </div>
                                 </div>
-                                <div className="year">
-                                    <h5>Year</h5>
-                                    
-
-                                    <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
-                                    <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
-                                    <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
-                                    <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
-                                    
-                                </div>
-                            </div>
                             </div>
                             <div className="bottomInner">
-                            <h5>Other Professional Courses:</h5>
-                            <div className="innder_ed">
-                                <div className="degree">
-                                    <h5>
-                                        Courses
-                                    </h5>
-                                    <div className="iti">
+                                <h5>Other Professional Courses:</h5>
+                                <div className="innder_ed">
+                                    <div className="degree">
                                         <h5>
-                                            ITI
+                                            Courses
                                         </h5>
-                                        <select value={ITI} onChange={(e) => setITI(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Architectural Draughtsman">Architectural Draughtsman </option>
-                                        <option value="Draughtsman (Civil) ">Draughtsman (Civil) </option>
-                                        <option value="Draughtsman (Mechanical)">Draughtsman (Mechanical)</option>
-                                        <option value="Fitter ">Fitter </option>
-                                        <option value="Machinist">Machinist</option>
+                                        <div className="iti">
+                                            <h5>
+                                                ITI
+                                            </h5>
+                                            <select value={ITI} onChange={(e) => setITI(e.target.value)}>
+                                                <option value="">Select Option</option>
+                                                <option value="Architectural Draughtsman">Architectural Draughtsman </option>
+                                                <option value="Draughtsman (Civil) ">Draughtsman (Civil) </option>
+                                                <option value="Draughtsman (Mechanical)">Draughtsman (Mechanical)</option>
+                                                <option value="Fitter ">Fitter </option>
+                                                <option value="Machinist">Machinist</option>
 
-                                        <option value="Turner">Turner </option>
-                                        <option value="Instrument Mechanic ">Instrument Mechanic </option>
-                                        <option value="Electronics Mechanic">Electronics Mechanic</option>
-                                        <option value="Mechanic Motor Vehicle ">Mechanic Motor Vehicle </option>
-                                        <option value="Electrician">Electrician</option>
-                                    </select>
-                                    </div>
-                                    
+                                                <option value="Turner">Turner </option>
+                                                <option value="Instrument Mechanic ">Instrument Mechanic </option>
+                                                <option value="Electronics Mechanic">Electronics Mechanic</option>
+                                                <option value="Mechanic Motor Vehicle ">Mechanic Motor Vehicle </option>
+                                                <option value="Electrician">Electrician</option>
+                                            </select>
+                                        </div>
 
-                                    <div className="iti">
-                                        <h5>
-                                            Diploma
-                                        </h5>
-                                        <select value={diploma} onChange={(e) => setDiploma(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Diploma in Civil Engineering">Diploma in Civil Engi...</option>
-                                        <option value="Diploma in ECE">Diploma in ECE</option>
-                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engi...</option>
-                                        <option value="Diploma in Automobile Engineering">Diploma in Automobile Engi...</option>
-                                        <option value="Diploma in Leather Technology">Diploma in Leather Tech...</option>
-                                    </select>
-                                    </div>
 
-                                    <div className="iti">
-                                        <h5>
-                                            Any other
-                                        </h5>
-                                        <select value={anyOther} onChange={(e) => setAnyOther(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Dummy 1">Dummy 1</option>
-                                        <option value="Dummy 2">Dummy 2</option>
-                                        <option value="Dummy 3">Dummy 3</option>
-                                       
-                                    </select>
-                                    </div>
-                                    
-                                    {/* <h5>
+                                        <div className="iti">
+                                            <h5>
+                                                Diploma
+                                            </h5>
+                                            <select value={diploma} onChange={(e) => setDiploma(e.target.value)}>
+                                                <option value="">Select Option</option>
+                                                <option value="Diploma in Civil Engineering">Diploma in Civil Engi...</option>
+                                                <option value="Diploma in ECE">Diploma in ECE</option>
+                                                <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engi...</option>
+                                                <option value="Diploma in Automobile Engineering">Diploma in Automobile Engi...</option>
+                                                <option value="Diploma in Leather Technology">Diploma in Leather Tech...</option>
+                                            </select>
+                                        </div>
+
+                                        <div className="iti">
+                                            <h5>
+                                                Any other
+                                            </h5>
+                                            <select value={anyOther} onChange={(e) => setAnyOther(e.target.value)}>
+                                                <option value="">Select Option</option>
+                                                <option value="Dummy 1">Dummy 1</option>
+                                                <option value="Dummy 2">Dummy 2</option>
+                                                <option value="Dummy 3">Dummy 3</option>
+
+                                            </select>
+                                        </div>
+
+                                        {/* <h5>
                                         10th
                                     </h5>
                                     <h5>
@@ -407,17 +532,17 @@ function Form() {
                                     Graduation
                                     </h5> */}
 
-                                </div>
-                                <div className="stream">
-                                    <h5>Institute</h5>
-                                    
+                                    </div>
+                                    <div className="stream">
+                                        <h5>Institute</h5>
 
-                                    <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
-                                    <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
-                                    <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
-                                    
-                                </div>
-                                {/* <div className="stream">
+
+                                        <input type="text" value={postGradInst} onChange={(e) => setPGInst(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={underGradInst} onChange={(e) => setUGInst(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={otherCertiInst} onChange={(e) => setOtherCertiInst(e.target.value)} name="stream" id="stream" />
+
+                                    </div>
+                                    {/* <div className="stream">
                                     <h5>Stream</h5>
                                     
 
@@ -426,18 +551,18 @@ function Form() {
                                     
                                     
                                 </div> */}
-                                <div className="year">
-                                    <h5>Year</h5>
-                                    
+                                    <div className="year">
+                                        <h5>Year</h5>
 
-                                    <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
-                                    <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
-                                    <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
-                                    
+
+                                        <input type="date" value={postGradDegreeYear} onChange={(e) => setPGDegreeYear(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={underGradDegreeYear} onChange={(e) => setUGDegreeYear(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={otherCertiYear} onChange={(e) => setOtherCertiYear(e.target.value)} name="stream" id="stream" />
+
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                            
+
 
                         </div>
 
@@ -540,6 +665,7 @@ function Form() {
 
                                         <input type="text" value={employeer1} onChange={(e) => setEmployeer1(e.target.value)} name="stream" id="stream" />
                                         <input type="text" value={employeer2} onChange={(e) => setEmployeer2(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={employeer3} onChange={(e) => setEmployeer3(e.target.value)} name="stream" id="stream" />
 
 
                                     </div>
@@ -548,6 +674,7 @@ function Form() {
 
                                         <input type="text" value={employeerSector1} onChange={(e) => setEmployeerSector1(e.target.value)} name="stream" id="stream" />
                                         <input type="text" value={employeerSector2} onChange={(e) => setEmployeerSector2(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={employeerSector3} onChange={(e) => setEmployeerSector3(e.target.value)} name="stream" id="stream" />
 
                                     </div>
                                     <div className="from">
@@ -555,6 +682,7 @@ function Form() {
 
                                         <input type="date" value={employeerFrom1} onChange={(e) => setEmployeerFrom1(e.target.value)} name="stream" id="stream" />
                                         <input type="date" value={employeerFrom2} onChange={(e) => setEmployeerFrom2(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={employeerFrom3} onChange={(e) => setEmployeerFrom3(e.target.value)} name="stream" id="stream" />
 
                                     </div>
                                     <div className="to">
@@ -562,6 +690,7 @@ function Form() {
 
                                         <input type="date" value={employeerTo1} onChange={(e) => setEmployeerTo1(e.target.value)} name="stream" id="stream" />
                                         <input type="date" value={employeerTo2} onChange={(e) => setEmployeerTo2(e.target.value)} name="stream" id="stream" />
+                                        <input type="date" value={employeerTo3} onChange={(e) => setEmployeerTo3(e.target.value)} name="stream" id="stream" />
 
                                     </div>
                                     <div className="posi">
@@ -569,6 +698,7 @@ function Form() {
 
                                         <input type="text" value={employeerPosition1} onChange={(e) => setEmployeerPosition1(e.target.value)} name="stream" id="stream" />
                                         <input type="text" value={employeerPosition2} onChange={(e) => setEmployeerPosition2(e.target.value)} name="stream" id="stream" />
+                                        <input type="text" value={employeerPosition3} onChange={(e) => setEmployeerPosition3(e.target.value)} name="stream" id="stream" />
 
                                     </div>
                                 </div>
@@ -577,7 +707,7 @@ function Form() {
                                         Summary of Areas of Expertise
                                     </h5>
 
-                                    <input type="text" value={summary} onChange={(e) => setSummary(e.target.value)} name="stream" id="stream" />
+                                    <textarea type="text" rows={5} value={summary} onChange={(e) => setSummary(e.target.value)} name="stream" id="stream" />
                                 </div>
                             </div>
                         </div>
@@ -590,16 +720,7 @@ function Form() {
                                 misstatement described herein may lead to my disqualification or dismissal, if engaged.</p>
                         </div>
                     </div>
-                    <hr />
 
-                    <div className="uploadContainer">
-                        <div className="uploadPhoto">
-                            <label htmlFor="photo">Upload Photo</label>
-                            <input type="file" name="photo" className="photo" required onChange={handleFile} id="phone" />
-                        </div>
-                        
-
-                    </div>
 
 
                     <button type="submit">Submit</button>

@@ -94,7 +94,8 @@
                             font-size: 14px;
                             padding-left: 10px;
                         }
-                        select{
+
+                        select {
                             // width: 80%;
                             padding: 5px;
                             border-radius: 5px;
@@ -126,12 +127,12 @@
                             // text-align: center;
                             gap: 22px;
 
-                            .iti{
+                            .iti {
                                 display: grid;
                                 grid-template-columns: repeat(2, 1fr);
                                 gap: 20px;
 
-                                select{
+                                select {
                                     width: 200px;
                                     padding: 5px;
                                     border-radius: 5px;
@@ -144,7 +145,7 @@
                             }
 
                         }
-                        
+
                         .stream,
                         .year {
                             display: flex;
@@ -167,8 +168,8 @@
                             }
                         }
 
-                        .stream{
-                            select{
+                        .stream {
+                            select {
                                 width: 200px;
                                 padding: 5px;
                                 border-radius: 5px;
@@ -227,7 +228,7 @@
                             align-items: center;
                             gap: 10px;
 
-                            select{
+                            select {
                                 width: 200px;
                                 padding: 5px;
                                 border-radius: 5px;
@@ -279,11 +280,11 @@
                         .bottom {
                             display: flex;
                             gap: 20px;
-                            align-items: center;
-
-                            input {
-                                width: 40%;
-                                padding: 5px;
+                            // align-items: center;
+                            flex-direction: column;
+                            textarea {
+                                // width: 40%;
+                                padding: 10px;
                                 border-radius: 5px;
                                 border: none;
                                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -309,6 +310,47 @@
             .uploadContainer {
                 display: flex;
                 gap: 10px;
+
+                .uploadPhoto {
+                    display: flex;
+                    // flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    .userImg{
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                    }
+                    .discrip {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        // width: max-content;
+                        
+                        .topP{
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                        .bottomP{
+                            font-size: 10px;
+                        }
+                        .inputFile {
+                            border: 2px solid #E45A22;
+                            display: inline-block;
+                            padding: 6px 12px;
+                            cursor: pointer;
+                            text-align: center;
+                            border-radius: 20px;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            color: #E45A22;
+
+                            input[type="file"] {
+                                display: none;
+                            }
+                        }
+                    }
+                }
 
                 label {
                     font-weight: 600;
@@ -345,7 +387,7 @@
     }
 
     .wrapper {
-        width: 80% !important;
+        width: 85% !important;
         font-size: 14px;
     }
 
