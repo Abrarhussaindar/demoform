@@ -30,9 +30,9 @@
         }
 
         h1 {
-            margin-top: 20px;
+            // margin-top: 10px;
             font-weight: 600;
-            color: #E45A22;
+            color: #22dae4;
             font-size: 46px;
 
             span {
@@ -95,6 +95,10 @@
                             padding-left: 10px;
                         }
 
+                       
+
+                        
+
                         select {
                             // width: 80%;
                             padding: 5px;
@@ -105,7 +109,27 @@
                             font-size: 14px;
                             padding-left: 10px;
                         }
+                        .phoneNumber{
+                            display: flex;
+                            gap: 5px;
+                            .phoneVal{
+                                width: 30px;
+                                -webkit-appearance: none;
+                                padding-left: none;
+                            }
+                        }
                     }
+                    .adhNumber{
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                        .adhVal{
+                            width: 35px;
+                            -webkit-appearance: none;
+                            
+                        }
+                    }
+                    
                 }
 
 
@@ -354,7 +378,7 @@
                             border-radius: 20px;
                             font-weight: 700;
                             text-transform: uppercase;
-                            color: #E45A22;
+                            color: #22dae4;
 
                             input[type="file"] {
                                 display: none;
@@ -375,7 +399,7 @@
                 border: none;
                 outline: none;
                 // color: #E45A22;
-                background: #E45A22;
+                background: #22dae4;
                 color: #fff;
                 font-size: 16px;
                 cursor: pointer;
