@@ -36,7 +36,8 @@ function Form() {
     const [phVal9, setPhVal9] = useState();
     const [age, setAge] = useState("")
 
-    const calculateAge = () => {
+    const calculateAge = (event) => {
+        setDob(event.target.value);
         const today = new Date();
         const birthDate = new Date(dob);
         let agee = today.getFullYear() - birthDate.getFullYear();
@@ -262,7 +263,7 @@ function Form() {
 
                                 <div className="indiDetails">
                                     <label htmlFor="dob">DOB</label>
-                                    <input className="dob" type="date" value={dob} required onChange={(e) => { setDob(e.target.value); calculateAge(); }} name="dob" id="dob" />
+                                    <input className="dob" type="date" value={dob} required onChange={calculateAge} name="dob" id="dob" />
                                 </div>
 
                                 <div className="indiDetails">
