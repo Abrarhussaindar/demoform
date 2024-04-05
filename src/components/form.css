@@ -55,13 +55,14 @@
 .container .wrapper form .pdfContainer .mainDetails {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 .container .wrapper form .pdfContainer .mainDetails .topIndi,
 .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  row-gap: 20px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails {
   display: flex;

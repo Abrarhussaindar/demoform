@@ -103,7 +103,7 @@ function Form() {
                                 
                             </div>
                             <div className="indiDetails">
-                                    <label htmlFor="email">E-mail</label>
+                                    <label htmlFor="email">Email ID</label>
                                     <input className="email" type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
                                 </div>
                             <div className="bottomIndi">
