@@ -94,6 +94,10 @@
                                 .innerInnerDiv{
                                     display: flex;
                                     flex-direction: column;
+
+                                    .pincode{
+                                        width: 170px;
+                                    }
                                 }
                             }
                         }
@@ -170,9 +174,9 @@
                         }
                     }
                     .adhNumber{
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 5px;
+                        display: grid;
+                        grid-template-columns: repeat(4, .1fr);
+                        gap: 15px;
                         align-items: center;
                         background-color: white;
                         .adhVal{

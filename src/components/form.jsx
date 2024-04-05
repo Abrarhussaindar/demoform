@@ -11,7 +11,7 @@ function Form() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [address, setAddress] = useState("");
-    // const [pinCode, setPinCode] = useState("");
+    const [pinCode, setPinCode] = useState("");
     const [dob, setDob] = useState("");
     const [dis, setDis] = useState();
     const [division, setDiv] = useState();
@@ -22,7 +22,7 @@ function Form() {
     const [socialClas, setSocailClas] = useState();
     const [ageGroup, setAgeGroup] = useState();
     const [monthlyIncome, setMonthlyIncome] = useState();
-    // const [areaa, setAreaa] = useState("");
+    const [pinArea, setPinArea] = useState("");
 
     const [phVal0, setPhVal0] = useState();
     const [phVal1, setPhVal1] = useState();
@@ -34,7 +34,18 @@ function Form() {
     const [phVal7, setPhVal7] = useState();
     const [phVal8, setPhVal8] = useState();
     const [phVal9, setPhVal9] = useState();
+    const [age, setAge] = useState("")
 
+    const calculateAge = () => {
+        const today = new Date();
+        const birthDate = new Date(dob);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        setAge(age);
+    };
 
     const [adVal0, setAdVal0] = useState();
     const [adVal1, setAdVal1] = useState();
@@ -46,7 +57,7 @@ function Form() {
     const [adVal7, setAdVal7] = useState();
     const [adVal8, setAdVal8] = useState();
     const [adVal9, setAdVal9] = useState();
-
+    console.log(pinCode);
     const [adVal10, setAdVal10] = useState();
     const [adVal11, setAdVal11] = useState();
 
@@ -77,7 +88,7 @@ function Form() {
         "185101": ["Poonch"],
         "185131": ["Rajouri"],
         "185121": ["Samote"],
-        
+
         // "185153": ["Humhama"],
         "185212": ["Thanamandi"],
         "182311": ["Reasi"],
@@ -120,7 +131,7 @@ function Form() {
         // "180002": ["Humhama"],
         "180003": ["Industrial Estate", "Jammu Cantt", "Makwal Branch Office", "Mandal Branch Office", "Natc Sub Office", "Sohanjana Branch Office"],
         "180004": ["Gandhinagar Head Office", "Guru Nanak Nagar Sub Office", "Transport Yard Sub Office"],
-        "180005": [ "Kotli Colony", "Puran Nagar", "Rehari Mohalla", "Subash Nagar Jammu"],
+        "180005": ["Kotli Colony", "Puran Nagar", "Rehari Mohalla", "Subash Nagar Jammu"],
         // "180005": ["Rehari Mohalla"],
         // "180006": ["Humhama"],
         "180006": ["New University Campus", "Bain Bajalta Branch Office", "Qilla Bahu Sub Office"],
@@ -174,10 +185,11 @@ function Form() {
 
     const handleDigitInput = (event) => {
         const digit = event.target.value;
-        // setPinCode(digit)
+        setPinCode(digit)
         filterAreas(digit);
         setPinCodes(prevPinCodes => ({
-            ...prevPinCodes,"0":"a"}))
+            ...prevPinCodes, "0": "a"
+        }))
     };
 
     const filterAreas = (digit) => {
@@ -200,11 +212,11 @@ function Form() {
                 </h1> */}
                 <div>
 
-                <h4>
-                    Skill gap survey
-                </h4>
-                <p>Youth aspiration questionnaire
-                </p>
+                    <h4>
+                        Skill gap survey
+                    </h4>
+                    <p>Youth aspiration questionnaire
+                    </p>
                 </div>
             </div>
             <div className="wrapper">
@@ -239,7 +251,13 @@ function Form() {
 
                                 <div className="indiDetails">
                                     <label htmlFor="dob">DOB</label>
-                                    <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
+                                    <input className="dob" type="date" value={dob} required onChange={(e) =>{ setDob(e.target.value);calculateAge();}} name="dob" id="dob" />
+                                </div>
+
+                                <div className="indiDetails">
+                                    <label htmlFor="dob">Age</label>
+                                    { age } Years Old
+                                    {/* <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" /> */}
                                 </div>
 
 
@@ -677,19 +695,20 @@ function Form() {
                                         <input type="text" onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
                                         <div className="innerInnerDiv">
                                             <h4>Filtered Areas:</h4>
-                                            <ul>
+                                            <select className="pincode" value={pinArea} onChange={(e) => setPinArea(e.target.value)}>
+                                                {/* <option value="">Select Option</option> */}
                                                 {filteredAreas.map(area => (
-                                                    <li key={area}>{area}</li>
+                                                    <option key={area}>{area}</option>
                                                 ))}
-                                                
-                                            </ul>
+
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="indiDetails">
                                     <label htmlFor="desig">Area</label>
-                                    {/* {areaa ? areaa : ""} */}
+                                    {pinArea ? pinArea : ""}
                                 </div>
                             </div>
 
@@ -887,7 +906,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    
+
                                     <select className="adhVal" value={adVal4} onChange={(e) => setAdVal4(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -940,7 +959,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                
+
                                     <select className="adhVal" value={adVal8} onChange={(e) => setAdVal8(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
