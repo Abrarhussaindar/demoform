@@ -8,8 +8,10 @@ function Form() {
 
 
 
-    const [name, setName] = useState("");
-    const [designation, setDesignation] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [address, setAddress] = useState("");
+    const [pinCode, setPinCode] = useState("");
     const [dob, setDob] = useState("");
     const [dis, setDis] = useState();
     const [sta, setSta] = useState();
@@ -64,14 +66,40 @@ function Form() {
 
                             <div className="topIndi">
                                 <div className="indiDetails">
-                                    <label htmlFor="name">Name</label>
-                                    <input type="text" value={name} required onChange={(e) => setName(e.target.value)} name="name" id="name" />
+                                    <label htmlFor="name">First Name</label>
+                                    <input type="text" value={firstName} required onChange={(e) => setFirstName(e.target.value)} name="name" id="name" />
+                                </div>
+                                <div className="indiDetails">
+                                    <label htmlFor="name">Last Name</label>
+                                    <input type="text" value={lastName} required onChange={(e) => setLastName(e.target.value)} name="name" id="name" />
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="desig">Address</label>
-                                    <input type="text" value={designation} required onChange={(e) => setDesignation(e.target.value)} name="desig" id="desig" />
+                                    <input type="text" value={address} required onChange={(e) => setAddress(e.target.value)} name="desig" id="desig" />
                                 </div>
-                                
+                                <div className="indiDetails">
+                                    <label htmlFor="desig">Pin Code</label>
+                                    <input type="text" value={pinCode} required onChange={(e) => setPinCode(e.target.value)} name="desig" id="desig" />
+                                </div>
+                                <div className="indiDetails">
+                                    <label htmlFor="dob">DOB</label>
+                                    <input type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
+                                </div>
+
+                                {/* <div className="indiDetails">
+                                <label htmlFor="expe">Total Years of Experience</label>
+                                <input type="number" value={YOE} required onChange={(e) => setYOE(e.target.value)} name="expe" id="expe" />
+                            </div> */}
+                                <div className="indiDetails">
+                                    <label htmlFor="email">Gender</label>
+                                    <select value={gender} onChange={(e) => setGen(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                        
+                                    </select>
+                                </div>
                             </div>
                             <div className="bottomIndi">
                             <div className="indiDetails">
@@ -119,25 +147,7 @@ function Form() {
                                     </select>
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
-                                <div className="indiDetails">
-                                    <label htmlFor="dob">DOB</label>
-                                    <input type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
-                                </div>
-
-                                {/* <div className="indiDetails">
-                                <label htmlFor="expe">Total Years of Experience</label>
-                                <input type="number" value={YOE} required onChange={(e) => setYOE(e.target.value)} name="expe" id="expe" />
-                            </div> */}
-                                <div className="indiDetails">
-                                    <label htmlFor="email">Gender</label>
-                                    <select value={gender} onChange={(e) => setGen(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                        
-                                    </select>
-                                </div>
+                                
                                 <div className="indiDetails">
                                     <label htmlFor="email">E-mail</label>
                                     <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />

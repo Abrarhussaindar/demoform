@@ -8,7 +8,6 @@
 
 .container {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +42,7 @@
 .container .wrapper {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px;
   width: 50%;
 }
 .container .wrapper form hr {
@@ -75,6 +74,7 @@
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
   width: 80%;
+  height: 25px;
   padding: 5px;
   border-radius: 5px;
   border: none;
@@ -90,6 +90,7 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   outline: none;
   font-size: 14px;
+  height: 35px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber {
   display: flex;
@@ -354,7 +355,7 @@
 
 @media screen and (width <= 440px) {
   .wrapper {
-    width: 85% !important;
+    width: 90% !important;
     font-size: 14px;
   }
   .container .wrapper form .pdfContainer .ed-details .innder_ed {

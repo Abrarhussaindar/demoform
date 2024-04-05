@@ -10,7 +10,7 @@
 
 .container {
     width: 100%;
-    min-height: 100vh;
+    // min-height: 100vh;
     // background: #f3f5f9;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
     .wrapper {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 10px;
-        padding: 20px;
+        padding: 15px;
         width: 50%;
 
         form {
@@ -92,6 +92,7 @@
 
                         input {
                             width: 80%;
+                            height: 25px;
                             padding: 5px;
                             border-radius: 5px;
                             border: none;
@@ -113,6 +114,7 @@
                             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                             outline: none;
                             font-size: 14px;
+                            height: 35px;
                             // padding-left: 10px;
                         }
                         .phoneNumber{
@@ -436,7 +438,7 @@
     // }
 
     .wrapper {
-        width: 85% !important;
+        width: 90% !important;
         font-size: 14px;
     }
 
