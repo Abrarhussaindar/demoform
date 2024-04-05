@@ -71,7 +71,8 @@
                     gap: 20px;
 
                     .topIndi,
-                    .bottomIndi {
+                    .bottomIndi,
+                    .lowerDetails {
                         display: grid;
                         grid-template-columns: repeat(3, 1fr);
                         gap: 10px;
@@ -126,6 +127,9 @@
                             height: 35px;
                             background-color: white;
                             // padding-left: 10px;
+                        }
+                        .sc{
+                            width: 190px;
                         }
                         .phoneNumber{
                             display: flex;
@@ -482,7 +486,7 @@
     }
 
     .container .wrapper form .pdfContainer .mainDetails .topIndi,
-    .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
+    .container .wrapper form .pdfContainer .mainDetails .bottomIndi, .lowerDetails {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }

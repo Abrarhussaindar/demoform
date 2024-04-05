@@ -58,7 +58,8 @@
   gap: 20px;
 }
 .container .wrapper form .pdfContainer .mainDetails .topIndi,
-.container .wrapper form .pdfContainer .mainDetails .bottomIndi {
+.container .wrapper form .pdfContainer .mainDetails .bottomIndi,
+.container .wrapper form .pdfContainer .mainDetails .lowerDetails {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
@@ -101,6 +102,9 @@
   font-size: 16px;
   height: 35px;
   background-color: white;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .sc {
+  width: 190px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber {
   display: flex;
@@ -389,7 +393,7 @@
     width: 90% !important;
   }
   .container .wrapper form .pdfContainer .mainDetails .topIndi,
-  .container .wrapper form .pdfContainer .mainDetails .bottomIndi {
+  .container .wrapper form .pdfContainer .mainDetails .bottomIndi, .lowerDetails {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }/*# sourceMappingURL=form.css.map */
