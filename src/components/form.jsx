@@ -14,11 +14,11 @@ function Form() {
     const [pinCode, setPinCode] = useState("");
     const [dob, setDob] = useState("");
     const [dis, setDis] = useState();
-    const [sta, setSta] = useState();
+    const [division, setDiv] = useState();
     const [block, setBlock] = useState();
     const [gender, setGen] = useState();
-    
-    
+
+
     const [phVal0, setPhVal0] = useState();
     const [phVal1, setPhVal1] = useState();
     const [phVal2, setPhVal2] = useState();
@@ -29,8 +29,8 @@ function Form() {
     const [phVal7, setPhVal7] = useState();
     const [phVal8, setPhVal8] = useState();
     const [phVal9, setPhVal9] = useState();
-    
-    
+
+
     const [adVal0, setAdVal0] = useState();
     const [adVal1, setAdVal1] = useState();
     const [adVal2, setAdVal2] = useState();
@@ -55,7 +55,7 @@ function Form() {
             <div className="header">
                 <img className="logo" src={logo} alt="logo" />
                 <h1>
-                <span className="de">Decent</span><span className="ar">Arcadia </span> 
+                    <span className="de">DeCent</span><span className="ar">ArCadia </span>
                 </h1>
             </div>
             <div className="wrapper">
@@ -96,29 +96,24 @@ function Form() {
                                         <option value="">Select Option</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                        
+                                        <option value="Transgender">Transgender</option>
+
                                     </select>
                                 </div>
-                                
+
                             </div>
                             <div className="indiDetails">
-                                    <label htmlFor="email">Email ID</label>
-                                    <input className="email" type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
-                                </div>
+                                <label htmlFor="email">Email ID</label>
+                                <input className="email" type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
+                            </div>
                             <div className="bottomIndi">
-                            <div className="indiDetails">
-                                    <label htmlFor="age">State</label>
-                                    <select value={sta} onChange={(e) => setSta(e.target.value)}>
+                                <div className="indiDetails">
+                                    <label htmlFor="age">Division</label>
+                                    <select value={division} onChange={(e) => setDiv(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                        <option value="Haryana">Haryana</option>
-                                        <option value="Karnataka">Karnataka</option>
-                                        <option value="Gujarat">Gujarat</option>
-                                        <option value="Kerala">Kerala</option>
-                                        <option value="Maharashtra">Maharashtra</option>
-                                        <option value="Punjab">Punjab</option>
-                                        <option value="Telangana">Telangana</option>
+                                        <option value="Jammu">JAM</option>
+                                        <option value="Kashmir">KMR</option>
+
                                     </select>
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
@@ -126,14 +121,42 @@ function Form() {
                                     <label htmlFor="age">District</label>
                                     <select value={dis} onChange={(e) => setDis(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Anantnag">Anantnag</option>
-                                        <option value="Badgam">Badgam</option>
-                                        <option value="Doda">Doda</option>
-                                        <option value="Jammu">Jammu</option>
-                                        <option value="Kargil">Kargil</option>
-                                        <option value="Kulgam">Kulgam</option>
-                                        <option value="Shopain">Shopain</option>
-                                        <option value="Srinagar">Srinagar</option>
+                                        {
+                                            division === "Jammu"
+                                                ?
+                                                <>
+                                                    <option value="Doda">Doda</option>
+                                                    <option value="Jammu">Jammu</option>
+                                                    <option value="Kathua">Kathua</option>
+                                                    <option value="Kishtwar">Kishtwar</option>
+                                                    <option value="Poonch">Poonch</option>
+                                                    <option value="Rajouri">Rajouri</option>
+                                                    <option value="Ramban">Ramban</option>
+                                                    <option value="Reasi">Reasi</option>
+                                                    <option value="Samba">Samba</option>
+                                                    <option value="Udhampur">Udhampur</option>
+                                                </>
+                                                : ""
+                                        }
+
+                                        {
+                                            division === "Kashmir"
+                                                ?
+                                                <>
+                                                    <option value="Anantnag">Anantnag</option>
+                                                    <option value="Bandipora">Bandipora</option>
+                                                    <option value="Baramullah">Baramullah</option>
+                                                    <option value="Budgam">Budgam</option>
+                                                    <option value="Gandarbal">Gandarbal</option>
+                                                    <option value="Kulgam">Kulgam</option>
+                                                    <option value="Kupwara">Kupwara</option>
+                                                    <option value="Pulwama">Pulwama</option>
+                                                    <option value="Sopian">Sopian</option>
+                                                    <option value="Srinagar">Srinagar</option>
+                                                </>
+                                                : ""
+                                        }
+
                                     </select>
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
@@ -152,16 +175,16 @@ function Form() {
                                     </select>
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
-                                
-                                
 
-                                
+
+
+
                             </div>
                             <div className="indiDetails">
-                                    <label htmlFor="phone">Phone Number (+91)</label>
-                                    {/* <p>+91 </p> */}
-                                    <div className="phoneNumber">
-                                    <select  className="phoneVal" value={phVal0} onChange={(e) => setPhVal0(e.target.value)}>
+                                <label htmlFor="phone">Phone Number (+91)</label>
+                                {/* <p>+91 </p> */}
+                                <div className="phoneNumber">
+                                    <select className="phoneVal" value={phVal0} onChange={(e) => setPhVal0(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -174,7 +197,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal1} onChange={(e) => setPhVal1(e.target.value)}>
+                                    <select className="phoneVal" value={phVal1} onChange={(e) => setPhVal1(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -187,7 +210,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal2} onChange={(e) => setPhVal2(e.target.value)}>
+                                    <select className="phoneVal" value={phVal2} onChange={(e) => setPhVal2(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -200,7 +223,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal3} onChange={(e) => setPhVal3(e.target.value)}>
+                                    <select className="phoneVal" value={phVal3} onChange={(e) => setPhVal3(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -213,7 +236,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal4} onChange={(e) => setPhVal4(e.target.value)}>
+                                    <select className="phoneVal" value={phVal4} onChange={(e) => setPhVal4(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -226,7 +249,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal5} onChange={(e) => setPhVal5(e.target.value)}>
+                                    <select className="phoneVal" value={phVal5} onChange={(e) => setPhVal5(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -239,7 +262,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal6} onChange={(e) => setPhVal6(e.target.value)}>
+                                    <select className="phoneVal" value={phVal6} onChange={(e) => setPhVal6(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -252,7 +275,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal7} onChange={(e) => setPhVal7(e.target.value)}>
+                                    <select className="phoneVal" value={phVal7} onChange={(e) => setPhVal7(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -265,7 +288,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal8} onChange={(e) => setPhVal8(e.target.value)}>
+                                    <select className="phoneVal" value={phVal8} onChange={(e) => setPhVal8(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -278,7 +301,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="phoneVal" value={phVal9} onChange={(e) => setPhVal9(e.target.value)}>
+                                    <select className="phoneVal" value={phVal9} onChange={(e) => setPhVal9(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -291,15 +314,15 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    </div>
-                                    {/* <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" /> */}
-                                    
                                 </div>
+                                {/* <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" /> */}
+
+                            </div>
                             <div className="indiDetails">
-                                    <label htmlFor="adh">Adhaar Number</label>
-                                    {/* <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" /> */}
-                                    <div className="adhNumber">
-                                    <select  className="adhVal" value={adVal0} onChange={(e) => setAdVal0(e.target.value)}>
+                                <label htmlFor="adh">Adhaar Number</label>
+                                {/* <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" /> */}
+                                <div className="adhNumber">
+                                    <select className="adhVal" value={adVal0} onChange={(e) => setAdVal0(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -312,7 +335,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="adhVal" value={adVal1} onChange={(e) => setAdVal1(e.target.value)}>
+                                    <select className="adhVal" value={adVal1} onChange={(e) => setAdVal1(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -325,7 +348,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="adhVal" value={adVal2} onChange={(e) => setAdVal2(e.target.value)}>
+                                    <select className="adhVal" value={adVal2} onChange={(e) => setAdVal2(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -338,62 +361,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="adhVal" value={adVal3} onChange={(e) => setAdVal3(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <div>
-                                        
-                                    </div>
-                                    <select  className="adhVal" value={adVal4} onChange={(e) => setAdVal4(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select  className="adhVal" value={adVal5} onChange={(e) => setAdVal5(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select  className="adhVal" value={adVal6} onChange={(e) => setAdVal6(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select  className="adhVal" value={adVal7} onChange={(e) => setAdVal7(e.target.value)}>
+                                    <select className="adhVal" value={adVal3} onChange={(e) => setAdVal3(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -407,9 +375,9 @@ function Form() {
                                         <option value="9">9</option>
                                     </select>
                                     <div>
-                                        
+
                                     </div>
-                                    <select  className="adhVal" value={adVal8} onChange={(e) => setAdVal8(e.target.value)}>
+                                    <select className="adhVal" value={adVal4} onChange={(e) => setAdVal4(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -422,7 +390,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="adhVal" value={adVal9} onChange={(e) => setAdVal9(e.target.value)}>
+                                    <select className="adhVal" value={adVal5} onChange={(e) => setAdVal5(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -435,7 +403,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="adhVal" value={adVal10} onChange={(e) => setAdVal10(e.target.value)}>
+                                    <select className="adhVal" value={adVal6} onChange={(e) => setAdVal6(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -448,7 +416,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="adhVal" value={adVal11} onChange={(e) => setAdVal11(e.target.value)}>
+                                    <select className="adhVal" value={adVal7} onChange={(e) => setAdVal7(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -461,13 +429,68 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    
-                                    
-                                    
-                                    
+                                    <div>
+
                                     </div>
-                                
+                                    <select className="adhVal" value={adVal8} onChange={(e) => setAdVal8(e.target.value)}>
+                                        <option value=""></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                    <select className="adhVal" value={adVal9} onChange={(e) => setAdVal9(e.target.value)}>
+                                        <option value=""></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                    <select className="adhVal" value={adVal10} onChange={(e) => setAdVal10(e.target.value)}>
+                                        <option value=""></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                    <select className="adhVal" value={adVal11} onChange={(e) => setAdVal11(e.target.value)}>
+                                        <option value=""></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+
+
+
+
                                 </div>
+
+                            </div>
 
                         </div>
                     </div>
