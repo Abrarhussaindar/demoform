@@ -47,199 +47,23 @@ function Form() {
     const [adVal14, setAdVal14] = useState();
     const [adVal15, setAdVal15] = useState();
 
-
-    // const [YOE, setYOE] = useState("");
     const [email, setEmail] = useState("");
-    // const [phoneNumber, setPhoneNumber] = useState("+91");
-    // const [adhaar, setAdhaar] = useState("");
 
-    // // const [postGradDegree, setPGDegree] = useState("");
-    // const [postGradInst, setPGInst] = useState("");
-    // const [postGradDegreeYear, setPGDegreeYear] = useState("");
-    // const [underGradInst, setUGInst] = useState("");
-    // // const [underGradDegree, setUGDegree] = useState("");
-    // const [underGradDegreeYear, setUGDegreeYear] = useState("");
-    // // const [otherCerti, setOtherCerti] = useState("");
-    // const [otherCertiInst, setOtherCertiInst] = useState("");
-    // const [otherCertiYear, setOtherCertiYear] = useState("");
-
-    // const [stream12, setStream12] = useState();
-    // const [UGStream, setUGStream] = useState();
-    // const [PGStream, setPGStream] = useState();
-
-    // const [ITI, setITI] = useState();
-    // const [diploma, setDiploma] = useState();
-    // const [anyOther, setAnyOther] = useState();
-
-
-
-
-    // // dropdown for langs
-    // const [lang2, setLang2] = useState("");
-
-    // const [lang1Read, setLang1Read] = useState();
-    // const [lang1Write, setLang1Write] = useState();
-    // const [lang1Speak, setLang1Speak] = useState();
-
-    // const [lang2Read, setLang2Read] = useState();
-    // const [lang2Write, setLang2Write] = useState();
-    // const [lang2Speak, setLang2Speak] = useState();
-
-    // const [employeer1, setEmployeer1] = useState("");
-    // const [employeer2, setEmployeer2] = useState("");
-    // const [employeer3, setEmployeer3] = useState("");
-
-
-    // const [employeerFrom1, setEmployeerFrom1] = useState("");
-    // const [employeerSector1, setEmployeerSector1] = useState("");
-    // const [employeerTo1, setEmployeerTo1] = useState("");
-    // const [employeerPosition1, setEmployeerPosition1] = useState("");
-
-    // const [employeerFrom2, setEmployeerFrom2] = useState("");
-    // const [employeerSector2, setEmployeerSector2] = useState("");
-    // const [employeerTo2, setEmployeerTo2] = useState("");
-    // const [employeerPosition2, setEmployeerPosition2] = useState("");
-
-    // const [employeerFrom3, setEmployeerFrom3] = useState("");
-    // const [employeerSector3, setEmployeerSector3] = useState("");
-    // const [employeerTo3, setEmployeerTo3] = useState("");
-    // const [employeerPosition3, setEmployeerPosition3] = useState("");
-
-    // const [summary, setSummary] = useState("");
-
-    // const [photo, setPhoto] = useState();
-    // // const [resume, setResume] = useState();
-    // const [photoData, setPhotoData] = useState(null);
-    // const handleFile = (e) => {
-    //     const file = e.target.files[0];
-    //     if (e.target.name === "photo") {
-    //         const reader = new FileReader();
-    //         reader.onloadend = () => {
-    //             setPhotoData(reader.result);
-    //         };
-    //         reader.readAsDataURL(file);
-    //     } else if (e.target.name === "resume") {
-    //         // Handle resume file
-    //     } else {
-    //         window.alert("Please select a file");
-    //     }
-    // };
-    // const handleAdhaarInputChange = (e) => {
-    //     const inputValue = e.target.value;
-
-    //     // Ensure the input value doesn't exceed 16 characters
-    //     if (inputValue.length <= 16) {
-    //         setAdhaar(inputValue);
-    //     }
-    // };
-
-
-
-    // const handlephoneInputChange = (e) => {
-    //     const inputValue = e.target.value;
-
-    //     // Ensure the input is a number and starts with "+91"
-    //     if (/^\+91\d{0,10}$/.test(inputValue)) {
-    //         setPhoneNumber(inputValue);
-    //     }
-    // };
-
-    // const handleFile = (e) => {
-    //     const file = e.target.files[0];
-    //     console.log(file);
-    //     if (e.target.name === "photo") {
-    //         setPhoto(file);
-    //     } else if (e.target.name === "resume") {
-    //         setResume(file);
-    //     }
-    //     else {
-    //         window.alert("Please select a file");
-    //     }
-    // }
-
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     // Validation logic...
-
-    //     // Call the PDF generation function
-    //     generatePDF({ name, designation, dob, dis, email, phoneNumber, adhaar, postGradDegreeYear, underGradDegreeYear, otherCertiYear, lang2, lang1Read, lang1Speak, lang1Write, lang2Read, lang2Speak, lang2Write, employeer1, employeer2, employeerFrom1, employeerFrom2, employeerPosition1, employeerPosition2, employeerTo1, employeerTo2, summary, postGradInst, underGradInst, otherCertiInst }, photoData);
-    // };
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     // Validation logic
-    //     if (!name || !designation || !dob || !age || !YOE || !email || !phoneNumber || !adhaar) {
-    //       alert("Please fill in all required fields.");
-    //       return;
-    //     }
-
-    //     // Additional validation for specific fields (e.g., email format, age, etc.)
-
-    //     // Generate PDF
-    //     const pdfContent = document.getElementById("pdf-content");
-    //     const pdfOptions = { margin: 10, filename: `${name}_cv.pdf` };
-    //     await html2pdf().from(pdfContent).set(pdfOptions).outputPdf();
-
-    //     // Send email
-    //     const templateParams = {
-    //       to_email: "abrardar988651@gmail.com",  // Replace with the recipient's email            // Replace with your name
-    //       message_html: "Please find attached CV.",
-    //       attachment: pdfOptions.filename,
-    //       from_name: `${name}`,
-    //       from_email: `${email}`,
-    //       from_phone: `${phoneNumber}`,
-    //       cc: `${email}`,
-    //     };
-
-    //     emailjs.send("service_wy90w7f", "template_h791hle", templateParams, "OKL3cmWsEx_IRms0X")
-    //       .then((response) => {
-    //         console.log("Email sent:", response);
-    //       })
-    //       .catch((error) => {
-    //         console.error("Error sending email:", error);
-    //       });
-    //   };
-
-
-
-
-    // const logo = require("./logo.png");
+    const logo = require("./Decent Arcadia.jpg");
     // const user = require("./user.png");
     return (
         <div className="container">
 
             <div className="header">
-                {/* <img className="logo" src={logo} alt="logo" /> */}
+                <img className="logo" src={logo} alt="logo" />
                 <h1>
-                    Logo
+                   <span className="de">Decent</span><span className="ar">Arcadia </span> 
                 </h1>
             </div>
             <div className="wrapper">
 
                 <form>
                     <div className="pdfContainer" id="pdf-content">
-
-                        <div className="uploadContainer">
-                            {/* <div className="uploadPhoto">
-                                
-                                 <img className="userImg" src={photoData ? photoData : user} alt="img"/>
-                                 <div className="discrip">
-                                    <p className="topP">To add a photo to your resume, click the button and select a file to upload.</p>
-                                    <p className="bottomP">Supported file formats are .jpg, .gif and .png. The file size limit is set at 10 MB.</p>
-                                    <label className="inputFile">
-
-                                    <input type="file" name="photo" className="photo" required onChange={handleFile} id="phone" />
-                                    Upload Photo
-                                    </label>
-                                 </div>
-                            </div> */}
-
-
-                        </div>
-                        {/* <hr /> */}
-
                         <div className="mainDetails">
 
                             <div className="topIndi">
@@ -519,6 +343,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
+                                    <p>_</p>
                                     <select  className="adhVal" value={adVal4} onChange={(e) => setAdVal4(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -571,6 +396,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
+                                    <p>_</p>
                                     <select  className="adhVal" value={adVal8} onChange={(e) => setAdVal8(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -623,70 +449,20 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <select  className="adhVal" value={adVal12} onChange={(e) => setAdVal12(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select  className="adhVal" value={adVal13} onChange={(e) => setAdVal13(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select  className="adhVal" value={adVal14} onChange={(e) => setAdVal14(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select  className="adhVal" value={adVal15} onChange={(e) => setAdVal15(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
+                                    
+                                    
+                                    
+                                    
                                     </div>
                                 
                                 </div>
 
                         </div>
-                        <hr />
-
                     </div>
 
 
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Next</button>
 
                 </form>
             </div>
