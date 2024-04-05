@@ -57,7 +57,7 @@ function Form() {
 
         setAge(accurateAge);
     };
-
+    console.log(age);
     const [adVal0, setAdVal0] = useState();
     const [adVal1, setAdVal1] = useState();
     const [adVal2, setAdVal2] = useState();
@@ -267,7 +267,7 @@ function Form() {
 
                                 <div className="indiDetails">
                                     <label htmlFor="dob">Age</label>
-                                    {age} Years Old
+                                    {age?age:""} Years Old
                                     {/* <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" /> */}
                                 </div>
 
