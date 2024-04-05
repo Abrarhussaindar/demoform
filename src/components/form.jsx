@@ -887,9 +887,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <div>
-
-                                    </div>
+                                    
                                     <select className="adhVal" value={adVal4} onChange={(e) => setAdVal4(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -942,9 +940,7 @@ function Form() {
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                    <div>
-
-                                    </div>
+                                
                                     <select className="adhVal" value={adVal8} onChange={(e) => setAdVal8(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>

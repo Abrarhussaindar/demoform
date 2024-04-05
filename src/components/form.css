@@ -112,11 +112,10 @@
   width: 190px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 17px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
   background-color: white;
-  row-gap: 10px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneVal {
   width: 40px;

@@ -153,11 +153,13 @@
                             width: 190px;
                         }
                         .phoneNumber{
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 17px;
+                            // display: flex;
+                            // flex-wrap: wrap;
+                            display: grid;
+                            grid-template-columns: repeat(5, 1fr);
+                            gap: 10px;
                             background-color: white;
-                            row-gap: 10px;
+                            // row-gap: 10px;
                             .phoneVal{
                                 width: 40px;
                                 height: 40px;
