@@ -696,7 +696,7 @@ function Form() {
                                         <div className="innerInnerDiv">
                                             <h4>Filtered Areas:</h4>
                                             <select className="pincode" value={pinArea} onChange={(e) => setPinArea(e.target.value)}>
-                                                {/* <option value="">Select Option</option> */}
+                                                <option value="">Select Option</option>
                                                 {filteredAreas.map(area => (
                                                     <option key={area}>{area}</option>
                                                 ))}
