@@ -18,26 +18,17 @@
 .container .header {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: flex-end;
   gap: 10px;
+  padding-left: 20px;
 }
 .container .header .logo {
   width: 90px;
 }
-.container .header h1 {
-  font-weight: 600;
+.container .header h4 {
+  font-size: 26px;
   color: #FE0000;
-  font-size: 32px;
-}
-.container .header h1 .ar {
-  background-color: #FE0000;
-  color: white;
-  padding: 1px 7px;
-}
-.container .header h1 .de {
-  border: 1px solid #FE0000;
-  padding: 0 7px;
 }
 .container .wrapper {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -64,6 +55,20 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   row-gap: 20px;
+}
+.container .wrapper form .pdfContainer .mainDetails .pin {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv .innerInnerDiv {
+  display: flex;
+  flex-direction: column;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails {
   display: flex;

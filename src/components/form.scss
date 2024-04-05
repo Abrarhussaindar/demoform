@@ -20,29 +20,35 @@
     .header {
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: flex-end;
         gap: 10px;
+        padding-left: 20px;
         .logo {
             // height: 150px;
             width: 90px;
         }
 
-        h1 {
-            // margin-top: 10px;
-            font-weight: 600;
-            color: #FE0000;
-            font-size: 32px;
+        // h1 {
+        //     // margin-top: 10px;
+        //     font-weight: 600;
+        //     color: #FE0000;
+        //     font-size: 32px;
             
-            .ar {
-                background-color: #FE0000;
-                color: white;
-                padding: 1px 7px;
-            }
-            .de{
-                border: 1px solid #FE0000;
-                padding: 0 7px;
-            }
+        //     .ar {
+        //         background-color: #FE0000;
+        //         color: white;
+        //         padding: 1px 7px;
+        //     }
+        //     .de{
+        //         border: 1px solid #FE0000;
+        //         padding: 0 7px;
+        //     }
+        // }
+
+        h4{
+            font-size: 26px;
+            color: #FE0000;
         }
 
     }
@@ -76,6 +82,23 @@
                         gap: 10px;
                         row-gap: 20px;
                     }
+                    .pin{
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 10px;
+                        .indiDetails{
+                            .innerDiv{
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                .innerInnerDiv{
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                            }
+                        }
+                        // row-gap: 20px;
+                    }
 
                     .indiDetails {
                         display: flex;
@@ -89,7 +112,7 @@
 
                             // color: #333;
                         }
-
+                        
                         input {
                             width: 80%;
                             height: 30px;

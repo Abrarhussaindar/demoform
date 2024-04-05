@@ -11,18 +11,18 @@ function Form() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [address, setAddress] = useState("");
-    const [pinCode, setPinCode] = useState("");
+    // const [pinCode, setPinCode] = useState("");
     const [dob, setDob] = useState("");
     const [dis, setDis] = useState();
     const [division, setDiv] = useState();
     const [block, setBlock] = useState();
     const [gender, setGen] = useState();
-    
+
     const [clas, setClas] = useState();
     const [socialClas, setSocailClas] = useState();
     const [ageGroup, setAgeGroup] = useState();
     const [monthlyIncome, setMonthlyIncome] = useState();
-
+    // const [areaa, setAreaa] = useState("");
 
     const [phVal0, setPhVal0] = useState();
     const [phVal1, setPhVal1] = useState();
@@ -52,16 +52,158 @@ function Form() {
 
     const [email, setEmail] = useState("");
 
-    const logo = require("./Decent Arcadia.jpg");
+    const [pinCodes, setPinCodes] = useState({
+        "184104": ["Mini Sect. (Kathua)"],
+        "181205": ["Muthi"],
+        "185151": ["Noashera"],
+        "184121": ["Samba"],
+        "180019": ["Sidhara Housing Colony"],
+        "185202": ["Solki", "Kalakote"],
+        "185153": ["Sunderbani"],
+        "184120": ["Vijaypur"],
+        "182121": ["Garhi", "Pampore"],
+        "184101": ["Kathua"],
+        "182301": ["Katra"],
+        "185155": ["Bhawani"],
+        "185233": ["Budhal"],
+        "185135": ["Darhal Malkan"],
+        "185111": ["D. Mendhar"],
+        "185132": ["Jawaharnagar"],
+        // "185202": ["Kalakote"],
+        "185156": ["Kangri"],
+        "185152": ["Lamberi"],
+        "185102": ["Mandi"],
+        // "185151": ["Humhama"],
+        "185101": ["Poonch"],
+        "185131": ["Rajouri"],
+        "185121": ["Samote"],
+        "185201": ["Solki"],
+        // "185153": ["Humhama"],
+        "185212": ["Thanamandi"],
+        "182311": ["Reasi"],
+        "182125": ["Roan"],
+        "182101": ["Udhampur"],
+        "192122": ["Awantipora"],
+        "190018": ["Bemina-Chowk"],
+        "190004": ["Batwara"],
+        "190020": ["Buchpora"],
+        "191111": ["Budgam"],
+        "191201": ["Ganderbal"],
+        "190021": ["Humhama"],
+        "190014": ["Hyderpora"],
+
+        "190008": ["Jawahar Nagar"],
+        "192304": ["Kakpora"],
+        "190010": ["Karan Nagar"],
+        "190006": ["Kashmir University"],
+        "192102": ["Khanabal"],
+        "193103": ["Khawaja-Bagh"],
+        "190015": ["Natipora"],
+        "190011": ["Naushara"],
+        "190009": ["New Secretariat"],
+        "191101": ["Pantha Chowk"],
+        "190017": ["Parimpora"],
+        "190003": ["Rainawari"],
+        "190007": ["SKAirport"],
+        "190002": ["SRGanj"],
+        "190005": ["Sanat Nagar"],
+        "190012": ["Zainakote"],
+        "192101": ["Anantnag"],
+        "193101": ["Baramulla"],
+        "192124": ["Bijbehara"],
+        // "182121": ["Pampore"],
+        "193121": ["Pattan"],
+        "192301": ["Pulwama"],
+        "193201": ["Sopore"],
+        "180001": ["A.G.office", "Bakshinagar", "Darbargarh", "Dhounthly Bazar", "Jammu", "Kachi Chowni", "Link Road", "New Sectt.jammu", "O.h.Road", "Peermitha", "Raghunath Bazar", "Shaheedi Chowk Jammu", "Shaktinagar Jammu"],
+        "180002": ["Talab Tillo", "Akalpur", "Bhadrod", "Gol Gujral", "Sangrampur", "Suryavihar"],
+        // "180002": ["Humhama"],
+        "180003": ["Industrial Estate", "Jammu Cantt", "Makwal Branch Office", "Mandal Branch Office", "Natc Sub Office", "Sohanjana Branch Office"],
+        "180004": ["Gandhinagar Head Office", "Guru Nanak Nagar Sub Office", "Transport Yard Sub Office"],
+        "180005": ["Karan Nagar", "Kotli Colony", "Puran Nagar", "Rehari Mohalla", "Subash Nagar Jammu"],
+        // "180005": ["Rehari Mohalla"],
+        // "180006": ["Humhama"],
+        "180006": ["New University Campus", "Bain Bajalta Branch Office", "Qilla Bahu Sub Office"],
+        "180007": ["Janipur"],
+        "180009": ["Bhour Camp Branch Office"],
+        "180010": ["Gangyal Sub Office", "Kalu Chak Branch Office"],
+        // "180011": ["Humhama"],
+        "180011": ["Sainik Colony", "Chowadi Branch Office", "Sunjwan Branch Office"],
+        "180012": ["Railway Station", "New Fruit Market", "Trikuta Nagar Sub Office"],
+        // "180012": ["Humhama"],
+        "180013": ["Roop Nagar"],
+        // "180013": ["Humhama"],
+        "180015": ["Channi Himat"],
+        "180016": ["Vinaik Bazar", "General Bus Stand", "Krishna Nagar", "University Campus"],
+        // "180016": ["Humhama"],
+        "180017": ["Aitham Branch Office", "Kanachirgal Branch Office", "Surinsar Branch Office"],
+        "181008": ["Gho Manhasan Branch Office"],
+        "181101": ["Miran Sahib Sub Office", "Gadigarh Branch Office", "Kirpind Branch Office", "Langotian Branch Office", "Rattisn Branch Office"],
+        // "181101": ["Humhama"],
+        "181102": ["R S Pura", "R.S.Pura Adda Sub Office", "R.S.Pura Sub Office", "Agra Chak Branch Office",
+            "Chakrohi", "Chohala", "Faloura Branch Office", "Jassore Branch Office", "Kotlishah Daula Branch Office", "Rangpur Malania Branch Office", "Satrayan Branch Office", "Shamka Branch Office", "Suchetgarh Branch Office"
+        ],
+        // "181102": ["Humhama"],
+        "181103": ["Badyal Brahmna"],
+        "181104": ["Simble Camp"],
+        "181111": ["Dablehar Sub Office", "Goondla Branch Office", "Magowali Branch Office", "Rathana Branch Office", "Salehar Branch Office"],
+        // "181121": ["Humhama"],
+        "181121": ["Paloura", "Topsherkhania"],
+        "181122": ["Baran Branch Office", "Bhalwal", "Gharota", "Jandial", "Kot Branch Office", "Rabta Branch Office", "Ranjan Branch Office", "Sarote Branch Office", "Seri Panditan"],
+        "181123": ["Bantalab", "Raipur"],
+        "181124": ["Bsf Camp Paloura"],
+        "181131": ["Arnia Sub Office"],
+        "181132": ["Banachak Branch Office", "Bishnah Adda Sub Office", "Bishnah Sub Office", "Chak Umrah", "Darap Branch Office", "Deoli Branch Office", "Kanhal Branch Office", "Kheri Branch Office", "Kotli Mian Fateh Branch Office", "Palli Branch Office", "Pandorian Manhasan Branch Office", "Rehal Branch Office"],
+        "181133": ["Adlehar Branch Office", "Allah Branch Office", "Kalyana Branch Office", "Kool Kalan Branch Office", "Parlah Branch Office", "Pindicharka Kalan Branch Office", "Rangpur Trewa Branch Office", "Sai Kalan Branch Office"],
+        "181151": ["Raika"],
+        // "181201": ["Humhama"],
+        "181201": ["Akhnoor", "Akhnoor Sub Office", "Ambaran", "Bala Branch Office", "Bamal Colony", "Brui Branch Office", "Gandharwan Branch Office", "Gharatal", "Gurha Brahmna", "Kaink Jagir", "Kathar", "Lehar Branch Office", "Mandarian", "Mawa Brahmna", "Pacca Danga Akhnoor", "Sungal"],
+        "181202": ["Bakore Branch Office", "Bhalwal Brahmna Branch Office", "Chak Kirpalpur Branch Office", "Datial Branch Office", "Devipur Branch Office", "Dhoke Khalsa Branch Office", "Jourian", "Maira Branch Office"],
+        "181203": ["Chak Malal", "Danwal", "Gigrial Branch Office", "Kaleetg Branch Office", "Kharah", "Khour", "Naryana", "Nathal", "Nikkian", "Sainth"],
+        // "181204": ["Humhama"],
+        "181204": ["Pallan-Walla", "Bardoh", "Kot Maira"],
+        // "181205": ["Humhama"],
+        "181206": ["Batehra", "Chak Shama", "Domana", "Gajanso Branch Office", "Garkhal Branch Office", "Kanachak", "Kangrial Branch Office", "Karloop", "Mishriwala", "Nagbani Branch Office", "Paryal"],
+        "181207": ["Gurah Manhasan", "Pargwal"],
+        "181208": ["Halqa Branch Office"],
+        "181209": ["Hamirpur Sidhar Branch Office"],
+        "181221": ["Jhajjar kotli", "Jagti Branch Office", "Kandoli Nagrota", "Nadore Branch Office", "Panjgrain", "Shiba Branch Office"],
+        "181224": ["Bhatyari Branch Office", "Dansal", "Jindrah Branch Office", "Kanyala Branch Office", "Kishanpur Branch Office", "Kothar", "Tahra Branch Office"]
+    })
+    const [filteredAreas, setFilteredAreas] = useState([]);
+
+    const handleDigitInput = (event) => {
+        const digit = event.target.value;
+        // setPinCode(digit)
+        filterAreas(digit);
+    };
+
+    const filterAreas = (digit) => {
+        const filteredAreas = Object.keys(pinCodes)
+            .filter(pinCode => pinCode.includes(digit))
+            .reduce((acc, pinCode) => acc.concat(pinCodes[pinCode]), []);
+
+        setFilteredAreas(filteredAreas);
+    };
+
+    const logo = require("./Decent Arcadia type 4.jpg");
     // const user = require("./user.png");
     return (
         <div className="container">
 
             <div className="header">
                 <img className="logo" src={logo} alt="logo" />
-                <h1>
+                {/* <h1>
                     <span className="de">DeCent</span><span className="ar">ArCadia </span>
-                </h1>
+                </h1> */}
+                <div>
+
+                <h4>
+                    Skill gap servay
+                </h4>
+                <p>Youth aspiration questinory
+                </p>
+                </div>
             </div>
             <div className="wrapper">
 
@@ -83,19 +225,6 @@ function Form() {
                                     <input type="text" value={address} required onChange={(e) => setAddress(e.target.value)} name="desig" id="desig" />
                                 </div>
                                 <div className="indiDetails">
-                                    <label htmlFor="desig">Pin Code</label>
-                                    <input type="text" value={pinCode} maxLength={6} required onChange={(e) => setPinCode(e.target.value)} name="desig" id="desig" />
-                                </div>
-                                <div className="indiDetails">
-                                    <label htmlFor="dob">DOB</label>
-                                    <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
-                                </div>
-
-                                {/* <div className="indiDetails">
-                                <label htmlFor="expe">Total Years of Experience</label>
-                                <input type="number" value={YOE} required onChange={(e) => setYOE(e.target.value)} name="expe" id="expe" />
-                            </div> */}
-                                <div className="indiDetails">
                                     <label htmlFor="email">Gender</label>
                                     <select value={gender} onChange={(e) => setGen(e.target.value)}>
                                         <option value="">Select Option</option>
@@ -105,6 +234,14 @@ function Form() {
 
                                     </select>
                                 </div>
+
+                                <div className="indiDetails">
+                                    <label htmlFor="dob">DOB</label>
+                                    <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
+                                </div>
+
+
+
 
                             </div>
                             <div className="indiDetails">
@@ -170,7 +307,7 @@ function Form() {
                                     <select value={block} onChange={(e) => setBlock(e.target.value)}>
                                         <option value="">Select Option</option>
 
-                                            {/* Jammu District Blocks */}
+                                        {/* Jammu District Blocks */}
                                         {
                                             dis === "Jammu"
                                                 ?
@@ -232,7 +369,7 @@ function Form() {
                                                     <option value="Malhar">Malhar</option>
                                                     <option value="Nagri-Parole">Nagri-Parole</option>
                                                     <option value="Rajbagh">Rajbagh</option>
-                                                    
+
                                                 </>
                                                 : ""
                                         }
@@ -246,7 +383,7 @@ function Form() {
                                                     <option value="Khari">Khari</option>
                                                     <option value="Ramban">Ramban</option>
                                                     <option value="Ramsoo">Ramsoo</option>
-                                                    
+
                                                 </>
                                                 : ""
                                         }
@@ -291,7 +428,7 @@ function Form() {
                                                     <option value="Mandi">Mandi</option>
                                                     <option value="Mendhar">Mendhar</option>
                                                     <option value="Surankote">Surankote</option>
-                                            
+
                                                 </>
                                                 : ""
                                         }
@@ -338,12 +475,12 @@ function Form() {
                                                     <option value="Ramgarh">Ramgarh</option>
                                                     <option value="Samba">Samba</option>
                                                     <option value="Vijaypur">Vijaypur</option>
-                                                    
+
                                                 </>
                                                 : ""
                                         }
 
-                                            {/* Kashmir District Blocks */}
+                                        {/* Kashmir District Blocks */}
                                         {
                                             dis === "Srinagar"
                                                 ?
@@ -368,7 +505,7 @@ function Form() {
                                                     <option value="Shalimar">Shalimar</option>
                                                     <option value="Soura">Soura</option>
                                                     <option value="Zadibal">Zadibal</option>
-                                                    
+
                                                 </>
                                                 : ""
                                         }
@@ -390,8 +527,8 @@ function Form() {
                                                     <option value="Seer Hamdan">Seer Hamdan</option>
                                                     <option value="Shangus">Shangus</option>
                                                     <option value="Vailoo">Vailoo</option>
-                                                    
-                                                    
+
+
                                                 </>
                                                 : ""
                                         }
@@ -399,16 +536,16 @@ function Form() {
                                             dis === "Pulwama"
                                                 ?
                                                 <>
-                                                <option value="Awantipora">Awantipora</option>
-                                                <option value="Kakapora">Kakapora</option>
-                                                <option value="Pampore">Pampore</option>
-                                                <option value="Pulwama">Pulwama</option>
-                                                <option value="Rajpora">Rajpora</option>
-                                                <option value="Tral">Tral</option>
-                                                
-                                                
-                                                
-                                            </>
+                                                    <option value="Awantipora">Awantipora</option>
+                                                    <option value="Kakapora">Kakapora</option>
+                                                    <option value="Pampore">Pampore</option>
+                                                    <option value="Pulwama">Pulwama</option>
+                                                    <option value="Rajpora">Rajpora</option>
+                                                    <option value="Tral">Tral</option>
+
+
+
+                                                </>
                                                 : ""
                                         }
                                         {
@@ -423,9 +560,9 @@ function Form() {
                                                     <option value="Ramhall">Ramhall</option>
                                                     <option value="Sogam">Sogam</option>
                                                     <option value="Tangdar">Tangdar</option>
-                                                
-                                                
-                                                
+
+
+
                                                 </>
                                                 : ""
                                         }
@@ -465,7 +602,7 @@ function Form() {
                                                     <option value="Hajin">Hajin</option>
                                                     <option value="Sonawari">Sonawari</option>
                                                     <option value="Sumbal">Sumbal</option>
-                                                    
+
 
                                                 </>
                                                 : ""
@@ -484,7 +621,7 @@ function Form() {
                                                     <option value="Tangmarg">Tangmarg</option>
                                                     <option value="Uri">Uri</option>
                                                     <option value="Watergam">Watergam</option>
-                                                    
+
 
                                                 </>
                                                 : ""
@@ -501,8 +638,8 @@ function Form() {
                                                     <option value="Magam">Magam</option>
                                                     <option value="Nagam">Nagam</option>
                                                     <option value="Soibug">Soibug</option>
-                                                    
-                                                    
+
+
 
                                                 </>
                                                 : ""
@@ -520,15 +657,39 @@ function Form() {
                                                 </>
                                                 : ""
                                         }
-                                        
+
                                     </select>
-                                    
+
                                 </div>
 
 
 
 
                             </div>
+                            <div className="pin">
+                                <div className="indiDetails">
+                                    <label htmlFor="desig">Pin Code</label>
+                                    {/* onChange={(e) => setPinCodes(e.target.value)} */}
+                                    {/* <input type="text" value={""} maxLength={6} required name="desig" id="desig" /> */}
+                                    <div className="innerDiv">
+                                        <input type="text" onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
+                                        <div className="innerInnerDiv">
+                                            <h4>Filtered Areas:</h4>
+                                            <ul>
+                                                {filteredAreas.map(area => (
+                                                    <li key={area}>{area}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="indiDetails">
+                                    <label htmlFor="desig">Area</label>
+                                    {/* {areaa ? areaa : ""} */}
+                                </div>
+                            </div>
+
                             <div className="indiDetails">
                                 <label htmlFor="phone">Phone Number (+91)</label>
                                 {/* <p>+91 </p> */}
@@ -840,16 +1001,16 @@ function Form() {
                                 </div>
 
                             </div>
-                            
-                            
+
+
                             <div className="lowerDetails">
                                 <div className="indiDetails">
-                                    <label htmlFor="email">Class</label>
+                                    <label htmlFor="email">Category</label>
                                     <select value={clas} onChange={(e) => setClas(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Urban">Urban</option>
                                         <option value="Rural">Rural</option>
-                                        
+
 
                                     </select>
                                 </div>
@@ -891,7 +1052,7 @@ function Form() {
                                     </select>
                                 </div>
                                 <div className="indiDetails">
-                                    <label htmlFor="email">Monthly Family Inco.</label>
+                                    <label htmlFor="email">Mont. Family Income</label>
                                     <select value={monthlyIncome} onChange={(e) => setMonthlyIncome(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Below 5000">Below 5000</option>
@@ -912,6 +1073,8 @@ function Form() {
                     <button type="submit">Next</button>
 
                 </form>
+
+
             </div>
 
         </div>
