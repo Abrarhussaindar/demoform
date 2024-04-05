@@ -201,9 +201,9 @@ function Form() {
                 <div>
 
                 <h4>
-                    Skill gap servay
+                    Skill gap survey
                 </h4>
-                <p>Youth aspiration questinory
+                <p>Youth aspiration questionnaire
                 </p>
                 </div>
             </div>
