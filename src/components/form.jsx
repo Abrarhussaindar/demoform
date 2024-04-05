@@ -77,7 +77,7 @@ function Form() {
         "185101": ["Poonch"],
         "185131": ["Rajouri"],
         "185121": ["Samote"],
-        "185201": ["Solki"],
+        
         // "185153": ["Humhama"],
         "185212": ["Thanamandi"],
         "182311": ["Reasi"],
@@ -120,7 +120,7 @@ function Form() {
         // "180002": ["Humhama"],
         "180003": ["Industrial Estate", "Jammu Cantt", "Makwal Branch Office", "Mandal Branch Office", "Natc Sub Office", "Sohanjana Branch Office"],
         "180004": ["Gandhinagar Head Office", "Guru Nanak Nagar Sub Office", "Transport Yard Sub Office"],
-        "180005": ["Karan Nagar", "Kotli Colony", "Puran Nagar", "Rehari Mohalla", "Subash Nagar Jammu"],
+        "180005": [ "Kotli Colony", "Puran Nagar", "Rehari Mohalla", "Subash Nagar Jammu"],
         // "180005": ["Rehari Mohalla"],
         // "180006": ["Humhama"],
         "180006": ["New University Campus", "Bain Bajalta Branch Office", "Qilla Bahu Sub Office"],
