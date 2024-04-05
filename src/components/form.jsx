@@ -42,21 +42,21 @@ function Form() {
         let agee = today.getFullYear() - birthDate.getFullYear();
         const monthDifference = today.getMonth() - birthDate.getMonth();
         if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-          agee--;
+            agee--;
         }
         console.log(agee);
         const yearsDifference = today.getFullYear() - birthDate.getFullYear();
         const monthsDifference = today.getMonth() - birthDate.getMonth();
         const daysDifference = today.getDate() - birthDate.getDate();
-    
+
         let accurateAge = yearsDifference;
-    
+
         if (monthsDifference < 0 || (monthsDifference === 0 && daysDifference < 0)) {
-          accurateAge--;
+            accurateAge--;
         }
-    
+
         setAge(accurateAge);
-      };
+    };
 
     const [adVal0, setAdVal0] = useState();
     const [adVal1, setAdVal1] = useState();
@@ -262,12 +262,12 @@ function Form() {
 
                                 <div className="indiDetails">
                                     <label htmlFor="dob">DOB</label>
-                                    <input className="dob" type="date" value={dob} required onChange={(e) =>{ setDob(e.target.value);calculateAge();}} name="dob" id="dob" />
+                                    <input className="dob" type="date" value={dob} required onChange={(e) => { setDob(e.target.value); calculateAge(); }} name="dob" id="dob" />
                                 </div>
 
                                 <div className="indiDetails">
                                     <label htmlFor="dob">Age</label>
-                                    { age } Years Old
+                                    {age} Years Old
                                     {/* <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" /> */}
                                 </div>
 
@@ -707,10 +707,15 @@ function Form() {
                                         <div className="innerInnerDiv">
                                             <h4>Filtered Areas:</h4>
                                             <select className="pincode" value={pinArea} onChange={(e) => setPinArea(e.target.value)}>
-                                                <option value="">Select Option</option>
                                                 {filteredAreas.map(area => (
                                                     <option key={area}>{area}</option>
                                                 ))}
+                                                {
+                                                    filteredAreas.length === 1 ?
+
+                                                        <option value="">Select Option</option>
+                                                        : ""
+                                                }
 
                                             </select>
                                         </div>
