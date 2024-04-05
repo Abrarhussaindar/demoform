@@ -23,7 +23,7 @@
   gap: 10px;
 }
 .container .header .logo {
-  width: 100px;
+  width: 90px;
 }
 .container .header h1 {
   font-weight: 600;
@@ -97,14 +97,14 @@
   border: none;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   height: 35px;
   background-color: white;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 17px;
   background-color: white;
   row-gap: 10px;
 }
@@ -117,7 +117,7 @@
 .container .wrapper form .pdfContainer .mainDetails .adhNumber {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   background-color: white;
 }
@@ -383,9 +383,6 @@
   }
   .container .wrapper form .uploadContainer {
     flex-direction: column;
-  }
-  .container .wrapper form .pdfContainer .mainDetails .indiDetails label {
-    font-size: 14px !important;
   }
   .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
     width: 90% !important;
