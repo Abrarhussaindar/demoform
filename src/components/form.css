@@ -82,6 +82,14 @@
   outline: none;
   font-size: 14px;
   padding-left: 10px;
+  background-color: white;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .email {
+  width: 96% !important;
+  background-color: white;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .dob {
+  background-color: white;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails select {
   padding: 5px;
@@ -91,11 +99,13 @@
   outline: none;
   font-size: 14px;
   height: 35px;
+  background-color: white;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
+  background-color: white;
   row-gap: 10px;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneVal {
@@ -109,6 +119,7 @@
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+  background-color: white;
 }
 .container .wrapper form .pdfContainer .mainDetails .adhNumber .adhVal {
   width: 40px;

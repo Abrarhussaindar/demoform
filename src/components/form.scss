@@ -100,8 +100,16 @@
                             outline: none;
                             font-size: 14px;
                             padding-left: 10px;
+                            background-color: white;
                         }
-
+                        .email{
+                            width: 96% !important;
+                            background-color: white;
+                        }
+                        .dob{
+                            
+                            background-color: white;
+                        }
                        
 
                         
@@ -115,12 +123,14 @@
                             outline: none;
                             font-size: 14px;
                             height: 35px;
+                            background-color: white;
                             // padding-left: 10px;
                         }
                         .phoneNumber{
                             display: flex;
                             flex-wrap: wrap;
                             gap: 25px;
+                            background-color: white;
                             row-gap: 10px;
                             .phoneVal{
                                 width: 40px;
@@ -136,6 +146,7 @@
                         flex-wrap: wrap;
                         gap: 10px;
                         align-items: center;
+                        background-color: white;
                         .adhVal{
                             width: 40px;
                             height: 40px;

@@ -83,7 +83,7 @@ function Form() {
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="dob">DOB</label>
-                                    <input type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
+                                    <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" />
                                 </div>
 
                                 {/* <div className="indiDetails">
@@ -100,7 +100,12 @@ function Form() {
                                         
                                     </select>
                                 </div>
+                                
                             </div>
+                            <div className="indiDetails">
+                                    <label htmlFor="email">E-mail</label>
+                                    <input className="email" type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
+                                </div>
                             <div className="bottomIndi">
                             <div className="indiDetails">
                                     <label htmlFor="age">State</label>
@@ -148,10 +153,7 @@ function Form() {
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
                                 
-                                <div className="indiDetails">
-                                    <label htmlFor="email">E-mail</label>
-                                    <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
-                                </div>
+                                
 
                                 
                             </div>
