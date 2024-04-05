@@ -17,6 +17,11 @@ function Form() {
     const [division, setDiv] = useState();
     const [block, setBlock] = useState();
     const [gender, setGen] = useState();
+    
+    const [clas, setClas] = useState();
+    const [socialClas, setSocailClas] = useState();
+    const [ageGroup, setAgeGroup] = useState();
+    const [monthlyIncome, setMonthlyIncome] = useState();
 
 
     const [phVal0, setPhVal0] = useState();
@@ -840,7 +845,7 @@ function Form() {
                             <div className="lowerDetails">
                                 <div className="indiDetails">
                                     <label htmlFor="email">Class</label>
-                                    <select value={gender} onChange={(e) => setGen(e.target.value)}>
+                                    <select value={clas} onChange={(e) => setClas(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Urban">Urban</option>
                                         <option value="Rural">Rural</option>
@@ -850,30 +855,30 @@ function Form() {
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Social Class</label>
-                                    <select className="sc" value={gender} onChange={(e) => setGen(e.target.value)}>
+                                    <select className="sc" value={socialClas} onChange={(e) => setSocailClas(e.target.value)}>
                                         <option value="">Select Option</option>
-                                        <option value="Scheduled Castes (SC)">Scheduled Castes (SC)</option>
-                                        <option value="Scheduled Tribes (ST)">Scheduled Tribes (ST)</option>
-                                        <option value="Other Backward Classes (OBC)">Other Backward Classes (OBC)</option>
-                                        <option value="Economically Weaker Sections (EWS)">Economically Weaker Sections (EWS)</option>
-                                        <option value="Socially and Educationally Backward Classes (SEBC)">Socially and Educationally Backward Classes (SEBC)</option>
-                                        <option value="Physically Challenged (Physically Handicapped/Persons with Disabilities)">Physically Challenged (Physically Handicapped/Persons with Disabilities)</option>
-                                        <option value="Destitute/Underprivileged">Destitute/Underprivileged</option>
-                                        <option value="Below Poverty Line (BPL)">Below Poverty Line (BPL)</option>
-                                        <option value="Women, particularly in marginalized communities">Women, particularly in marginalized communities</option>
-                                        <option value="Minority communities such as Muslims, Sikhs, Christians, Buddhists, etc.">Minority communities such as Muslims, Sikhs, Christians, Buddhists, etc.</option>
-                                        <option value="Transgender persons">Transgender persons</option>
-                                        <option value="Ex-Servicemen">Ex-Servicemen</option>
-                                        <option value="Refugees (depending on the context, such as refugees from Pakistan-administered Kashmir)">Refugees (depending on the context, such as refugees from Pakistan-administered Kashmir)</option>
-                                        <option value="Farmers, agricultural workers, and rural laborers">Farmers, agricultural workers, and rural laborers</option>
-                                        <option value="Urban poor and homeless">Urban poor and homeless</option>
-                                        <option value="Above Poverty Line">Above Poverty Line</option>
+                                        <option value="SC">Scheduled Castes (SC)</option>
+                                        <option value="ST">Scheduled Tribes (ST)</option>
+                                        <option value="OBC">Other Backward Classes (OBC)</option>
+                                        <option value="EWS">Economically Weaker Sections (EWS)</option>
+                                        <option value="SEBC">Socially and Educationally Backward Classes (SEBC)</option>
+                                        <option value="PHWD">Physically Challenged (Physically Handicapped/Persons with Disabilities)</option>
+                                        <option value="DU">Destitute/Underprivileged</option>
+                                        <option value="BPL">Below Poverty Line (BPL)</option>
+                                        <option value="WMC">Women, particularly in marginalized communities</option>
+                                        <option value="Min">Minority communities such as Muslims, Sikhs, Christians, Buddhists, etc.</option>
+                                        <option value="TRANS">Transgender persons</option>
+                                        <option value="XSER">Ex-Servicemen</option>
+                                        <option value="REF">Refugees (depending on the context, such as refugees from Pakistan-administered Kashmir)</option>
+                                        <option value="AGRI">Farmers, agricultural workers, and rural laborers</option>
+                                        <option value="UPH">Urban poor and homeless</option>
+                                        <option value="APL">Above Poverty Line</option>
 
                                     </select>
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Age Group</label>
-                                    <select value={gender} onChange={(e) => setGen(e.target.value)}>
+                                    <select value={ageGroup} onChange={(e) => setAgeGroup(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Below 15">Below 15</option>
                                         <option value="15-18">15-18</option>
@@ -887,7 +892,7 @@ function Form() {
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Monthly Family Inco.</label>
-                                    <select value={gender} onChange={(e) => setGen(e.target.value)}>
+                                    <select value={monthlyIncome} onChange={(e) => setMonthlyIncome(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Below 5000">Below 5000</option>
                                         <option value="5000-10000">5000-10000</option>

@@ -76,7 +76,7 @@
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails input {
   width: 80%;
-  height: 25px;
+  height: 30px;
   padding: 5px;
   border-radius: 5px;
   border: none;
@@ -100,7 +100,7 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   outline: none;
   font-size: 16px;
-  height: 35px;
+  height: 40px;
   background-color: white;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .sc {
