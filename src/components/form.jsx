@@ -39,13 +39,24 @@ function Form() {
     const calculateAge = () => {
         const today = new Date();
         const birthDate = new Date(dob);
-        let age = today.getFullYear() - birthDate.getFullYear();
+        let agee = today.getFullYear() - birthDate.getFullYear();
         const monthDifference = today.getMonth() - birthDate.getMonth();
         if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
+          agee--;
         }
-        setAge(age);
-    };
+        console.log(agee);
+        const yearsDifference = today.getFullYear() - birthDate.getFullYear();
+        const monthsDifference = today.getMonth() - birthDate.getMonth();
+        const daysDifference = today.getDate() - birthDate.getDate();
+    
+        let accurateAge = yearsDifference;
+    
+        if (monthsDifference < 0 || (monthsDifference === 0 && daysDifference < 0)) {
+          accurateAge--;
+        }
+    
+        setAge(accurateAge);
+      };
 
     const [adVal0, setAdVal0] = useState();
     const [adVal1, setAdVal1] = useState();
