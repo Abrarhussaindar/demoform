@@ -42,10 +42,6 @@ function Form() {
 
     const [adVal10, setAdVal10] = useState();
     const [adVal11, setAdVal11] = useState();
-    const [adVal12, setAdVal12] = useState();
-    const [adVal13, setAdVal13] = useState();
-    const [adVal14, setAdVal14] = useState();
-    const [adVal15, setAdVal15] = useState();
 
     const [email, setEmail] = useState("");
 
@@ -57,7 +53,7 @@ function Form() {
             <div className="header">
                 <img className="logo" src={logo} alt="logo" />
                 <h1>
-                   <span className="de">Decent</span><span className="ar">Arcadia </span> 
+                <span className="de">Decent</span><span className="ar">Arcadia </span> 
                 </h1>
             </div>
             <div className="wrapper">
