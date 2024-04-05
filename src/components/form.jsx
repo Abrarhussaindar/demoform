@@ -176,6 +176,8 @@ function Form() {
         const digit = event.target.value;
         // setPinCode(digit)
         filterAreas(digit);
+        setPinCodes(prevPinCodes => ({
+            ...prevPinCodes,"0":"a"}))
     };
 
     const filterAreas = (digit) => {
@@ -679,6 +681,7 @@ function Form() {
                                                 {filteredAreas.map(area => (
                                                     <li key={area}>{area}</li>
                                                 ))}
+                                                
                                             </ul>
                                         </div>
                                     </div>
