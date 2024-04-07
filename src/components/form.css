@@ -76,6 +76,11 @@
   display: flex !important;
   flex-direction: column;
 }
+.container .wrapper form .pdfContainer .mainDetails .empDetails .top {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
 .container .wrapper form .pdfContainer .mainDetails .pin {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -122,7 +127,7 @@
   background-color: white;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails select {
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -130,6 +135,7 @@
   font-size: 16px;
   height: 40px;
   background-color: white;
+  cursor: pointer;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect {
   position: relative;
@@ -146,20 +152,35 @@
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow {
   position: absolute;
   top: 0;
+  color: black;
   right: 0;
-  height: 95%;
+  height: 96%;
   padding: 0 10px;
   border: 1px solid #FE0000;
   border-radius: 1px 5px 5px 1px;
   pointer-events: none;
+  width: 20px;
+  background: white;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow:hover {
   background-color: #FE0000;
 }
-.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow img {
-  pointer-events: none;
-  transform: translatey(50%);
-  width: 20px;
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow::before {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #FE0000;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow:hover::before {
+  border-top: 10px solid white;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .sc {
   width: 190px;

@@ -90,6 +90,12 @@
                     .empDetails{
                         display: flex !important;
                         flex-direction: column;
+
+                        .top{
+                            display: grid;
+                            gap: 10px;
+                            grid-template-columns: repeat(2, 1fr);
+                        }
                     }
                     .pin{
                         display: grid;
@@ -152,16 +158,18 @@
 
                         select {
                             // width: 80%;
-                            padding: 5px;
+                            padding: 5px 10px;
                             border-radius: 5px;
                             border: none;
                             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                             outline: none;
                             font-size: 16px;
+                            // font-weight: 500;
                             height: 40px;
                             background-color: white;
                             // padding-left: 10px;
                             // appearance: none;
+                            cursor: pointer;
                             
                         }
                         
@@ -173,25 +181,49 @@
                                 border: 1px solid #FE0000;
                                 border-radius: 5px;
                                 appearance: none;
+                                // height: min-content;
                             }
                             
                             .customArrow{
                                 position: absolute;
+                                
                                 top: 0;
+                                color: black;
                                 right: 0;
-                                height: 95%;
+                                height: 96%;
                                 padding: 0 10px;
                                 border: 1px solid #FE0000;
                                 border-radius: 1px 5px 5px 1px;
-                                pointer-events: none; 
+                                pointer-events: none;
+                                width: 20px;
+                                background: white;
+                                
                                 &:hover{
                                     background-color: #FE0000;
+                                    
+                                
                                 }
-                                img{
-                                    pointer-events: none; 
-                                    transform: translatey(50%);
-                                    width: 20px;
-                                }
+                                
+                            }
+                            .customArrow::before
+                            {
+                                content: "";
+                                position: absolute;
+                                width: 0;
+                                height: 0;
+                                left: 50%;
+                                top: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                            .customArrow::before{
+                                border-left: 10px solid transparent;
+                                border-right: 10px solid transparent;
+                                border-top: 10px solid #FE0000;
+
+                                
+                            }
+                            .customArrow:hover::before{
+                                border-top: 10px solid white;
                             }
                         }
                         
