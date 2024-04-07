@@ -29,22 +29,22 @@
             width: 90px;
         }
 
-        // h1 {
-        //     // margin-top: 10px;
-        //     font-weight: 600;
-        //     color: #FE0000;
-        //     font-size: 32px;
+        h1 {
+            // margin-top: 10px;
+            font-weight: 600;
+            color: #FE0000;
+            font-size: 28px;
             
-        //     .ar {
-        //         background-color: #FE0000;
-        //         color: white;
-        //         padding: 1px 7px;
-        //     }
-        //     .de{
-        //         border: 1px solid #FE0000;
-        //         padding: 0 7px;
-        //     }
-        // }
+            .ar {
+                background-color: #FE0000;
+                color: white;
+                padding: 1px 7px;
+            }
+            .de{
+                border: 1px solid #FE0000;
+                padding: 0 7px;
+            }
+        }
 
         h4{
             font-size: 26px;
@@ -54,15 +54,20 @@
     }
 
     .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h3{
+            text-decoration: underline;
+        }
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 10px;
         padding: 15px;
         width: 50%;
 
         form {
-            hr {
-                margin: 20px 0;
-            }
+            
 
             .pdfContainer {
                 display: flex;
@@ -81,6 +86,10 @@
                         grid-template-columns: repeat(3, 1fr);
                         gap: 10px;
                         row-gap: 20px;
+                    }
+                    .empDetails{
+                        display: flex !important;
+                        flex-direction: column;
                     }
                     .pin{
                         display: grid;
@@ -152,7 +161,40 @@
                             height: 40px;
                             background-color: white;
                             // padding-left: 10px;
+                            // appearance: none;
+                            
                         }
+                        
+                        .customSelect{
+                            position: relative;
+                            width: 100%;
+                            select{
+                                width: 100%;
+                                border: 1px solid #FE0000;
+                                border-radius: 5px;
+                                appearance: none;
+                            }
+                            
+                            .customArrow{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                height: 95%;
+                                padding: 0 10px;
+                                border: 1px solid #FE0000;
+                                border-radius: 1px 5px 5px 1px;
+                                pointer-events: none; 
+                                &:hover{
+                                    background-color: #FE0000;
+                                }
+                                img{
+                                    pointer-events: none; 
+                                    transform: translatey(50%);
+                                    width: 20px;
+                                }
+                            }
+                        }
+                        
                         .sc{
                             width: 190px;
                         }
@@ -171,6 +213,12 @@
                                 -webkit-appearance: none;
                                 
                             }
+                        }
+                        .other{
+                            display: flex;
+                            flex-direction: column;
+                            // align-items: center;
+                            gap: 5px;
                         }
                     }
                     .adhNumber{
@@ -472,6 +520,7 @@
             }
         }
     }
+    
 }
 
 @media screen and (width <=440px) {

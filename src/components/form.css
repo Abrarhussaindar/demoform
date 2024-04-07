@@ -25,18 +25,35 @@
 .container .header .logo {
   width: 90px;
 }
+.container .header h1 {
+  font-weight: 600;
+  color: #FE0000;
+  font-size: 28px;
+}
+.container .header h1 .ar {
+  background-color: #FE0000;
+  color: white;
+  padding: 1px 7px;
+}
+.container .header h1 .de {
+  border: 1px solid #FE0000;
+  padding: 0 7px;
+}
 .container .header h4 {
   font-size: 26px;
   color: #FE0000;
 }
 .container .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
   padding: 15px;
   width: 50%;
 }
-.container .wrapper form hr {
-  margin: 20px 0;
+.container .wrapper h3 {
+  text-decoration: underline;
 }
 .container .wrapper form .pdfContainer {
   display: flex;
@@ -54,6 +71,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   row-gap: 20px;
+}
+.container .wrapper form .pdfContainer .mainDetails .empDetails {
+  display: flex !important;
+  flex-direction: column;
 }
 .container .wrapper form .pdfContainer .mainDetails .pin {
   display: grid;
@@ -110,6 +131,36 @@
   height: 40px;
   background-color: white;
 }
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect {
+  position: relative;
+  width: 100%;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect select {
+  width: 100%;
+  border: 1px solid #FE0000;
+  border-radius: 5px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 95%;
+  padding: 0 10px;
+  border: 1px solid #FE0000;
+  border-radius: 1px 5px 5px 1px;
+  pointer-events: none;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow:hover {
+  background-color: #FE0000;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .customSelect .customArrow img {
+  pointer-events: none;
+  transform: translatey(50%);
+  width: 20px;
+}
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .sc {
   width: 190px;
 }
@@ -124,6 +175,11 @@
   height: 40px;
   text-align: center;
   -webkit-appearance: none;
+}
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .other {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .container .wrapper form .pdfContainer .mainDetails .adhNumber {
   display: grid;

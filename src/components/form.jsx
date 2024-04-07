@@ -213,6 +213,7 @@ function Form() {
     };
 
     const logo = require("./Decent Arcadia type 4.jpg");
+    const arrow = require("./arrow-down-sign-to-navigate.png");
     // const user = require("./user.png");
     return (
         <div className="container">
@@ -232,7 +233,9 @@ function Form() {
                 </div>
             </div>
             <div className="wrapper">
-
+            <h3>
+                    General Details :
+                </h3>
                 <form>
                     <div className="pdfContainer" id="pdf-content">
                         <div className="mainDetails">
@@ -283,31 +286,49 @@ function Form() {
                             <div className="bottomIndi">
                                 <div className="indiDetails">
                                     <label htmlFor="age">Division</label>
-                                    <select value={division} onChange={(e) => setDiv(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Jammu">JAM</option>
-                                        <option value="Kashmir">KMR</option>
+                                    <div className="customSelect">
 
-                                    </select>
+                                        <select value={division} onChange={(e) => setDiv(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <hr />
+                                            <option value="Jammu">JAM</option>
+                                            <hr />
+                                            <option value="Kashmir">KMR</option>
+
+                                        </select>
+                                        <span className="customArrow">
+                                        <img className="logo" src={arrow} alt="arrow" />
+                                        </span>
+                                    </div>
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="age">District</label>
                                     <select value={dis} onChange={(e) => setDis(e.target.value)}>
                                         <option value="">Select Option</option>
+                                        <hr />
                                         {
                                             division === "Jammu"
                                                 ?
                                                 <>
                                                     <option value="Doda">Doda</option>
+                                                    <hr />
                                                     <option value="Jammu">Jammu</option>
+                                                    <hr />
                                                     <option value="Kathua">Kathua</option>
+                                                    <hr />
                                                     <option value="Kishtwar">Kishtwar</option>
+                                                    <hr />
                                                     <option value="Poonch">Poonch</option>
+                                                    <hr />
                                                     <option value="Rajouri">Rajouri</option>
+                                                    <hr />
                                                     <option value="Ramban">Ramban</option>
+                                                    <hr />
                                                     <option value="Reasi">Reasi</option>
+                                                    <hr />
                                                     <option value="Samba">Samba</option>
+                                                    <hr />
                                                     <option value="Udhampur">Udhampur</option>
                                                 </>
                                                 : ""
