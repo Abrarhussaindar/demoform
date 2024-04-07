@@ -48,6 +48,14 @@ function EdForm() {
     const [otherUGCourse, setOtherUGCourse] = useState();
     const [otherUGField, setOtherUGField] = useState();
     const [otherUGBranch, setOtherUGBranch] = useState();
+    const [otherGradCourse, setOtherGradCourse] = useState();
+    const [otherGradField, setOtherGradField] = useState();
+    const [otherGradBranch, setOtherGradBranch] = useState();
+    const [otherPGCourse, setOtherPGCourse] = useState();
+    const [otherPGField, setOtherPGField] = useState();
+    const [otherPGBranch, setOtherPGBranch] = useState();
+    const [otherDip, setOtherDip] = useState();
+    const [otherIti, setOtherIti] = useState();
     // const arrow = require("../arrow-down-sign-to-navigate.png");
     return (
         <div className='container'>
@@ -606,6 +614,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            GradCourse === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherGradCourse} required onChange={(e) => setOtherGradCourse(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Field</label>
@@ -734,6 +753,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            GradField === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherGradField} required onChange={(e) => setOtherGradField(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div></>
                                                 : ""
                                         }
@@ -801,6 +831,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            GradBranch === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherGradBranch} required onChange={(e) => setOtherGradBranch(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -868,6 +909,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            GradBranch === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherGradBranch} required onChange={(e) => setOtherGradBranch(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -903,6 +955,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            PGCourse === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherPGCourse} required onChange={(e) => setOtherPGCourse(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Field</label>
@@ -1033,6 +1096,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            PGField === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherPGField} required onChange={(e) => setOtherPGField(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div></>
                                                 : ""
                                         }
@@ -1100,6 +1174,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            PGBranch === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherPGBranch} required onChange={(e) => setOtherPGBranch(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -1167,6 +1252,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            PGBranch === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherPGBranch} required onChange={(e) => setOtherPGBranch(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -1275,6 +1371,17 @@ function EdForm() {
 
                                                             </span>
                                                         </div>
+                                                        {
+                                                            dipCourse === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherDip} required onChange={(e) => setOtherDip(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -1338,6 +1445,17 @@ function EdForm() {
 
                                                             </span>
                                                         </div>
+                                                        {
+                                                            itiCourse === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherIti} required onChange={(e) => setOtherIti(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
