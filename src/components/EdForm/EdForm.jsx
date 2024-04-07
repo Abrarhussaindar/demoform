@@ -57,6 +57,16 @@ function EdForm() {
     const [otherDip, setOtherDip] = useState();
     const [otherIti, setOtherIti] = useState();
     // const arrow = require("../arrow-down-sign-to-navigate.png");
+    
+    const [keySkills, setKeySkills] = useState();
+    const [otherKeySkill, setOtherKeySkill] = useState();
+    const [impJob, setImpJob] = useState();
+    const [otherImpJob, setOtherImpJob] = useState();
+    
+    
+    
+    
+    
     return (
         <div className='container'>
             <div className='header'>
@@ -1972,7 +1982,120 @@ function EdForm() {
                                         </>
                                         : ""
                                 }
+                                <div className="indiDetails">
+                                    <label htmlFor="email">According to you, what are the key skills/qualities required to secure a good job?</label>
+                                    <div className='customSelect'>
+                                        <select value={keySkills} onChange={(e) => setKeySkills(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <hr />
+                                            <option value="Technical qualifications/trade-specific knowledge & skills">Technical qualifications/trade-specific knowledge & skills</option>
+                                            <hr />
+                                            <option value="IT/Computer Skills">IT/Computer Skills</option>
+                                            <hr />
+                                            <option value="Knowledge of the business">Knowledge of the business</option>
+                                            <hr />
+                                            <option value="Confidence">Confidence</option>
+                                            <hr />
+                                            <option value="Communication skills">Communication skills</option>
+                                            <hr />
+                                            <option value="Teamwork">Teamwork</option>
+                                            <hr />
+                                            <option value="Having completed an apprenticeship">Having completed an apprenticeship</option>
+                                            <hr />
+                                            <option value="Having contacts/ networks">Having contacts/ networks</option>
+                                            <hr />
+                                            <option value="Other">Others (please specify_____)</option>
+                                            
 
+
+                                        </select>
+                                        <span className="customArrow">
+                                            {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                        </span>
+                                    </div>
+                                    {
+                                        keySkills === "Other"
+                                            ?
+                                            <div className='other'>
+                                                <h5>
+                                                    Specify:
+                                                </h5>
+                                                <input type="text" value={otherKeySkill} required onChange={(e) => setOtherKeySkill(e.target.value)} name="name" id="name" />
+                                            </div>
+                                            : ""
+                                    }
+                                </div>
+                                <div className="indiDetails">
+                                    <label htmlFor="email">Which of the following do you consider to be most important when considering/evaluating/ applying for a job</label>
+                                    <div className='customSelect'>
+                                        <select value={impJob} onChange={(e) => setImpJob(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <hr />
+                                            <option value="Opportunities for promotion and career development">Opportunities for promotion and career development</option>
+                                            <hr />
+                                            <option value="Salary (wages)">Salary (wages)</option>
+                                            <hr />
+                                            <option value="Job security">Job security</option>
+                                            <hr />
+                                            <option value="Company brand value">Company brand value</option>
+                                            <hr />
+                                            <option value="Flexible work arrangements">Flexible work arrangements</option>
+                                            <hr />
+                                            <option value="Location">Location</option>
+                                            <hr />
+                                            <option value="Safety at work">Safety at work</option>
+                                            <hr />
+                                            <option value="Benefits (housing, transport, retirement benefits, etc.)">Benefits (housing, transport, retirement benefits, etc.)</option>
+                                            <hr />
+                                            <option value="Sector of job">Sector of job</option>
+                                            <hr />
+                                            <option value="Job Roles/responsibilities">Job Roles/responsibilities</option>
+                                            <hr />
+                                            <option value="Other">Others (please specify_____)</option>
+
+
+                                        </select>
+                                        <span className="customArrow">
+                                            {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                        </span>
+                                    </div>
+                                    {
+                                        impJob === "Other"
+                                            ?
+                                            <div className='other'>
+                                                <h5>
+                                                    Specify:
+                                                </h5>
+                                                <input type="text" value={otherImpJob} required onChange={(e) => setOtherImpJob(e.target.value)} name="name" id="name" />
+                                            </div>
+                                            : ""
+                                    }
+                                </div>
+                                <div className="indiDetails">
+                                    <label htmlFor="email">How would you rate the availability of appropriate wage employment opportunities nowadays in J&K UT?</label>
+                                    <div className='customSelect'>
+                                        <select value={empd} onChange={(e) => setEmpd(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <hr />
+                                            <option value="Very inadequate">Very inadequate</option>
+                                            <hr />
+                                            <option value="Somewhat inadequate">Somewhat inadequate</option>
+                                            <hr />
+                                            <option value="Neither adequate nor inadequate">Neither adequate nor inadequate</option>
+                                            <hr />
+                                            <option value="Somewhat adequate">Somewhat adequate</option>
+                                            <hr />
+                                            <option value="Very adequate">Very adequate</option>
+                                            <hr />
+                                            <option value="Don’t Know">Don’t Know</option>
+
+
+                                        </select>
+                                        <span className="customArrow">
+                                            {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                        </span>
+                                    </div>
+                                </div>
 
                             </div>
 
