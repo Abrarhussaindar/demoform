@@ -30,6 +30,19 @@ function EdForm() {
     const [phd, setPhd] = useState();
     const [pro, setPro] = useState();
 
+
+    const [wjopp, setWjopp] = useState();
+    const [wmhl, setWmhl] = useState();
+    const [wmoutdis, setWmoutdis] = useState();
+    const [disWm, setDisWm] = useState();
+    const [wmoutUT, setWmoutUT] = useState();
+    const [cityToMigrate, setCityToMigrate] = useState();
+    const [ReasoncityToMigrate, setReasonCityToMigrate] = useState();
+    const [wmoutInd, setWmoutInd] = useState();
+    const [NotwmoutInd, setNotWmoutInd] = useState();
+    const [countryToMigrate, setCountryToMigrate] = useState();
+    const [ReasonCountryToMigrate, setReasonCountryToMigrate] = useState();
+
     // const arrow = require("../arrow-down-sign-to-navigate.png");
     return (
         <div className='container'>
@@ -77,7 +90,7 @@ function EdForm() {
                                             <hr />
                                             <option value="ITI">ITI</option>
                                             <hr />
-                                            <option value="Other">Other</option>
+                                            <option value="Other">Other (please specify)</option>
                                         </select>
                                         <span className="customArrow">
                                             {/* <img className="logo" src={arrow} alt="arrow" /> */}
@@ -88,7 +101,7 @@ function EdForm() {
                                             ?
                                             <div className='other'>
                                                 <h5>
-                                                    Other:
+                                                    Specify:
                                                 </h5>
                                                 <input type="text" value={otherEdu} required onChange={(e) => setOtherEdu(e.target.value)} name="name" id="name" />
                                             </div>
@@ -123,6 +136,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            stream === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherEdu} required onChange={(e) => setOtherEdu(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Main Subjects</label>
@@ -171,6 +195,17 @@ function EdForm() {
                                                                             <hr />
                                                                             <option value="Economics">Economics</option>
                                                                         </>
+                                                                        : ""
+                                                                }
+                                                                {
+                                                                    stream === "Other"
+                                                                        ?
+                                                                        <div className='other'>
+                                                                            <h5>
+                                                                                Specify:
+                                                                            </h5>
+                                                                            <input type="text" value={otherEdu} required onChange={(e) => setOtherEdu(e.target.value)} name="name" id="name" />
+                                                                        </div>
                                                                         : ""
                                                                 }
 
@@ -1038,7 +1073,7 @@ function EdForm() {
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
-                                                        
+
                                                         <h5>
                                                             Specify:
                                                         </h5>
@@ -1052,7 +1087,7 @@ function EdForm() {
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
-                                                        
+
                                                         <h5>
                                                             Specify:
                                                         </h5>
@@ -1066,7 +1101,7 @@ function EdForm() {
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
-                                                        
+
                                                         <h5>
                                                             Specify:
                                                         </h5>
@@ -1219,78 +1254,464 @@ function EdForm() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="indiDetails">
-                                    <label htmlFor="email">What is you current employment status?</label>
-                                    <div className='customSelect'>
-                                        <select value={empStatus} onChange={(e) => setEmpStatus(e.target.value)}>
-                                            <option value="">Select Option</option>
-                                            <hr />
-                                            <option value="Govt Employee">Govt Employee</option>
-                                            <hr />
-                                            <option value="Priviate Employee">Priviate Employee</option>
-                                            <hr />
-                                            <option value="Part Time Employee">Part Time Employee</option>
-                                            <hr />
-                                            <option value="Odd Jobs">Odd Jobs</option>
-                                            <hr />
-                                            <option value="Bussiness">Bussiness</option>
-                                            <hr />
-                                            <option value="Self Employment">Self Employment</option>
-                                            <hr />
-                                            <option value="Enterpurner">Enterpurner</option>
-                                            <hr />
-                                            <option value="Start up">Start up</option>
-                                            <hr />
-                                            <option value="Actively seeking employment">Actively seeking employment</option>
-                                            <hr />
-                                            <option value="Student">Student</option>
-                                            <hr />
-                                            <option value="Homemaker">Homemaker</option>
-                                            <hr />
+                                {
+                                    empd === "Yes"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">What is you current employment status?</label>
+                                                <div className='customSelect'>
+                                                    <select value={empStatus} onChange={(e) => setEmpStatus(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Govt Employee">Govt Employee</option>
+                                                        <hr />
+                                                        <option value="Priviate Employee">Priviate Employee</option>
+                                                        <hr />
+                                                        <option value="Part Time Employee">Part Time Employee</option>
+                                                        <hr />
+                                                        <option value="Odd Jobs">Odd Jobs</option>
+                                                        <hr />
+                                                        <option value="Bussiness">Bussiness</option>
+                                                        <hr />
+                                                        <option value="Self Employment">Self Employment</option>
+                                                        <hr />
+                                                        <option value="Enterpurner">Enterpurner</option>
+                                                        <hr />
+                                                        <option value="Start up">Start up</option>
+                                                        <hr />
+                                                        <option value="Actively seeking employment">Actively seeking employment</option>
+                                                        <hr />
+                                                        <option value="Student">Student</option>
+                                                        <hr />
+                                                        <option value="Homemaker">Homemaker</option>
+                                                        <hr />
 
-                                            <option value="Other">Other</option>
+                                                        <option value="Other">Other</option>
 
-                                        </select>
-                                        <span className="customArrow">
-                                            {/* <img className="logo" src={arrow} alt="arrow" /> */}
-                                        </span>
-                                    </div>
-                                    {
-                                        empStatus === "Other"
-                                            ?
-                                            <div className='other'>
-                                                <h5>
-                                                    Other:
-                                                </h5>
-                                                <input type="text" value={OtherEmpStatus} required onChange={(e) => setOtherEmpStatus(e.target.value)} name="name" id="name" />
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                                {
+                                                    empStatus === "Other"
+                                                        ?
+                                                        <div className='other'>
+                                                            <h5>
+                                                                Other:
+                                                            </h5>
+                                                            <input type="text" value={OtherEmpStatus} required onChange={(e) => setOtherEmpStatus(e.target.value)} name="name" id="name" />
+                                                        </div>
+                                                        : ""
+                                                }
+
                                             </div>
-                                            : ""
-                                    }
 
-                                </div>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">How satisfied are you with your current employment/business situation?</label>
+                                                <div className='customSelect'>
+                                                    <select value={satisfied} onChange={(e) => setSatisfied(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Very satisfied">Very satisfied</option>
+                                                        <hr />
+                                                        <option value="Satisfied">Satisfied</option>
+                                                        <hr />
+                                                        <option value="Neutral">Neutral</option>
+                                                        <hr />
+                                                        <option value="Dissatisfied">Dissatisfied</option>
+                                                        <hr />
+                                                        <option value="Very dissatisfied">Very dissatisfied</option>
 
-                                <div className="indiDetails">
-                                    <label htmlFor="email">How satisfied are you with your current employment/business situation?</label>
-                                    <div className='customSelect'>
-                                        <select value={satisfied} onChange={(e) => setSatisfied(e.target.value)}>
-                                            <option value="">Select Option</option>
-                                            <hr />
-                                            <option value="Very satisfied">Very satisfied</option>
-                                            <hr />
-                                            <option value="Satisfied">Satisfied</option>
-                                            <hr />
-                                            <option value="Neutral">Neutral</option>
-                                            <hr />
-                                            <option value="Dissatisfied">Dissatisfied</option>
-                                            <hr />
-                                            <option value="Very dissatisfied">Very dissatisfied</option>
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
 
-                                        </select>
-                                        <span className="customArrow">
-                                            {/* <img className="logo" src={arrow} alt="arrow" /> */}
-                                        </span>
-                                    </div>
-                                </div>
+
+                                }
+                                {
+                                    empd === "No"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Are you willing to explore new and emerging job opportunities even if they are not traditionally associated with Jammu and Kashmir?</label>
+                                                <div className='customSelect'>
+                                                    <select value={wjopp} onChange={(e) => setWjopp(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Yes">Yes</option>
+                                                        <hr />
+                                                        <option value="No">No</option>
+                                                        <hr />
+                                                        <option value="Maybe">Maybe</option>
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+
+                                {
+                                    wjopp === "Yes"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Are you willing to migrate from your home location for job opportunities?</label>
+                                                <div className='customSelect'>
+                                                    <select value={wmhl} onChange={(e) => setWmhl(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Yes">Yes</option>
+                                                        <hr />
+                                                        <option value="No">No</option>
+                                                        <hr />
+                                                        <option value="Maybe">Maybe</option>
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+
+                                {
+                                    wmhl === "Yes"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Are you willing to migrate-outside the district of residence but within UT of J&K?</label>
+                                                <div className='customSelect'>
+                                                    <select value={wmoutdis} onChange={(e) => setWmoutdis(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Yes">Yes</option>
+                                                        <hr />
+                                                        <option value="No">No</option>
+                                                        <hr />
+                                                        <option value="Maybe">Maybe</option>
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+                                {
+                                    wmoutdis === "Yes"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Which district within the UT of J&K are you willing to migrate to?</label>
+                                                <div className='customSelect'>
+                                                    <select value={disWm} onChange={(e) => setDisWm(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Jammu">Jammu Districts</option>
+                                                        <hr />
+                                                        <option value="Kashmir">Kashmir Districts</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        :
+                                        ""
+
+                                }
+                                {
+                                    wmoutdis === "No"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Are you willing to migrate-outside the UT of J&K but within India?</label>
+                                                <div className='customSelect'>
+                                                    <select value={wmoutUT} onChange={(e) => setWmoutUT(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Yes">Yes</option>
+                                                        <hr />
+                                                        <option value="No">No</option>
+                                                        <hr />
+                                                        <option value="Maybe">Maybe</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+                                {
+                                    wmoutUT === "Yes"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Which city do you want to migrate to in India?</label>
+                                                <div className='customSelect'>
+                                                    <select value={cityToMigrate} onChange={(e) => setCityToMigrate(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Bangalore (Bengaluru)">Bangalore (Bengaluru)</option>
+                                                        <hr />
+                                                        <option value="Hyderabad">Hyderabad</option>
+                                                        <hr />
+                                                        <option value="Mumbai">Mumbai</option>
+                                                        <hr />
+                                                        <option value="Delhi">Delhi</option>
+                                                        <hr />
+                                                        <option value="Pune">Pune</option>
+                                                        <hr />
+                                                        <option value="Chennai">Chennai</option>
+                                                        <hr />
+                                                        <option value="Ahmedabad">Ahmedabad</option>
+                                                        <hr />
+                                                        <option value="Kolkata">Kolkata</option>
+                                                        <hr />
+                                                        <option value="Chandigarh">Chandigarh</option>
+                                                        <hr />
+                                                        <option value="Gurgaon (Gurugram)">Gurgaon (Gurugram)</option>
+                                                        <hr />
+                                                        <option value="Noida">Noida</option>
+                                                        <hr />
+                                                        <option value="Kochi (Cochin)">Kochi (Cochin)</option>
+                                                        <hr />
+                                                        <option value="Others">Others (please specify)</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Please state why (s) for your willingness to migrate outside the UT but </label>
+                                                <div className='customSelect'>
+                                                    <select value={ReasoncityToMigrate} onChange={(e) => setReasonCityToMigrate(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="No suitable job opportunities at UT">No suitable job opportunities at UT</option>
+                                                        <hr />
+                                                        <option value="Better Salary">Better Salary</option>
+                                                        <hr />
+                                                        <option value="Better work culture">Better work culture</option>
+                                                        <hr />
+                                                        <option value="Job as per skill attainment">Job as per skill attainment</option>
+                                                        <hr />
+                                                        <option value="Job relevant to my career aspiration">Job relevant to my career aspiration</option>
+                                                        <hr />
+                                                        <option value="It is easier to get a job in other states">It is easier to get a job in other states</option>
+                                                        <hr />
+                                                        <option value="The presence of extended family or friends">The presence of extended family or friends</option>
+                                                        <hr />
+                                                        <option value="Better exposure and learning environment">Better exposure and learning environment</option>
+                                                        <hr />
+                                                        <option value="Others">Others (please specify)</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+                                {
+                                    wmoutUT === "No"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Do you want to migrate-outside India?</label>
+                                                <div className='customSelect'>
+                                                    <select value={wmoutInd} onChange={(e) => setWmoutInd(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Yes">Yes</option>
+                                                        <hr />
+                                                        <option value="No">No</option>
+                                                        <hr />
+                                                        <option value="Maybe">Maybe</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+                                {
+                                    wmoutInd === "Yes"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Which country do you want to migrate to?</label>
+                                                <div className='customSelect'>
+                                                    <select value={countryToMigrate} onChange={(e) => setCountryToMigrate(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="USA">USA</option>
+                                                        <hr />
+                                                        <option value="UK">UK</option>
+                                                        <hr />
+                                                        <option value="Canada">Canada</option>
+                                                        <hr />
+                                                        <option value="Germany">Germany</option>
+                                                        <hr />
+                                                        <option value="Spain">Spain</option>
+                                                        <hr />
+                                                        <option value="Portugal">Portugal</option>
+                                                        <hr />
+                                                        <option value="Australia">Australia</option>
+                                                        <hr />
+                                                        <option value="Switzerland">Switzerland</option>
+                                                        <hr />
+                                                        <option value="Singapore">Singapore</option>
+                                                        <hr />
+                                                        <option value="Netherlands">Netherlands</option>
+                                                        <hr />
+                                                        <option value="Sweden">Sweden</option>
+                                                        <hr />
+                                                        <option value="Norway">Norway</option>
+                                                        <hr />
+                                                        <option value="Denmark">Denmark</option>
+                                                        <hr />
+                                                        <option value="Finland">Finland</option>
+                                                        <hr />
+                                                        <option value="New Zealand">New Zealand</option>
+                                                        <hr />
+                                                        <option value="United Arab Emirates (UAE)">United Arab Emirates (UAE)</option>
+                                                        <hr />
+                                                        <option value="Qatar">Qatar</option>
+                                                        <hr />
+                                                        <option value="Japan">Japan</option>
+                                                        <hr />
+                                                        <option value="South Korea">South Korea</option>
+                                                        <hr />
+                                                        <option value="Luxembourg">Luxembourg</option>
+                                                        <hr />
+                                                        <option value="Ireland">Ireland</option>
+                                                        <hr />
+                                                        <option value="Austria">Austria</option>
+                                                        <hr />
+
+                                                        <option value="Others">Others (please specify)</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Please state the reason(s) for your willingness to migrate outside the country.</label>
+                                                <div className='customSelect'>
+                                                    <select value={ReasonCountryToMigrate} onChange={(e) => setReasonCountryToMigrate(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="No suitable job opportunities in the country">No suitable job opportunities in the country</option>
+                                                        <hr />
+                                                        <option value="Better Salary">Better Salary</option>
+                                                        <hr />
+                                                        <option value="Better work culture">Better work culture</option>
+                                                        <hr />
+                                                        <option value="Job as per skill attainment">Job as per skill attainment</option>
+                                                        <hr />
+                                                        <option value="Job relevant to my career aspiration">Job relevant to my career aspiration</option>
+                                                        <hr />
+                                                        <option value="Easier to get a job in other countries">Easier to get a job in other countries</option>
+                                                        <hr />
+                                                        <option value="Influence -Friends/relatives (working/staying abroad)">Influence -Friends/relatives (working/staying abroad)</option>
+                                                        <hr />
+                                                        <option value="Better exposure and learning environment">Better exposure and learning environment</option>
+                                                        <hr />
+                                                        <option value="Others">Others (please specify)</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                        : ""
+                                }
+                                {
+                                    wmoutInd === "No"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Please state the reason(s) for not willing to migrate for employment opportunities</label>
+                                                <div className='customSelect'>
+                                                    <select value={NotwmoutInd} onChange={(e) => setNotWmoutInd(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Want to stay close to my family">Want to stay close to my family</option>
+                                                        <hr />
+                                                        <option value="Safety issues">Safety issues</option>
+                                                        <hr />
+                                                        <option value="Will not be able to adapt to a newer environment ">Will not be able to adapt to a newer environment </option>
+                                                        <hr />
+                                                        <option value="Language barrier">Language barrier</option>
+                                                        <hr />
+                                                        <option value="Not aware of opportunities">Not aware of opportunities</option>
+                                                        <hr />
+
+                                                        <option value="Others">Others (please specify)</option>
+
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+
+
                             </div>
 
                         </div>
