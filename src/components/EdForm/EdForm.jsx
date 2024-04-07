@@ -3,7 +3,6 @@ import "../form.css"
 
 function EdForm() {
     const [edu, setEdu] = useState();
-    const [otherEdu, setOtherEdu] = useState();
     const [empd, setEmpd] = useState();
     const [empStatus, setEmpStatus] = useState();
     const [OtherEmpStatus, setOtherEmpStatus] = useState();
@@ -43,6 +42,12 @@ function EdForm() {
     const [countryToMigrate, setCountryToMigrate] = useState();
     const [ReasonCountryToMigrate, setReasonCountryToMigrate] = useState();
 
+    const [otherEdu, setOtherEdu] = useState();
+    const [otherStrm, setOtherStrm] = useState();
+    const [otherSub, setOtherSub] = useState();
+    const [otherUGCourse, setOtherUGCourse] = useState();
+    const [otherUGField, setOtherUGField] = useState();
+    const [otherUGBranch, setOtherUGBranch] = useState();
     // const arrow = require("../arrow-down-sign-to-navigate.png");
     return (
         <div className='container'>
@@ -129,6 +134,8 @@ function EdForm() {
                                                                 <option value="Commerce">Commerce</option>
                                                                 <hr />
                                                                 <option value="Humanities or Arts">Humanities or Arts</option>
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
 
 
                                                             </select>
@@ -143,7 +150,7 @@ function EdForm() {
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={otherEdu} required onChange={(e) => setOtherEdu(e.target.value)} name="name" id="name" />
+                                                                    <input type="text" value={otherStrm} required onChange={(e) => setOtherStrm(e.target.value)} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -163,6 +170,8 @@ function EdForm() {
                                                                             <option value="PCM">Physics, Chemistry, Mathematics (PCM)</option>
                                                                             <hr />
                                                                             <option value="PCCS">Physics, Chemistry, Computer Science (PCCS)</option>
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -175,7 +184,8 @@ function EdForm() {
                                                                             <option value="Business Studies">Business Studies</option>
                                                                             <hr />
                                                                             <option value="Economics">Economics</option>
-
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -194,20 +204,13 @@ function EdForm() {
                                                                             <option value="Psychology">Psychology</option>
                                                                             <hr />
                                                                             <option value="Economics">Economics</option>
+
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
-                                                                {
-                                                                    stream === "Other"
-                                                                        ?
-                                                                        <div className='other'>
-                                                                            <h5>
-                                                                                Specify:
-                                                                            </h5>
-                                                                            <input type="text" value={otherEdu} required onChange={(e) => setOtherEdu(e.target.value)} name="name" id="name" />
-                                                                        </div>
-                                                                        : ""
-                                                                }
+
 
 
 
@@ -216,6 +219,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            subject === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherSub} required onChange={(e) => setOtherSub(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -241,6 +255,8 @@ function EdForm() {
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
                                                             <option value="BE">BE</option> */}
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
 
 
                                                             </select>
@@ -248,6 +264,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            unGradCourse === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherUGCourse} required onChange={(e) => setOtherUGCourse(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Field</label>
@@ -277,6 +304,8 @@ function EdForm() {
                                                                             <hr />
                                                                             <option value="Languages (e.g., Hindi, Urdu, Sanskrit)">Languages (e.g., Hindi, Urdu, Sanskrit)</option>
 
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -306,6 +335,8 @@ function EdForm() {
                                                                             <hr />
                                                                             <option value="Zoology">Zoology</option>
 
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -324,6 +355,9 @@ function EdForm() {
                                                                             <option value="Taxation">Taxation</option>
                                                                             <hr />
                                                                             <option value="Business Law">Business Law</option>
+
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -356,6 +390,9 @@ function EdForm() {
                                                                             <option value="Bachelor of Mass Communication">Bachelor of Mass Communication</option>
                                                                             <hr />
                                                                             <option value="Bachelor of Agriculture">Bachelor of Agriculture</option>
+
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -368,6 +405,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            unGradField === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherUGField} required onChange={(e) => setOtherUGField(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div></>
                                                 : ""
                                         }
@@ -422,6 +470,8 @@ function EdForm() {
                                                                 <hr />
                                                                 <option value="Fire Engineering">Fire Engineering</option>
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
                                                                 {/* <hr />
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
@@ -433,6 +483,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            unGradBranch === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherUGBranch} required onChange={(e) => setOtherUGBranch(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -487,6 +548,8 @@ function EdForm() {
                                                                 <hr />
                                                                 <option value="Food Technology">Food Technology</option>
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
                                                                 {/* <hr />
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
@@ -498,6 +561,17 @@ function EdForm() {
                                                                 {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                                             </span>
                                                         </div>
+                                                        {
+                                                            unGradBranch === "Other"
+                                                                ?
+                                                                <div className='other'>
+                                                                    <h5>
+                                                                        Specify:
+                                                                    </h5>
+                                                                    <input type="text" value={otherUGBranch} required onChange={(e) => setOtherUGBranch(e.target.value)} name="name" id="name" />
+                                                                </div>
+                                                                : ""
+                                                        }
                                                     </div>
                                                 </>
                                                 : ""
@@ -523,6 +597,8 @@ function EdForm() {
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
                                                             <option value="BE">BE</option> */}
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
 
 
                                                             </select>
@@ -559,6 +635,8 @@ function EdForm() {
                                                                             <hr />
                                                                             <option value="Languages (e.g., Hindi, Urdu, Sanskrit)">Languages (e.g., Hindi, Urdu, Sanskrit)</option>
 
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -588,6 +666,8 @@ function EdForm() {
                                                                             <hr />
                                                                             <option value="Zoology">Zoology</option>
 
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -606,6 +686,9 @@ function EdForm() {
                                                                             <option value="Taxation">Taxation</option>
                                                                             <hr />
                                                                             <option value="Business Law">Business Law</option>
+
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -636,6 +719,9 @@ function EdForm() {
                                                                             <option value="Bachelor of Mass Communication">Bachelor of Mass Communication</option>
                                                                             <hr />
                                                                             <option value="Bachelor of Agriculture">Bachelor of Agriculture</option>
+
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -702,6 +788,8 @@ function EdForm() {
                                                                 <hr />
                                                                 <option value="Fire Engineering">Fire Engineering</option>
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
                                                                 {/* <hr />
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
@@ -767,6 +855,8 @@ function EdForm() {
                                                                 <hr />
                                                                 <option value="Food Technology">Food Technology</option>
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
                                                                 {/* <hr />
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
@@ -805,6 +895,8 @@ function EdForm() {
                                                             <hr />
                                                             <option value="BE">BE</option> */}
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
 
                                                             </select>
                                                             <span className="customArrow">
@@ -840,6 +932,8 @@ function EdForm() {
                                                                             <hr />
                                                                             <option value="Languages (e.g., Hindi, Urdu, Sanskrit)">Languages (e.g., Hindi, Urdu, Sanskrit)</option>
 
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -869,6 +963,8 @@ function EdForm() {
                                                                             <hr />
                                                                             <option value="Zoology">Zoology</option>
 
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -887,6 +983,9 @@ function EdForm() {
                                                                             <option value="Taxation">Taxation</option>
                                                                             <hr />
                                                                             <option value="Business Law">Business Law</option>
+
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -919,6 +1018,9 @@ function EdForm() {
                                                                             <option value="Masters of Mass Communication">Masters of Mass Communication</option>
                                                                             <hr />
                                                                             <option value="Masters of Agriculture">Masters of Agriculture</option>
+
+                                                                            <hr />
+                                                                            <option value="Other">Other (please specify)</option>
                                                                         </>
                                                                         : ""
                                                                 }
@@ -985,6 +1087,8 @@ function EdForm() {
                                                                 <hr />
                                                                 <option value="Fire Engineering">Fire Engineering</option>
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
                                                                 {/* <hr />
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
@@ -1050,6 +1154,8 @@ function EdForm() {
                                                                 <hr />
                                                                 <option value="Food Technology">Food Technology</option>
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
                                                                 {/* <hr />
                                                             <option value="B Tech">B Tech</option>
                                                             <hr />
@@ -1161,6 +1267,8 @@ function EdForm() {
                                                                 <option value="Diploma in Aerospace Engineering">Diploma in Aerospace Engineering</option>
 
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
 
                                                             </select>
                                                             <span className="customArrow">
@@ -1221,6 +1329,8 @@ function EdForm() {
                                                                 <hr />
                                                                 <option value="Mechanic (Tractor)">Mechanic (Tractor)</option>
 
+                                                                <hr />
+                                                                <option value="Other">Other (please specify)</option>
 
 
                                                             </select>
@@ -1377,6 +1487,40 @@ function EdForm() {
                                                         <option value="No">No</option>
                                                         <hr />
                                                         <option value="Maybe">Maybe</option>
+
+
+                                                    </select>
+                                                    <span className="customArrow">
+                                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </>
+                                        : ""
+                                }
+                                {
+                                    wjopp === "No"
+                                        ?
+                                        <>
+                                            <div className="indiDetails">
+                                                <label htmlFor="email">Please state the reason(s) for not willing to migrate for employment opportunities</label>
+                                                <div className='customSelect'>
+                                                    <select value={NotwmoutInd} onChange={(e) => setNotWmoutInd(e.target.value)}>
+                                                        <option value="">Select Option</option>
+                                                        <hr />
+                                                        <option value="Want to stay close to my family">Want to stay close to my family</option>
+                                                        <hr />
+                                                        <option value="Safety issues">Safety issues</option>
+                                                        <hr />
+                                                        <option value="Will not be able to adapt to a newer environment ">Will not be able to adapt to a newer environment </option>
+                                                        <hr />
+                                                        <option value="Language barrier">Language barrier</option>
+                                                        <hr />
+                                                        <option value="Not aware of opportunities">Not aware of opportunities</option>
+                                                        <hr />
+
+                                                        <option value="Others">Others (please specify)</option>
+
 
 
                                                     </select>
