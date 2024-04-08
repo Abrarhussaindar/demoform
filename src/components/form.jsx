@@ -54,7 +54,7 @@ function Form() {
                 </h1> */}
                             <div>
                                 <h4>J&K Skill Development Mission</h4>
-                                <p className="first">Survey for youth aspiration skill gap and skill policy</p>
+                                <p className="first">Survey for youth aspiration and skill gap</p>
                                 <p className="second">Youth aspiration questionnaire</p>
                             </div>
                         </>
