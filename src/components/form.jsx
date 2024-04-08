@@ -6,6 +6,7 @@ import GenForm from "../components/GenForm/GenForm";
 import EdForm from "../components/EdForm/EdForm";
 import AspiForm from "../components/AspiForm/AspiForm";
 import Support from "../components/Support/Support";
+import MigForm from "../components/MigForm/MigForm";
 
 import { multiStepContext } from "../StepContext";
 
@@ -23,6 +24,8 @@ function Form() {
                 return <AspiForm />
             case 4:
                 return <Support />
+            case 5:
+                return <MigForm />
             default:
                 return ""
         }
@@ -31,7 +34,7 @@ function Form() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setCurrentStep(i => {
-            if (i >= 4) return i;
+            if (i >= 5) return i;
             return i + 1
         })
     }
@@ -97,9 +100,17 @@ function Form() {
                             </h3>
                             : ""
                     }
+                    {
+                        currentStep === 5
+                            ?
+                            <h3>
+                                Job/Career Opportunities  :
+                            </h3>
+                            : ""
+                    }
 
                     <h4>
-                        {currentStep} / 4
+                        {currentStep} / 5
                     </h4>
                 </div>
 
@@ -124,7 +135,7 @@ function Form() {
                                 : ""
                         }
                         {
-                            currentStep === 4
+                            currentStep === 5
                                 ?
                                 <button type="submit">Finish</button>
 

@@ -5,6 +5,7 @@ import React from "react"
 // import AspiForm from "./components/AspiForm/AspiForm";
 import Form from "./components/form";
 // import Support from "./components/Support/Support";
+// import MigForm from "./components/MigForm/MigForm";
 
 
 
@@ -14,6 +15,7 @@ function App(){
     // <div className="App"><EdForm/></div>
     // <div className="App"><AspiForm/></div>
     // <div className="App"><Support/></div>
+    // <div className="App"><MigForm/></div>
     // <div className="App"><GenForm/></div>
     <div className="App"><Form/></div>
   )

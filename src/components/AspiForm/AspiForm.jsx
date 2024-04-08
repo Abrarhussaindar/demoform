@@ -11,6 +11,7 @@ function AspiForm() {
     const [scale, setScale] = useState()
 
     const [suppGov, setSuppGov] = useState()
+    const [GovSchemes, setGovSchemes] = useState()
     const [formalTraining, setFormalTraining] = useState()
     const [EdTrainProg, setEdTrainProg] = useState()
     const [OtherEdTrainProg, setOtherEdTrainProg] = useState()
@@ -1492,15 +1493,15 @@ function AspiForm() {
                     <select value={scale} onChange={(e) => setScale(e.target.value)}>
                         <option value="">Select Option</option>
                         <hr />
-                        <option value="Not confident at all">Not confident at all</option>
+                        <option value="Not confident at all (1)">Not confident at all (1)</option>
                         <hr />
-                        <option value="Slightly confident">Slightly confident</option>
+                        <option value="Slightly confident (2)">Slightly confident (2)</option>
                         <hr />
-                        <option value="Moderately confident">Moderately confident</option>
+                        <option value="Moderately confident (3)">Moderately confident (3)</option>
                         <hr />
-                        <option value="Very confident">Very confident</option>
+                        <option value="Very confident (4)">Very confident (4)</option>
                         <hr />
-                        <option value="Extremely confident">Extremely confident</option>
+                        <option value="Extremely confident (5)">Extremely confident (5)</option>
                     </select>
                     <span className="customArrow">
                         {/* <img className="logo" src={arrow} alt="arrow" /> */}
@@ -1537,10 +1538,36 @@ function AspiForm() {
                         {/* <img className="logo" src={arrow} alt="arrow" /> */}
                     </span>
                 </div>
-
-
-
             </div>
+            {
+                suppGov
+                    ?
+                    <div className="indiDetails">
+                        <label htmlFor="email">Are you aware of the listed skill development schemes/training programmes?</label>
+                        <div className="customSelect">
+
+                            <select value={GovSchemes} onChange={(e) => setGovSchemes(e.target.value)}>
+                                <option value="">Select Option</option>
+                                <hr />
+                                <option value="Pradhan Mantri Kaushal Vikas Yojana (PMKVY)">Pradhan Mantri Kaushal Vikas Yojana (PMKVY)</option>
+                                <hr />
+                                <option value="Deen Dayal Upadhyaya Grameen Kaushalya Yojana (DDU GKY)">Deen Dayal Upadhyaya Grameen Kaushalya Yojana (DDU GKY)</option>
+                                <hr />
+                                <option value="Apprenticeship Training Scheme ">Apprenticeship Training Scheme </option>
+                                <hr />
+                                <option value="Craftsman Training Scheme (CTS)">Craftsman Training Scheme (CTS)</option>
+                                <hr />
+                                <option value="Skill Strengthening for Industrial Value Enhancement (STRIVE)">Skill Strengthening for Industrial Value Enhancement (STRIVE)</option>
+                                <hr />
+                                <option value="Hunar Se Rozar">Hunar Se Rozar</option>
+                            </select>
+                            <span className="customArrow">
+                                {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                            </span>
+                        </div>
+                    </div>
+                    : ""
+            }
             <div className="indiDetails">
                 <label htmlFor="email">Have you received any formal training or education related to entrepreneurship or job skills development?</label>
                 <div className="customSelect">
