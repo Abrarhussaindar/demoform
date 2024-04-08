@@ -210,10 +210,10 @@
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneInput {
   text-align: center;
   padding: 5px 0 !important;
+  width: 50px !important;
+  height: 30px !important;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneVal {
-  width: 40px;
-  height: 40px;
   text-align: center;
   -webkit-appearance: none;
 }
@@ -231,8 +231,8 @@
 }
 .container .wrapper form .pdfContainer .mainDetails .adhNumber .adhInput {
   text-align: center;
-  width: 60px !important;
-  height: 40px;
+  width: 50px !important;
+  height: 40px !important;
   padding: 0 !important;
 }
 .container .wrapper form .pdfContainer .mainDetails .adhNumber .adhVal {
@@ -482,6 +482,14 @@
   border: 1px solid;
 }
 
+@media screen and (width <= 540px) {
+  .container .wrapper {
+    width: 92%;
+  }
+  .container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv .innerInnerDiv .pincode {
+    width: 100%;
+  }
+}
 @media screen and (width <= 440px) {
   .wrapper {
     width: 90% !important;
@@ -510,11 +518,20 @@
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
-@media screen and (width <= 360px) {
+@media screen and (width <= 390px) {
   .container .header h4 {
     font-size: 16px;
   }
   .container .header p {
     font-size: 12px;
+  }
+  .container .wrapper form .pdfContainer .mainDetails .indiDetails label {
+    font-size: 14px;
+  }
+  .container .wrapper form .pdfContainer .mainDetails .indiDetails select {
+    font-size: 14px;
+  }
+  .container .wrapper form .btns button {
+    font-size: 16px;
   }
 }/*# sourceMappingURL=form.css.map */

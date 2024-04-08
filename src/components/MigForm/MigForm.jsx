@@ -7,6 +7,7 @@ function MigForm() {
     const [wmhl, setWmhl] = useState();
     const [wmoutdis, setWmoutdis] = useState();
     const [disWm, setDisWm] = useState();
+    const [districtWm, setDistrictWm] = useState();
     const [wmoutUT, setWmoutUT] = useState();
     const [cityToMigrate, setCityToMigrate] = useState();
     const [ReasoncityToMigrate, setReasonCityToMigrate] = useState();
@@ -169,11 +170,78 @@ function MigForm() {
                                     </span>
                                 </div>
                             </div>
+                            <div className="indiDetails">
+                                <label htmlFor="age">District</label>
+                                <div className="customSelect">
+                                    <select value={districtWm} onChange={(e) => setDistrictWm(e.target.value)}>
+                                        <option value="">Select Option</option>
+                                        <hr />
+                                        {
+                                            disWm === "Jammu"
+                                                ?
+                                                <>
+                                                    <option value="Doda">Doda</option>
+                                                    <hr />
+                                                    <option value="Jammu">Jammu</option>
+                                                    <hr />
+                                                    <option value="Kathua">Kathua</option>
+                                                    <hr />
+                                                    <option value="Kishtwar">Kishtwar</option>
+                                                    <hr />
+                                                    <option value="Poonch">Poonch</option>
+                                                    <hr />
+                                                    <option value="Rajouri">Rajouri</option>
+                                                    <hr />
+                                                    <option value="Ramban">Ramban</option>
+                                                    <hr />
+                                                    <option value="Reasi">Reasi</option>
+                                                    <hr />
+                                                    <option value="Samba">Samba</option>
+                                                    <hr />
+                                                    <option value="Udhampur">Udhampur</option>
+                                                </>
+                                                : ""
+                                        }
+
+                                        {
+                                            disWm === "Kashmir"
+                                                ?
+                                                <>
+                                                    <option value="Anantnag">Anantnag</option>
+                                                    <hr />
+                                                    <option value="Bandipora">Bandipora</option>
+                                                    <hr />
+                                                    <option value="Baramullah">Baramullah</option>
+                                                    <hr />
+                                                    <option value="Budgam">Budgam</option>
+                                                    <hr />
+                                                    <option value="Gandarbal">Gandarbal</option>
+                                                    <hr />
+                                                    <option value="Kulgam">Kulgam</option>
+                                                    <hr />
+                                                    <option value="Kupwara">Kupwara</option>
+                                                    <hr />
+                                                    <option value="Pulwama">Pulwama</option>
+                                                    <hr />
+                                                    <option value="Sopian">Sopian</option>
+                                                    <hr />
+                                                    <option value="Srinagar">Srinagar</option>
+
+                                                </>
+                                                : ""
+                                        }
+
+                                    </select>
+                                    <span className="customArrow"></span>
+                                </div>
+                                {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
+                            </div>
                         </>
                         :
                         ""
 
                 }
+
                 {
                     wmoutdis === "No"
                         ?

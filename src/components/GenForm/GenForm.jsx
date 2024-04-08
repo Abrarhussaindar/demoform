@@ -56,7 +56,7 @@ function GenForm() {
         if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
             agee--;
         }
-        console.log(agee);
+        console.log("agee: ",agee);
         const yearsDifference = today.getFullYear() - birthDate.getFullYear();
         const monthsDifference = today.getMonth() - birthDate.getMonth();
         const daysDifference = today.getDate() - birthDate.getDate();
@@ -274,9 +274,9 @@ function GenForm() {
                         <select value={division} onChange={(e) => setDiv(e.target.value)}>
                             <option value="">Select Option</option>
                             <hr />
-                            <option value="Jammu">JAM</option>
+                            <option value="Jammu">Jammu</option>
                             <hr />
-                            <option value="Kashmir">KMR</option>
+                            <option value="Kashmir">Kashmir</option>
 
                         </select>
                         <span className="customArrow">
@@ -1405,7 +1405,7 @@ function GenForm() {
                     </div>
                 </div>
                 <div className="indiDetails">
-                    <label htmlFor="email">Mont. Family Income</label>
+                    <label htmlFor="email">Mon. Fam. Income</label>
                     <div className="customSelect">
                         <select value={monthlyIncome} onChange={(e) => setMonthlyIncome(e.target.value)}>
                             <option value="">Select Option</option>
