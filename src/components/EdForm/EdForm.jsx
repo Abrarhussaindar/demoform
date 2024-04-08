@@ -41,7 +41,9 @@ function EdForm() {
     const [NotwmoutInd, setNotWmoutInd] = useState();
     const [countryToMigrate, setCountryToMigrate] = useState();
     const [ReasonCountryToMigrate, setReasonCountryToMigrate] = useState();
-
+    
+    const [rateAva, setRateAva] = useState();
+    
     const [otherEdu, setOtherEdu] = useState();
     const [otherStrm, setOtherStrm] = useState();
     const [otherSub, setOtherSub] = useState();
@@ -2062,7 +2064,7 @@ function EdForm() {
             <div className="indiDetails">
                 <label htmlFor="email">How would you rate the availability of appropriate wage employment opportunities nowadays in J&K UT?</label>
                 <div className='customSelect'>
-                    <select value={empd} onChange={(e) => setEmpd(e.target.value)}>
+                    <select value={rateAva} onChange={(e) => setRateAva(e.target.value)}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Very inadequate">Very inadequate</option>
