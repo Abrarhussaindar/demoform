@@ -26,7 +26,7 @@
         // padding-left: 20px;
         .logo {
             // height: 150px;
-            width: 80px;
+            width: 60px;
         }
 
         h1 {
@@ -47,8 +47,17 @@
         }
 
         h4{
-            font-size: 26px;
+            font-size: 20px;
             color: #FE0000;
+        }
+        p{
+            font-size: 14px;
+        }
+        .first{
+            font-weight: 500;
+        }
+        .second{
+            text-decoration: underline;
         }
 
     }

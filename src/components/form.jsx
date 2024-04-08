@@ -53,8 +53,9 @@ function Form() {
                     <span className="de">DeCent</span><span className="ar">ArCadia </span>
                 </h1> */}
                             <div>
-                                <h4>Skill gap survey</h4>
-                                <p>Youth aspiration questionnaire</p>
+                                <h4>J&K Skill Development Mission</h4>
+                                <p className="first">Survey for youth aspiration skill gap and skill policy</p>
+                                <p className="second">Youth aspiration questionnaire</p>
                             </div>
                         </>
 
