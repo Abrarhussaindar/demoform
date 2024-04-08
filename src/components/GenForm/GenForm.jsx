@@ -46,19 +46,7 @@ function GenForm() {
             target.nextSibling.focus();
         }
     }
-
-    // const [phVal0, setPhVal0] = useState();
-    // const [phVal1, setPhVal1] = useState();
-    // const [phVal2, setPhVal2] = useState();
-    // const [phVal3, setPhVal3] = useState();
-    // const [phVal4, setPhVal4] = useState();
-    // const [phVal5, setPhVal5] = useState();
-    // const [phVal6, setPhVal6] = useState();
-    // const [phVal7, setPhVal7] = useState();
-    // const [phVal8, setPhVal8] = useState();
-    // const [phVal9, setPhVal9] = useState();
-    const [age, setAge] = useState("")
-
+    const [age, setAge] = useState(0)
     const calculateAge = (event) => {
         setDob(event.target.value);
         const today = new Date();
@@ -81,20 +69,9 @@ function GenForm() {
 
         setAge(accurateAge);
     };
-    console.log(age);
-    // const [adVal0, setAdVal0] = useState();
-    // const [adVal1, setAdVal1] = useState();
-    // const [adVal2, setAdVal2] = useState();
-    // const [adVal3, setAdVal3] = useState();
-    // const [adVal4, setAdVal4] = useState();
-    // const [adVal5, setAdVal5] = useState();
-    // const [adVal6, setAdVal6] = useState();
-    // const [adVal7, setAdVal7] = useState();
-    // const [adVal8, setAdVal8] = useState();
-    // const [adVal9, setAdVal9] = useState();
+    console.log("age: ",age);
     console.log(pinCode);
-    // const [adVal10, setAdVal10] = useState();
-    // const [adVal11, setAdVal11] = useState();
+
 
     const [email, setEmail] = useState("");
 
