@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./form.css";
+import "../form.css";
 
 
-function Form() {
+function GenForm() {
 
 
 
@@ -231,8 +231,8 @@ function Form() {
         setFilteredAreas(filteredAreas);
     };
 
-    const logo = require("./Decent Arcadia type 4.jpg");
-    const arrow = require("./arrow-down-sign-to-navigate.png");
+    const logo = require("../Decent Arcadia type 4.jpg");
+    // const arrow = require("../arrow-down-sign-to-navigate.png");
     // const user = require("./user.png");
     return (
         <div className="container">
@@ -274,13 +274,16 @@ function Form() {
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Gender</label>
-                                    <select value={gender} onChange={(e) => setGen(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Transgender">Transgender</option>
+                                    <div className="customSelect">
+                                        <select value={gender} onChange={(e) => setGen(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Transgender">Transgender</option>
 
-                                    </select>
+                                        </select>
+                                        <span className="customArrow"></span>
+                                    </div>
                                 </div>
 
                                 <div className="indiDetails">
@@ -316,422 +319,427 @@ function Form() {
 
                                         </select>
                                         <span className="customArrow">
-                                            <img className="logo" src={arrow} alt="arrow" />
+                                            {/* <img className="logo" src={arrow} alt="arrow" /> */}
                                         </span>
                                     </div>
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="age">District</label>
-                                    <select value={dis} onChange={(e) => setDis(e.target.value)}>
-                                        <option value="">Select Option</option>
-                                        <hr />
-                                        {
-                                            division === "Jammu"
-                                                ?
-                                                <>
-                                                    <option value="Doda">Doda</option>
-                                                    <hr />
-                                                    <option value="Jammu">Jammu</option>
-                                                    <hr />
-                                                    <option value="Kathua">Kathua</option>
-                                                    <hr />
-                                                    <option value="Kishtwar">Kishtwar</option>
-                                                    <hr />
-                                                    <option value="Poonch">Poonch</option>
-                                                    <hr />
-                                                    <option value="Rajouri">Rajouri</option>
-                                                    <hr />
-                                                    <option value="Ramban">Ramban</option>
-                                                    <hr />
-                                                    <option value="Reasi">Reasi</option>
-                                                    <hr />
-                                                    <option value="Samba">Samba</option>
-                                                    <hr />
-                                                    <option value="Udhampur">Udhampur</option>
-                                                </>
-                                                : ""
-                                        }
+                                    <div className="customSelect">
+                                        <select value={dis} onChange={(e) => setDis(e.target.value)}>
+                                            <option value="">Select Option</option>
+                                            <hr />
+                                            {
+                                                division === "Jammu"
+                                                    ?
+                                                    <>
+                                                        <option value="Doda">Doda</option>
+                                                        <hr />
+                                                        <option value="Jammu">Jammu</option>
+                                                        <hr />
+                                                        <option value="Kathua">Kathua</option>
+                                                        <hr />
+                                                        <option value="Kishtwar">Kishtwar</option>
+                                                        <hr />
+                                                        <option value="Poonch">Poonch</option>
+                                                        <hr />
+                                                        <option value="Rajouri">Rajouri</option>
+                                                        <hr />
+                                                        <option value="Ramban">Ramban</option>
+                                                        <hr />
+                                                        <option value="Reasi">Reasi</option>
+                                                        <hr />
+                                                        <option value="Samba">Samba</option>
+                                                        <hr />
+                                                        <option value="Udhampur">Udhampur</option>
+                                                    </>
+                                                    : ""
+                                            }
 
-                                        {
-                                            division === "Kashmir"
-                                                ?
-                                                <>
-                                                    <option value="Anantnag">Anantnag</option>
-                                                    <option value="Bandipora">Bandipora</option>
-                                                    <option value="Baramullah">Baramullah</option>
-                                                    <option value="Budgam">Budgam</option>
-                                                    <option value="Gandarbal">Gandarbal</option>
-                                                    <option value="Kulgam">Kulgam</option>
-                                                    <option value="Kupwara">Kupwara</option>
-                                                    <option value="Pulwama">Pulwama</option>
-                                                    <option value="Sopian">Sopian</option>
-                                                    <option value="Srinagar">Srinagar</option>
-                                                </>
-                                                : ""
-                                        }
+                                            {
+                                                division === "Kashmir"
+                                                    ?
+                                                    <>
+                                                        <option value="Anantnag">Anantnag</option>
+                                                        <option value="Bandipora">Bandipora</option>
+                                                        <option value="Baramullah">Baramullah</option>
+                                                        <option value="Budgam">Budgam</option>
+                                                        <option value="Gandarbal">Gandarbal</option>
+                                                        <option value="Kulgam">Kulgam</option>
+                                                        <option value="Kupwara">Kupwara</option>
+                                                        <option value="Pulwama">Pulwama</option>
+                                                        <option value="Sopian">Sopian</option>
+                                                        <option value="Srinagar">Srinagar</option>
+                                                    </>
+                                                    : ""
+                                            }
 
-                                    </select>
+                                        </select>
+                                        <span className="customArrow"></span>
+                                    </div>
                                     {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                                 </div>
                                 <div className="indiDetails">
                                     <label htmlFor="age">Block</label>
-                                    <select value={block} onChange={(e) => setBlock(e.target.value)}>
-                                        <option value="">Select Option</option>
+                                    <div className="customSelect">
+                                        <select value={block} onChange={(e) => setBlock(e.target.value)}>
+                                            <option value="">Select Option</option>
 
-                                        {/* Jammu District Blocks */}
-                                        {
-                                            dis === "Jammu"
-                                                ?
-                                                <>
-                                                    <option value="Akhnoor">Akhnoor</option>
-                                                    <option value="Bhalwal">Bhalwal</option>
-                                                    <option value="Bishnah">Bishnah</option>
-                                                    <option value="Dansal">Dansal</option>
-                                                    <option value="Jammu East">Jammu East</option>
-                                                    <option value="Jammu West">Jammu West</option>
-                                                    <option value="Marh">Marh</option>
-                                                    <option value="Nagrota">Nagrota</option>
-                                                    <option value="Nowshera">Nowshera</option>
-                                                    <option value="Pargwal">Pargwal</option>
-                                                    <option value="R.S. Pura">R.S. Pura</option>
-                                                    <option value="R. S. Pura Khour">R. S. Pura Khour</option>
-                                                    <option value="Satwari">Satwari</option>
-                                                    <option value="Sohanjana">Sohanjana</option>
-                                                    <option value="Suchetgarh">Suchetgarh</option>
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Doda"
-                                                ?
-                                                <>
-                                                    <option value="Assar">Assar</option>
-                                                    <option value="Bhaderwah">Bhaderwah</option>
-                                                    <option value="Bhagwah">Bhagwah</option>
-                                                    <option value="Bharath">Bharath</option>
-                                                    <option value="Bhalla">Bhalla</option>
-                                                    <option value="Chiralla">Chiralla</option>
-                                                    <option value="Dessa">Dessa</option>
-                                                    <option value="Doda">Doda</option>
-                                                    <option value="Gandoh">Gandoh</option>
-                                                    <option value="Ghat">Ghat</option>
-                                                    <option value="Gundana">Gundana</option>
-                                                    <option value="Kahara">Kahara</option>
-                                                    <option value="Kastigarh">Kastigarh</option>
-                                                    <option value="Marmat">Marmat</option>
-                                                    <option value="Thathri">Thathri</option>
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Kathua"
-                                                ?
-                                                <>
-                                                    <option value="Basholi">Basholi</option>
-                                                    <option value="Billawar">Billawar</option>
-                                                    <option value="Bani">Bani</option>
-                                                    <option value="Barnoti">Barnoti</option>
-                                                    <option value="Basohli">Basohli</option>
-                                                    <option value="Duggan">Duggan</option>
-                                                    <option value="Hiranagar">Hiranagar</option>
-                                                    <option value="Kathua">Kathua</option>
-                                                    <option value="Lohai-Malhar">Lohai-Malhar</option>
-                                                    <option value="Mahanpur">Mahanpur</option>
-                                                    <option value="Malhar">Malhar</option>
-                                                    <option value="Nagri-Parole">Nagri-Parole</option>
-                                                    <option value="Rajbagh">Rajbagh</option>
+                                            {/* Jammu District Blocks */}
+                                            {
+                                                dis === "Jammu"
+                                                    ?
+                                                    <>
+                                                        <option value="Akhnoor">Akhnoor</option>
+                                                        <option value="Bhalwal">Bhalwal</option>
+                                                        <option value="Bishnah">Bishnah</option>
+                                                        <option value="Dansal">Dansal</option>
+                                                        <option value="Jammu East">Jammu East</option>
+                                                        <option value="Jammu West">Jammu West</option>
+                                                        <option value="Marh">Marh</option>
+                                                        <option value="Nagrota">Nagrota</option>
+                                                        <option value="Nowshera">Nowshera</option>
+                                                        <option value="Pargwal">Pargwal</option>
+                                                        <option value="R.S. Pura">R.S. Pura</option>
+                                                        <option value="R. S. Pura Khour">R. S. Pura Khour</option>
+                                                        <option value="Satwari">Satwari</option>
+                                                        <option value="Sohanjana">Sohanjana</option>
+                                                        <option value="Suchetgarh">Suchetgarh</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Doda"
+                                                    ?
+                                                    <>
+                                                        <option value="Assar">Assar</option>
+                                                        <option value="Bhaderwah">Bhaderwah</option>
+                                                        <option value="Bhagwah">Bhagwah</option>
+                                                        <option value="Bharath">Bharath</option>
+                                                        <option value="Bhalla">Bhalla</option>
+                                                        <option value="Chiralla">Chiralla</option>
+                                                        <option value="Dessa">Dessa</option>
+                                                        <option value="Doda">Doda</option>
+                                                        <option value="Gandoh">Gandoh</option>
+                                                        <option value="Ghat">Ghat</option>
+                                                        <option value="Gundana">Gundana</option>
+                                                        <option value="Kahara">Kahara</option>
+                                                        <option value="Kastigarh">Kastigarh</option>
+                                                        <option value="Marmat">Marmat</option>
+                                                        <option value="Thathri">Thathri</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Kathua"
+                                                    ?
+                                                    <>
+                                                        <option value="Basholi">Basholi</option>
+                                                        <option value="Billawar">Billawar</option>
+                                                        <option value="Bani">Bani</option>
+                                                        <option value="Barnoti">Barnoti</option>
+                                                        <option value="Basohli">Basohli</option>
+                                                        <option value="Duggan">Duggan</option>
+                                                        <option value="Hiranagar">Hiranagar</option>
+                                                        <option value="Kathua">Kathua</option>
+                                                        <option value="Lohai-Malhar">Lohai-Malhar</option>
+                                                        <option value="Mahanpur">Mahanpur</option>
+                                                        <option value="Malhar">Malhar</option>
+                                                        <option value="Nagri-Parole">Nagri-Parole</option>
+                                                        <option value="Rajbagh">Rajbagh</option>
 
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Ramban"
-                                                ?
-                                                <>
-                                                    <option value="Banihal">Banihal</option>
-                                                    <option value="Batote">Batote</option>
-                                                    <option value="Gool">Gool</option>
-                                                    <option value="Khari">Khari</option>
-                                                    <option value="Ramban">Ramban</option>
-                                                    <option value="Ramsoo">Ramsoo</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Ramban"
+                                                    ?
+                                                    <>
+                                                        <option value="Banihal">Banihal</option>
+                                                        <option value="Batote">Batote</option>
+                                                        <option value="Gool">Gool</option>
+                                                        <option value="Khari">Khari</option>
+                                                        <option value="Ramban">Ramban</option>
+                                                        <option value="Ramsoo">Ramsoo</option>
 
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Reasi"
-                                                ?
-                                                <>
-                                                    <option value="Arnas">Arnas</option>
-                                                    <option value="Dharmari">Dharmari</option>
-                                                    <option value="Gulabgarh">Gulabgarh</option>
-                                                    <option value="Katra">Katra</option>
-                                                    <option value="Mahore">Mahore</option>
-                                                    <option value="Pouni">Pouni</option>
-                                                    <option value="Reasi">Reasi</option>
-                                                    <option value="Thuroo">Thuroo</option>
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Kishtwar"
-                                                ?
-                                                <>
-                                                    <option value="Bounjwah">Bounjwah</option>
-                                                    <option value="Chatroo">Chatroo</option>
-                                                    <option value="Drabshalla">Drabshalla</option>
-                                                    <option value="Inderwal">Inderwal</option>
-                                                    <option value="Kishtwar">Kishtwar</option>
-                                                    <option value="Marwah">Marwah</option>
-                                                    <option value="Nagseni">Nagseni</option>
-                                                    <option value="Paddar">Paddar</option>
-                                                    <option value="Warwan">Warwan</option>
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Poonch"
-                                                ?
-                                                <>
-                                                    <option value="Buffliaz">Buffliaz</option>
-                                                    <option value="Hajira">Hajira</option>
-                                                    <option value="Loran">Loran</option>
-                                                    <option value="Mandi">Mandi</option>
-                                                    <option value="Mendhar">Mendhar</option>
-                                                    <option value="Surankote">Surankote</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Reasi"
+                                                    ?
+                                                    <>
+                                                        <option value="Arnas">Arnas</option>
+                                                        <option value="Dharmari">Dharmari</option>
+                                                        <option value="Gulabgarh">Gulabgarh</option>
+                                                        <option value="Katra">Katra</option>
+                                                        <option value="Mahore">Mahore</option>
+                                                        <option value="Pouni">Pouni</option>
+                                                        <option value="Reasi">Reasi</option>
+                                                        <option value="Thuroo">Thuroo</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Kishtwar"
+                                                    ?
+                                                    <>
+                                                        <option value="Bounjwah">Bounjwah</option>
+                                                        <option value="Chatroo">Chatroo</option>
+                                                        <option value="Drabshalla">Drabshalla</option>
+                                                        <option value="Inderwal">Inderwal</option>
+                                                        <option value="Kishtwar">Kishtwar</option>
+                                                        <option value="Marwah">Marwah</option>
+                                                        <option value="Nagseni">Nagseni</option>
+                                                        <option value="Paddar">Paddar</option>
+                                                        <option value="Warwan">Warwan</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Poonch"
+                                                    ?
+                                                    <>
+                                                        <option value="Buffliaz">Buffliaz</option>
+                                                        <option value="Hajira">Hajira</option>
+                                                        <option value="Loran">Loran</option>
+                                                        <option value="Mandi">Mandi</option>
+                                                        <option value="Mendhar">Mendhar</option>
+                                                        <option value="Surankote">Surankote</option>
 
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Rajouri"
-                                                ?
-                                                <>
-                                                    <option value="Budhal">Budhal</option>
-                                                    <option value="Darhal">Darhal</option>
-                                                    <option value="Kalakote">Kalakote</option>
-                                                    <option value="Nowshera">Nowshera</option>
-                                                    <option value="Rajouri">Rajouri</option>
-                                                    <option value="Sunderbani">Sunderbani</option>
-                                                    <option value="Thanamandi">Thanamandi</option>
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Udhampur"
-                                                ?
-                                                <>
-                                                    <option value="Basantgarh">Basantgarh</option>
-                                                    <option value="Chenani">Chenani</option>
-                                                    <option value="Dudu">Dudu</option>
-                                                    <option value="Ghordi">Ghordi</option>
-                                                    <option value="Jib">Jib</option>
-                                                    <option value="Majalta">Majalta</option>
-                                                    <option value="Panchari">Panchari</option>
-                                                    <option value="Ramnagar">Ramnagar</option>
-                                                    <option value="Reasi">Reasi</option>
-                                                    <option value="Moungri">Moungri</option>
-                                                    <option value="Udhampur">Udhampur</option>
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Samba"
-                                                ?
-                                                <>
-                                                    <option value="Bari Brahmana">Bari Brahmana</option>
-                                                    <option value="Ghagwal">Ghagwal</option>
-                                                    <option value="Nud">Nud</option>
-                                                    <option value="Purmandal">Purmandal</option>
-                                                    <option value="Ramgarh">Ramgarh</option>
-                                                    <option value="Samba">Samba</option>
-                                                    <option value="Vijaypur">Vijaypur</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Rajouri"
+                                                    ?
+                                                    <>
+                                                        <option value="Budhal">Budhal</option>
+                                                        <option value="Darhal">Darhal</option>
+                                                        <option value="Kalakote">Kalakote</option>
+                                                        <option value="Nowshera">Nowshera</option>
+                                                        <option value="Rajouri">Rajouri</option>
+                                                        <option value="Sunderbani">Sunderbani</option>
+                                                        <option value="Thanamandi">Thanamandi</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Udhampur"
+                                                    ?
+                                                    <>
+                                                        <option value="Basantgarh">Basantgarh</option>
+                                                        <option value="Chenani">Chenani</option>
+                                                        <option value="Dudu">Dudu</option>
+                                                        <option value="Ghordi">Ghordi</option>
+                                                        <option value="Jib">Jib</option>
+                                                        <option value="Majalta">Majalta</option>
+                                                        <option value="Panchari">Panchari</option>
+                                                        <option value="Ramnagar">Ramnagar</option>
+                                                        <option value="Reasi">Reasi</option>
+                                                        <option value="Moungri">Moungri</option>
+                                                        <option value="Udhampur">Udhampur</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Samba"
+                                                    ?
+                                                    <>
+                                                        <option value="Bari Brahmana">Bari Brahmana</option>
+                                                        <option value="Ghagwal">Ghagwal</option>
+                                                        <option value="Nud">Nud</option>
+                                                        <option value="Purmandal">Purmandal</option>
+                                                        <option value="Ramgarh">Ramgarh</option>
+                                                        <option value="Samba">Samba</option>
+                                                        <option value="Vijaypur">Vijaypur</option>
 
-                                                </>
-                                                : ""
-                                        }
+                                                    </>
+                                                    : ""
+                                            }
 
-                                        {/* Kashmir District Blocks */}
-                                        {
-                                            dis === "Srinagar"
-                                                ?
-                                                <>
-                                                    <option value="Batamaloo">Batamaloo</option>
-                                                    <option value="Brein">Brein</option>
-                                                    <option value="Braine">Braine</option>
-                                                    <option value="Chattabal">Chattabal</option>
-                                                    <option value="Eidgah">Eidgah</option>
-                                                    <option value="Fateh Kadal">Fateh Kadal</option>
-                                                    <option value="Harwan">Harwan</option>
-                                                    <option value="Hazratbal">Hazratbal</option>
-                                                    <option value="Khanyar">Khanyar</option>
-                                                    <option value="Lal Bazaar">Lal Bazaar</option>
-                                                    <option value="Lal Ded">Lal Ded</option>
-                                                    <option value="Nawakadal">Nawakadal</option>
-                                                    <option value="Nishat">Nishat</option>
-                                                    <option value="Nowgam">Nowgam</option>
-                                                    <option value="Pantha Chowk">Pantha Chowk</option>
-                                                    <option value="Parimpora">Parimpora</option>
-                                                    <option value="Rainawari">Rainawari</option>
-                                                    <option value="Shalimar">Shalimar</option>
-                                                    <option value="Soura">Soura</option>
-                                                    <option value="Zadibal">Zadibal</option>
+                                            {/* Kashmir District Blocks */}
+                                            {
+                                                dis === "Srinagar"
+                                                    ?
+                                                    <>
+                                                        <option value="Batamaloo">Batamaloo</option>
+                                                        <option value="Brein">Brein</option>
+                                                        <option value="Braine">Braine</option>
+                                                        <option value="Chattabal">Chattabal</option>
+                                                        <option value="Eidgah">Eidgah</option>
+                                                        <option value="Fateh Kadal">Fateh Kadal</option>
+                                                        <option value="Harwan">Harwan</option>
+                                                        <option value="Hazratbal">Hazratbal</option>
+                                                        <option value="Khanyar">Khanyar</option>
+                                                        <option value="Lal Bazaar">Lal Bazaar</option>
+                                                        <option value="Lal Ded">Lal Ded</option>
+                                                        <option value="Nawakadal">Nawakadal</option>
+                                                        <option value="Nishat">Nishat</option>
+                                                        <option value="Nowgam">Nowgam</option>
+                                                        <option value="Pantha Chowk">Pantha Chowk</option>
+                                                        <option value="Parimpora">Parimpora</option>
+                                                        <option value="Rainawari">Rainawari</option>
+                                                        <option value="Shalimar">Shalimar</option>
+                                                        <option value="Soura">Soura</option>
+                                                        <option value="Zadibal">Zadibal</option>
 
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Anantnag"
-                                                ?
-                                                <>
-                                                    <option value="Achabal">Achabal</option>
-                                                    <option value="Aishmuqam">Aishmuqam</option>
-                                                    <option value="Bijbehara">Bijbehara</option>
-                                                    <option value="Breng">Breng</option>
-                                                    <option value="Dachnipora">Dachnipora</option>
-                                                    <option value="Dooru">Dooru</option>
-                                                    <option value="Kokernag">Kokernag</option>
-                                                    <option value="Larnoo">Larnoo</option>
-                                                    <option value="Pahalgam">Pahalgam</option>
-                                                    <option value="Qazigund">Qazigund</option>
-                                                    <option value="Sallar">Sallar</option>
-                                                    <option value="Seer Hamdan">Seer Hamdan</option>
-                                                    <option value="Shangus">Shangus</option>
-                                                    <option value="Vailoo">Vailoo</option>
-
-
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Pulwama"
-                                                ?
-                                                <>
-                                                    <option value="Awantipora">Awantipora</option>
-                                                    <option value="Kakapora">Kakapora</option>
-                                                    <option value="Pampore">Pampore</option>
-                                                    <option value="Pulwama">Pulwama</option>
-                                                    <option value="Rajpora">Rajpora</option>
-                                                    <option value="Tral">Tral</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Anantnag"
+                                                    ?
+                                                    <>
+                                                        <option value="Achabal">Achabal</option>
+                                                        <option value="Aishmuqam">Aishmuqam</option>
+                                                        <option value="Bijbehara">Bijbehara</option>
+                                                        <option value="Breng">Breng</option>
+                                                        <option value="Dachnipora">Dachnipora</option>
+                                                        <option value="Dooru">Dooru</option>
+                                                        <option value="Kokernag">Kokernag</option>
+                                                        <option value="Larnoo">Larnoo</option>
+                                                        <option value="Pahalgam">Pahalgam</option>
+                                                        <option value="Qazigund">Qazigund</option>
+                                                        <option value="Sallar">Sallar</option>
+                                                        <option value="Seer Hamdan">Seer Hamdan</option>
+                                                        <option value="Shangus">Shangus</option>
+                                                        <option value="Vailoo">Vailoo</option>
 
 
-
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Kupwara"
-                                                ?
-                                                <>
-                                                    <option value="Handwara">Handwara</option>
-                                                    <option value="Karnah">Karnah</option>
-                                                    <option value="Kralpora">Kralpora</option>
-                                                    <option value="Langate">Langate</option>
-                                                    <option value="Lolab">Lolab</option>
-                                                    <option value="Ramhall">Ramhall</option>
-                                                    <option value="Sogam">Sogam</option>
-                                                    <option value="Tangdar">Tangdar</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Pulwama"
+                                                    ?
+                                                    <>
+                                                        <option value="Awantipora">Awantipora</option>
+                                                        <option value="Kakapora">Kakapora</option>
+                                                        <option value="Pampore">Pampore</option>
+                                                        <option value="Pulwama">Pulwama</option>
+                                                        <option value="Rajpora">Rajpora</option>
+                                                        <option value="Tral">Tral</option>
 
 
 
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Sopian"
-                                                ?
-                                                <>
-                                                    <option value="Shopian">Shopian</option>
-                                                    <option value="Keller">Keller</option>
-                                                    <option value="Hermain">Hermain</option>
-                                                    <option value="Zainapora">Zainapora</option>
-                                                    <option value="Chitragam">Chitragam</option>
-                                                    <option value="Ramnagri">Ramnagri</option>
-
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Gandarbal"
-                                                ?
-                                                <>
-                                                    <option value="Ganderbal">Ganderbal</option>
-                                                    <option value="Kangan">Kangan</option>
-                                                    <option value="Lar">Lar</option>
-                                                    <option value="Wakoora">Wakoora</option>
-                                                    <option value="Gund">Gund</option>
-                                                    <option value="Tullamulla">Tullamulla</option>
-
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Bandipora"
-                                                ?
-                                                <>
-                                                    <option value="Bandipora">Bandipora</option>
-                                                    <option value="Hajin">Hajin</option>
-                                                    <option value="Sonawari">Sonawari</option>
-                                                    <option value="Sumbal">Sumbal</option>
-
-
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Baramullah"
-                                                ?
-                                                <>
-                                                    <option value="Baramulla">Baramulla</option>
-                                                    <option value="Boniyar">Boniyar</option>
-                                                    <option value="Kreeri">Kreeri</option>
-                                                    <option value="Pattan">Pattan</option>
-                                                    <option value="Rafiabad">Rafiabad</option>
-                                                    <option value="Sangrama">Sangrama</option>
-                                                    <option value="Sopore">Sopore</option>
-                                                    <option value="Tangmarg">Tangmarg</option>
-                                                    <option value="Uri">Uri</option>
-                                                    <option value="Watergam">Watergam</option>
-
-
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Budgam"
-                                                ?
-                                                <>
-                                                    <option value="Beerwah">Beerwah</option>
-                                                    <option value="Budgam">Budgam</option>
-                                                    <option value="Charar-i-Sharief">Charar-i-Sharief</option>
-                                                    <option value="Chadoora">Chadoora</option>
-                                                    <option value="Khag">Khag</option>
-                                                    <option value="Magam">Magam</option>
-                                                    <option value="Nagam">Nagam</option>
-                                                    <option value="Soibug">Soibug</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Kupwara"
+                                                    ?
+                                                    <>
+                                                        <option value="Handwara">Handwara</option>
+                                                        <option value="Karnah">Karnah</option>
+                                                        <option value="Kralpora">Kralpora</option>
+                                                        <option value="Langate">Langate</option>
+                                                        <option value="Lolab">Lolab</option>
+                                                        <option value="Ramhall">Ramhall</option>
+                                                        <option value="Sogam">Sogam</option>
+                                                        <option value="Tangdar">Tangdar</option>
 
 
 
-                                                </>
-                                                : ""
-                                        }
-                                        {
-                                            dis === "Kulgam"
-                                                ?
-                                                <>
-                                                    <option value="Kulgam">Kulgam</option>
-                                                    <option value="Devsar">Devsar</option>
-                                                    <option value="Frisal">Frisal</option>
-                                                    <option value="Homeshalibugh">Homeshalibugh</option>
-                                                    <option value="Qaimoh">Qaimoh</option>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Sopian"
+                                                    ?
+                                                    <>
+                                                        <option value="Shopian">Shopian</option>
+                                                        <option value="Keller">Keller</option>
+                                                        <option value="Hermain">Hermain</option>
+                                                        <option value="Zainapora">Zainapora</option>
+                                                        <option value="Chitragam">Chitragam</option>
+                                                        <option value="Ramnagri">Ramnagri</option>
 
-                                                </>
-                                                : ""
-                                        }
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Gandarbal"
+                                                    ?
+                                                    <>
+                                                        <option value="Ganderbal">Ganderbal</option>
+                                                        <option value="Kangan">Kangan</option>
+                                                        <option value="Lar">Lar</option>
+                                                        <option value="Wakoora">Wakoora</option>
+                                                        <option value="Gund">Gund</option>
+                                                        <option value="Tullamulla">Tullamulla</option>
 
-                                    </select>
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Bandipora"
+                                                    ?
+                                                    <>
+                                                        <option value="Bandipora">Bandipora</option>
+                                                        <option value="Hajin">Hajin</option>
+                                                        <option value="Sonawari">Sonawari</option>
+                                                        <option value="Sumbal">Sumbal</option>
 
+
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Baramullah"
+                                                    ?
+                                                    <>
+                                                        <option value="Baramulla">Baramulla</option>
+                                                        <option value="Boniyar">Boniyar</option>
+                                                        <option value="Kreeri">Kreeri</option>
+                                                        <option value="Pattan">Pattan</option>
+                                                        <option value="Rafiabad">Rafiabad</option>
+                                                        <option value="Sangrama">Sangrama</option>
+                                                        <option value="Sopore">Sopore</option>
+                                                        <option value="Tangmarg">Tangmarg</option>
+                                                        <option value="Uri">Uri</option>
+                                                        <option value="Watergam">Watergam</option>
+
+
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Budgam"
+                                                    ?
+                                                    <>
+                                                        <option value="Beerwah">Beerwah</option>
+                                                        <option value="Budgam">Budgam</option>
+                                                        <option value="Charar-i-Sharief">Charar-i-Sharief</option>
+                                                        <option value="Chadoora">Chadoora</option>
+                                                        <option value="Khag">Khag</option>
+                                                        <option value="Magam">Magam</option>
+                                                        <option value="Nagam">Nagam</option>
+                                                        <option value="Soibug">Soibug</option>
+
+
+
+                                                    </>
+                                                    : ""
+                                            }
+                                            {
+                                                dis === "Kulgam"
+                                                    ?
+                                                    <>
+                                                        <option value="Kulgam">Kulgam</option>
+                                                        <option value="Devsar">Devsar</option>
+                                                        <option value="Frisal">Frisal</option>
+                                                        <option value="Homeshalibugh">Homeshalibugh</option>
+                                                        <option value="Qaimoh">Qaimoh</option>
+
+                                                    </>
+                                                    : ""
+                                            }
+
+                                        </select>
+                                        <span className="customArrow"></span>
+                                    </div>
                                 </div>
 
 
@@ -747,6 +755,7 @@ function Form() {
                                         <input type="text" onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
                                         <div className="innerInnerDiv">
                                             <h4>Filtered Areas:</h4>
+                                            <div className="customSelect">
                                             <select className="pincode" value={pinArea} onChange={(e) => setPinArea(e.target.value)}>
                                                 {filteredAreas.map(area => (
                                                     <option key={area}>{area}</option>
@@ -759,29 +768,31 @@ function Form() {
                                                 }
 
                                             </select>
+                                            <span className="customArrow"></span>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div className="indiDetails">
-                                    <label htmlFor="desig">Area</label>
-                                    {pinArea ? pinArea : ""}
                                 </div>
                             </div>
 
                             <div className="indiDetails">
-                                <label htmlFor="phone">Phone Number (+91)</label>
-                                <div className="phoneNumber">
-                                    {
-                                        phoneNumber.map((each, index) => {
-                                            return (
-                                                <input value={each} className="phoneInput" key={index} maxLength={1} type="text" onChange={(e) => changePhoneFoucs(e.target, index)} onFocus={e => e.target.select()} />
-                                            )
-                                        })
-                                    }
-                                </div>
-                                {/* <p>+91 </p> */}
-                                {/* {
+                                <label htmlFor="desig">Area</label>
+                                {pinArea ? pinArea : ""}
+                            </div>
+                        </div>
+
+                        <div className="indiDetails">
+                            <label htmlFor="phone">Phone Number (+91)</label>
+                            <div className="phoneNumber">
+                                {
+                                    phoneNumber.map((each, index) => {
+                                        return (
+                                            <input value={each} className="phoneInput" key={index} maxLength={1} type="text" onChange={(e) => changePhoneFoucs(e.target, index)} onFocus={e => e.target.select()} />
+                                        )
+                                    })
+                                }
+                            </div>
+                            {/* <p>+91 </p> */}
+                            {/* {
                                     phoneNumber.map((each, index) => {
                                         return (
                                             <select value={each} key={index}  type="text" onChange={(e) => changeFoucs(e.target, index)} onFocus={e => e.target.select()} >
@@ -800,7 +811,7 @@ function Form() {
                                         )
                                     })
                                 } */}
-                                {/* <div className="phoneNumber">
+                            {/* <div className="phoneNumber">
                                     <select className="phoneVal" value={phVal0} onChange={(e) => setPhVal0(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -932,13 +943,13 @@ function Form() {
                                         <option value="9">9</option>
                                     </select>
                                 </div> */}
-                                {/* <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" /> */}
+                            {/* <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" /> */}
 
-                            </div>
-                            <div className="indiDetails">
-                                <label htmlFor="adh">Adhaar Number</label>
-                                {/* <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" /> */}
-                                {/* <div className="adhNumber">
+                        </div>
+                        <div className="indiDetails">
+                            <label htmlFor="adh">Adhaar Number</label>
+                            {/* <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" /> */}
+                            {/* <div className="adhNumber">
                                     <select className="adhVal" value={adVal0} onChange={(e) => setAdVal0(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -1102,7 +1113,7 @@ function Form() {
 
 
                                 </div> */}
-                                <div className="adhNumber">
+                            <div className="adhNumber">
                                 {
                                     adhNumber.map((each, index) => {
                                         return (
@@ -1110,14 +1121,15 @@ function Form() {
                                         )
                                     })
                                 }
-                                </div>
-                                
                             </div>
 
+                        </div>
 
-                            <div className="lowerDetails">
-                                <div className="indiDetails">
-                                    <label htmlFor="email">Category</label>
+
+                        <div className="lowerDetails">
+                            <div className="indiDetails">
+                                <label htmlFor="email">Category</label>
+                                <div className="customSelect">
                                     <select value={clas} onChange={(e) => setClas(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Urban">Urban</option>
@@ -1125,9 +1137,12 @@ function Form() {
 
 
                                     </select>
+                                    <span className="customArrow"></span>
                                 </div>
-                                <div className="indiDetails">
-                                    <label htmlFor="email">Social Class</label>
+                            </div>
+                            <div className="indiDetails">
+                                <label htmlFor="email">Social Class</label>
+                                <div className="customSelect">
                                     <select className="sc" value={socialClas} onChange={(e) => setSocailClas(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="SC">Scheduled Castes (SC)</option>
@@ -1148,9 +1163,12 @@ function Form() {
                                         <option value="APL">Above Poverty Line</option>
 
                                     </select>
+                                    <span className="customArrow"></span>
                                 </div>
-                                <div className="indiDetails">
-                                    <label htmlFor="email">Age Group</label>
+                            </div>
+                            <div className="indiDetails">
+                                <label htmlFor="email">Age Group</label>
+                                <div className="customSelect">
                                     <select value={ageGroup} onChange={(e) => setAgeGroup(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Below 15">Below 15</option>
@@ -1162,9 +1180,12 @@ function Form() {
                                         <option value="40 Above">40 Above</option>
 
                                     </select>
+                                    <span className="customArrow"></span>
                                 </div>
-                                <div className="indiDetails">
-                                    <label htmlFor="email">Mont. Family Income</label>
+                            </div>
+                            <div className="indiDetails">
+                                <label htmlFor="email">Mont. Family Income</label>
+                                <div className="customSelect">
                                     <select value={monthlyIncome} onChange={(e) => setMonthlyIncome(e.target.value)}>
                                         <option value="">Select Option</option>
                                         <option value="Below 5000">Below 5000</option>
@@ -1175,22 +1196,24 @@ function Form() {
                                         <option value="50000-100000">50000-100000</option>
                                         <option value="above 100000">above 100000</option>
                                     </select>
+                                    <span className="customArrow"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
-                    <button type="submit">Next</button>
-
-                </form>
-
-
             </div>
 
-        </div>
+
+
+            <button type="submit">Next</button>
+
+        </form>
+
+
+            </div >
+
+        </div >
     )
 }
 
-export default Form;
+export default GenForm;

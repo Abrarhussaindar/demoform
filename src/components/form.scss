@@ -23,7 +23,7 @@
         justify-content: flex-start;
         align-items: flex-end;
         gap: 10px;
-        padding-left: 20px;
+        // padding-left: 20px;
         .logo {
             // height: 150px;
             width: 90px;
@@ -238,6 +238,10 @@
                             gap: 10px;
                             background-color: white;
                             // row-gap: 10px;
+                            .phoneInput{
+                                text-align: center;
+                                padding: 5px 0 !important;
+                            }
                             .phoneVal{
                                 width: 40px;
                                 height: 40px;
@@ -259,6 +263,12 @@
                         gap: 15px;
                         align-items: center;
                         background-color: white;
+                        .adhInput{
+                            text-align: center;
+                            width: 60px !important;
+                            height: 40px;
+                            padding: 0 !important;
+                        }
                         .adhVal{
                             width: 40px;
                             height: 40px;

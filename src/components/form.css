@@ -20,7 +20,6 @@
   justify-content: flex-start;
   align-items: flex-end;
   gap: 10px;
-  padding-left: 20px;
 }
 .container .header .logo {
   width: 90px;
@@ -191,6 +190,10 @@
   gap: 10px;
   background-color: white;
 }
+.container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneInput {
+  text-align: center;
+  padding: 5px 0 !important;
+}
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneVal {
   width: 40px;
   height: 40px;
@@ -208,6 +211,12 @@
   gap: 15px;
   align-items: center;
   background-color: white;
+}
+.container .wrapper form .pdfContainer .mainDetails .adhNumber .adhInput {
+  text-align: center;
+  width: 60px !important;
+  height: 40px;
+  padding: 0 !important;
 }
 .container .wrapper form .pdfContainer .mainDetails .adhNumber .adhVal {
   width: 40px;
