@@ -1,41 +1,49 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../form.css";
-
+import { multiStepContext } from "../../StepContext";
 
 function GenForm() {
 
+    const { userData, setUserData } = useContext(multiStepContext);
 
 
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [address, setAddress] = useState("");
+    // const [firstName, setFirstName] = useState("");
+    // const [lastName, setLastName] = useState("");
+    // const [address, setAddress] = useState("");
     const [pinCode, setPinCode] = useState("");
-    const [dob, setDob] = useState("");
-    const [dis, setDis] = useState();
-    const [division, setDiv] = useState();
-    const [block, setBlock] = useState();
-    const [gender, setGen] = useState();
+    // const [dob, setDob] = useState("");
 
-    const [mariStatus, setMariStatus] = useState();
-    const [religion, setReligion] = useState();
-    const [OtherReligion, setOtherReligion] = useState();
+    // const [dis, setDis] = useState();
+    // const [division, setDiv] = useState();
+    // const [block, setBlock] = useState();
+    // const [gender, setGen] = useState();
 
-    const [clas, setClas] = useState();
-    const [socialClas, setSocailClas] = useState();
-    const [ageGroup, setAgeGroup] = useState();
-    const [monthlyIncome, setMonthlyIncome] = useState();
-    const [pinArea, setPinArea] = useState("");
+    // const [mariStatus, setMariStatus] = useState();
+    // const [religion, setReligion] = useState();
+    // const [OtherReligion, setOtherReligion] = useState();
+
+    // const [clas, setClas] = useState();
+    // const [socialClas, setSocailClas] = useState();
+    // const [ageGroup, setAgeGroup] = useState();
+    // const [monthlyIncome, setMonthlyIncome] = useState();
+    // const [pinArea, setPinArea] = useState("");
     const [phoneNumber, setPhoneNumber] = useState(new Array(10).fill(''))
     const [adhNumber, setAdhNumber] = useState(new Array(12).fill(''))
-
+    console.log(phoneNumber);
     const changePhoneFoucs = (target, index) => {
         if (isNaN(target.value)) {
             return false
         }
+        setUserData({...userData, "PhoneNumber": phoneNumber})
         setPhoneNumber([...phoneNumber.map((v, ind) => (ind === index ? target.value : v))])
         if (target.nextSibling) {
             target.nextSibling.focus();
         }
+        // value={userData['Division']} required onChange={(e) => setUserData({...userData, "Division": e.target.value})}
+        
+    }
+    if (phoneNumber.length === 10 && phoneNumber[phoneNumber.length] === " " ){
+
     }
     const changeAdhFoucs = (target, index) => {
         if (isNaN(target.value)) {
@@ -45,35 +53,13 @@ function GenForm() {
         if (target.nextSibling) {
             target.nextSibling.focus();
         }
+        setUserData({...userData, "AdhaarNumber": adhNumber})
     }
-    const [age, setAge] = useState(0)
-    const calculateAge = (event) => {
-        setDob(event.target.value);
-        const today = new Date();
-        const birthDate = new Date(dob);
-        let agee = today.getFullYear() - birthDate.getFullYear();
-        const monthDifference = today.getMonth() - birthDate.getMonth();
-        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-            agee--;
-        }
-        console.log("agee: ",agee);
-        const yearsDifference = today.getFullYear() - birthDate.getFullYear();
-        const monthsDifference = today.getMonth() - birthDate.getMonth();
-        const daysDifference = today.getDate() - birthDate.getDate();
 
-        let accurateAge = yearsDifference;
-
-        if (monthsDifference < 0 || (monthsDifference === 0 && daysDifference < 0)) {
-            accurateAge--;
-        }
-
-        setAge(accurateAge);
-    };
-    console.log("age: ",age);
     console.log(pinCode);
 
 
-    const [email, setEmail] = useState("");
+    // const [email, setEmail] = useState("");
 
     const [pinCodes, setPinCodes] = useState({
         "184104": ["Mini Sect. (Kathua)"],
@@ -197,6 +183,7 @@ function GenForm() {
 
     const handleDigitInput = (event) => {
         const digit = event.target.value;
+        setUserData({...userData, "PinCode": event.target.value})
         setPinCode(digit)
         filterAreas(digit);
         setPinCodes(prevPinCodes => ({
@@ -210,6 +197,7 @@ function GenForm() {
             .reduce((acc, pinCode) => acc.concat(pinCodes[pinCode]), []);
 
         setFilteredAreas(filteredAreas);
+        // setUserData({...userData, "FilterdAreas":})
     };
 
     // const logo = require("../Decent Arcadia type 4.jpg");  
@@ -220,20 +208,20 @@ function GenForm() {
             <div className="topIndi">
                 <div className="indiDetails">
                     <label htmlFor="name">First Name</label>
-                    <input type="text" value={firstName} required onChange={(e) => setFirstName(e.target.value)} name="name" id="name" />
+                    <input type="text" value={userData['FirstName']} required onChange={(e) => setUserData({...userData, "FirstName": e.target.value})} name="name" id="name" />
                 </div>
                 <div className="indiDetails">
                     <label htmlFor="name">Last Name</label>
-                    <input type="text" value={lastName} required onChange={(e) => setLastName(e.target.value)} name="name" id="name" />
+                    <input type="text" value={userData['LastName']} required onChange={(e) => setUserData({...userData, "LastName": e.target.value})} name="name" id="name" />
                 </div>
                 <div className="indiDetails">
                     <label htmlFor="desig">Address</label>
-                    <input type="text" value={address} required onChange={(e) => setAddress(e.target.value)} name="desig" id="desig" />
+                    <input type="text" value={userData['Address']} required onChange={(e) => setUserData({...userData, "Address": e.target.value})} name="desig" id="desig" />
                 </div>
                 <div className="indiDetails">
                     <label htmlFor="email">Gender</label>
                     <div className="customSelect">
-                        <select value={gender} onChange={(e) => setGen(e.target.value)}>
+                        <select value={userData['Gender']} required onChange={(e) => setUserData({...userData, "Gender": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Male">Male</option>
@@ -249,12 +237,12 @@ function GenForm() {
 
                 <div className="indiDetails">
                     <label htmlFor="dob">DOB</label>
-                    <input className="dob" type="date" value={dob} required onChange={calculateAge} name="dob" id="dob" />
+                    <input className="dob" type="date" value={userData['DOB']} required onChange={(e) => setUserData({...userData, "DOB": e.target.value})} name="dob" id="dob" />
                 </div>
 
                 <div className="indiDetails">
                     <label htmlFor="dob">Age</label>
-                    {age ? age : ""} Years Old
+                    
                     {/* <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" /> */}
                 </div>
 
@@ -264,14 +252,14 @@ function GenForm() {
             </div>
             <div className="indiDetails">
                 <label htmlFor="email">Email ID</label>
-                <input className="email" type="email" value={email} required onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
+                <input className="email" type="email" value={userData['Email']} required onChange={(e) => setUserData({...userData, "Email": e.target.value})} name="email" id="email" />
             </div>
             <div className="bottomIndi">
                 <div className="indiDetails">
                     <label htmlFor="age">Division</label>
                     <div className="customSelect">
 
-                        <select value={division} onChange={(e) => setDiv(e.target.value)}>
+                        <select value={userData['Division']} required onChange={(e) => setUserData({...userData, "Division": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Jammu">Jammu</option>
@@ -288,11 +276,11 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="age">District</label>
                     <div className="customSelect">
-                        <select value={dis} onChange={(e) => setDis(e.target.value)}>
+                        <select value={userData['District']} required onChange={(e) => setUserData({...userData, "District": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             {
-                                division === "Jammu"
+                                userData.Division === "Jammu"
                                     ?
                                     <>
                                         <option value="Doda">Doda</option>
@@ -319,7 +307,7 @@ function GenForm() {
                             }
 
                             {
-                                division === "Kashmir"
+                                userData.Division === 'Kashmir'
                                     ?
                                     <>
                                         <option value="Anantnag">Anantnag</option>
@@ -354,12 +342,12 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="age">Block</label>
                     <div className="customSelect">
-                        <select value={block} onChange={(e) => setBlock(e.target.value)}>
+                        <select value={userData['Block']} required onChange={(e) => setUserData({...userData, "Block": e.target.value})}>
                             <option value="">Select Option</option>
 
                             {/* Jammu District Blocks */}
                             {
-                                dis === "Jammu"
+                                userData.District === "Jammu"
                                     ?
                                     <>
                                         <option value="Akhnoor">Akhnoor</option>
@@ -396,7 +384,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Doda"
+                                userData.District === "Doda"
                                     ?
                                     <>
                                         <option value="Assar">Assar</option>
@@ -432,7 +420,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Kathua"
+                                userData.District === "Kathua"
                                     ?
                                     <>
                                         <option value="Basholi">Basholi</option>
@@ -465,7 +453,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Ramban"
+                                userData.District === "Ramban"
                                     ?
                                     <>
                                         <option value="Banihal">Banihal</option>
@@ -484,7 +472,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Reasi"
+                                userData.District === "Reasi"
                                     ?
                                     <>
                                         <option value="Arnas">Arnas</option>
@@ -506,7 +494,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Kishtwar"
+                                userData.District === "Kishtwar"
                                     ?
                                     <>
                                         <option value="Bounjwah">Bounjwah</option>
@@ -530,7 +518,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Poonch"
+                                userData.District === "Poonch"
                                     ?
                                     <>
                                         <option value="Buffliaz">Buffliaz</option>
@@ -549,7 +537,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Rajouri"
+                                userData.District === "Rajouri"
                                     ?
                                     <>
                                         <option value="Budhal">Budhal</option>
@@ -569,7 +557,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Udhampur"
+                                userData.District === "Udhampur"
                                     ?
                                     <>
                                         <option value="Basantgarh">Basantgarh</option>
@@ -597,7 +585,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Samba"
+                                userData.District === "Samba"
                                     ?
                                     <>
                                         <option value="Bari Brahmana">Bari Brahmana</option>
@@ -620,7 +608,7 @@ function GenForm() {
 
                             {/* Kashmir District Blocks */}
                             {
-                                dis === "Srinagar"
+                                userData.District === "Srinagar"
                                     ?
                                     <>
                                         <option value="Batamaloo">Batamaloo</option>
@@ -667,7 +655,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Anantnag"
+                                userData.District === "Anantnag"
                                     ?
                                     <>
                                         <option value="Achabal">Achabal</option>
@@ -703,7 +691,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Pulwama"
+                                userData.District === "Pulwama"
                                     ?
                                     <>
                                         <option value="Awantipora">Awantipora</option>
@@ -724,7 +712,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Kupwara"
+                                userData.District === "Kupwara"
                                     ?
                                     <>
                                         <option value="Handwara">Handwara</option>
@@ -749,7 +737,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Sopian"
+                                userData.District === "Sopian"
                                     ?
                                     <>
                                         <option value="Shopian">Shopian</option>
@@ -768,7 +756,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Gandarbal"
+                                userData.District === "Gandarbal"
                                     ?
                                     <>
                                         <option value="Ganderbal">Ganderbal</option>
@@ -787,7 +775,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Bandipora"
+                                userData.District === "Bandipora"
                                     ?
                                     <>
                                         <option value="Bandipora">Bandipora</option>
@@ -803,7 +791,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Baramullah"
+                                userData.District === "Baramullah"
                                     ?
                                     <>
                                         <option value="Baramulla">Baramulla</option>
@@ -831,7 +819,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Budgam"
+                                userData.District === "Budgam"
                                     ?
                                     <>
                                         <option value="Beerwah">Beerwah</option>
@@ -856,7 +844,7 @@ function GenForm() {
                                     : ""
                             }
                             {
-                                dis === "Kulgam"
+                                userData.District === "Kulgam"
                                     ?
                                     <>
                                         <option value="Kulgam">Kulgam</option>
@@ -888,11 +876,12 @@ function GenForm() {
                     {/* onChange={(e) => setPinCodes(e.target.value)} */}
                     {/* <input type="text" value={""} maxLength={6} required name="desig" id="desig" /> */}
                     <div className="innerDiv">
-                        <input type="text" onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
+                    
+                        <input type="text" value={userData['PinCode']} required onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
                         <div className="innerInnerDiv">
                             <h4>Filtered Areas:</h4>
                             <div className="customSelect">
-                                <select className="pincode" value={pinArea} onChange={(e) => setPinArea(e.target.value)}>
+                                <select className="pincode" value={userData['PinArea']} required onChange={(e) => setUserData({...userData, "PinArea": e.target.value})}>
                                     {filteredAreas.map(area => (
                                         <option key={area}>{area}</option>
                                     ))}
@@ -912,7 +901,7 @@ function GenForm() {
 
                 <div className="indiDetails">
                     <label htmlFor="desig">Area</label>
-                    {pinArea ? pinArea : ""}
+                    {userData.PinArea ? userData.PinArea : ""}
                 </div>
             </div>
 
@@ -1266,7 +1255,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Marital Status</label>
                     <div className="customSelect">
-                        <select value={mariStatus} onChange={(e) => setMariStatus(e.target.value)}>
+                        <select value={userData['MaritalStatus']} required onChange={(e) => setUserData({...userData, "MaritalStatus": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Married">Married</option>
@@ -1287,7 +1276,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Religion</label>
                     <div className="customSelect">
-                        <select value={religion} onChange={(e) => setReligion(e.target.value)}>
+                        <select value={userData['Religion']} required onChange={(e) => setUserData({...userData, "Religion": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Islam">Islam</option>
@@ -1309,13 +1298,13 @@ function GenForm() {
                         <span className="customArrow"></span>
                     </div>
                     {
-                        religion === "Other"
+                        userData.Religion === "Other"
                             ?
                             <div className='other'>
                                 <h5>
                                     Specify:
                                 </h5>
-                                <input type="text" value={OtherReligion} required onChange={(e) => setOtherReligion(e.target.value)} name="name" id="name" />
+                                <input type="text" value={userData['OtherReligion']} required onChange={(e) => setUserData({...userData, "OtherReligion": e.target.value})} name="name" id="name" />
                             </div>
                             : ""
                     }
@@ -1323,7 +1312,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Category</label>
                     <div className="customSelect">
-                        <select value={clas} onChange={(e) => setClas(e.target.value)}>
+                        <select value={userData['Category']} required onChange={(e) => setUserData({...userData, "Category": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Urban">Urban</option>
@@ -1338,7 +1327,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Social Class</label>
                     <div className="customSelect">
-                        <select className="sc" value={socialClas} onChange={(e) => setSocailClas(e.target.value)}>
+                        <select className="sc" value={userData['SocailClass']} required onChange={(e) => setUserData({...userData, "SocailClass": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Gen">General (Gen)</option>
@@ -1383,7 +1372,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Age Group</label>
                     <div className="customSelect">
-                        <select value={ageGroup} onChange={(e) => setAgeGroup(e.target.value)}>
+                        <select value={userData['AgeGroup']} required onChange={(e) => setUserData({...userData, "AgeGroup": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Below 15">Below 15</option>
@@ -1407,7 +1396,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Mon. Fam. Income</label>
                     <div className="customSelect">
-                        <select value={monthlyIncome} onChange={(e) => setMonthlyIncome(e.target.value)}>
+                        <select value={userData['MFI']} required onChange={(e) => setUserData({...userData, "MFI": e.target.value})}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Below 5000">Below 5000</option>

@@ -12,7 +12,7 @@ import { multiStepContext } from "../StepContext";
 
 function Form() {
 
-    const { currentStep, setCurrentStep, } = useContext(multiStepContext);
+    const { currentStep, setCurrentStep, submitData } = useContext(multiStepContext);
 
     const showStep = (step) => {
         switch (step) {
@@ -138,7 +138,7 @@ function Form() {
                         {
                             currentStep === 5
                                 ?
-                                <button type="submit">Finish</button>
+                                <button type="submit" onClick={submitData}>Finish</button>
 
                                 :
                                 <button type="submit">Next</button>

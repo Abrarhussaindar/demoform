@@ -1,64 +1,66 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import "../form.css"
+import { multiStepContext } from '../../StepContext';
 
 function EdForm() {
-    const [edu, setEdu] = useState();
-    const [empd, setEmpd] = useState();
-    const [empStatus, setEmpStatus] = useState();
-    const [OtherEmpStatus, setOtherEmpStatus] = useState();
-    const [satisfied, setSatisfied] = useState();
+    // const [edu, setEdu] = useState();
+    // const [empd, setEmpd] = useState();
+    // const [empStatus, setEmpStatus] = useState();
+    // const [OtherEmpStatus, setOtherEmpStatus] = useState();
+    // const [satisfied, setSatisfied] = useState();
 
-    const [stream, setStream] = useState();
-    const [subject, setSubject] = useState();
+    // const [stream, setStream] = useState();
+    // const [subject, setSubject] = useState();
 
-    const [unGradCourse, setUnGradCourse] = useState();
-    const [unGradBranch, setUnGradBranch] = useState();
-    const [unGradField, setUnGradField] = useState();
+    // const [unGradCourse, setUnGradCourse] = useState();
+    // const [unGradBranch, setUnGradBranch] = useState();
+    // const [unGradField, setUnGradField] = useState();
 
-    const [GradCourse, setGradCourse] = useState();
-    const [GradBranch, setGradBranch] = useState();
-    const [GradField, setGradField] = useState();
+    // const [GradCourse, setGradCourse] = useState();
+    // const [GradBranch, setGradBranch] = useState();
+    // const [GradField, setGradField] = useState();
 
-    const [PGCourse, setPGradCourse] = useState();
-    const [PGBranch, setPGradBranch] = useState();
-    const [PGField, setPGradField] = useState();
+    // const [PGCourse, setPGradCourse] = useState();
+    // const [PGBranch, setPGradBranch] = useState();
+    // const [PGField, setPGradField] = useState();
 
-    const [dipCourse, setDipCourse] = useState();
-    const [itiCourse, setItiCourse] = useState();
-    const [mphill, setMphill] = useState();
-    const [phd, setPhd] = useState();
-    const [pro, setPro] = useState();
+    // const [dipCourse, setDipCourse] = useState();
+    // const [itiCourse, setItiCourse] = useState();
+    // const [mphill, setMphill] = useState();
+    // const [phd, setPhd] = useState();
+    // const [pro, setPro] = useState();
 
 
 
     
-    const [rateAva, setRateAva] = useState();
+    // const [rateAva, setRateAva] = useState();
     
-    const [otherEdu, setOtherEdu] = useState();
-    const [otherStrm, setOtherStrm] = useState();
-    const [otherSub, setOtherSub] = useState();
-    const [otherUGCourse, setOtherUGCourse] = useState();
-    const [otherUGField, setOtherUGField] = useState();
-    const [otherUGBranch, setOtherUGBranch] = useState();
-    const [otherGradCourse, setOtherGradCourse] = useState();
-    const [otherGradField, setOtherGradField] = useState();
-    const [otherGradBranch, setOtherGradBranch] = useState();
-    const [otherPGCourse, setOtherPGCourse] = useState();
-    const [otherPGField, setOtherPGField] = useState();
-    const [otherPGBranch, setOtherPGBranch] = useState();
-    const [otherDip, setOtherDip] = useState();
-    const [otherIti, setOtherIti] = useState();
-    // const arrow = require("../arrow-down-sign-to-navigate.png");
+    // const [otherEdu, setOtherEdu] = useState();
+    // const [otherStrm, setOtherStrm] = useState();
+    // const [otherSub, setOtherSub] = useState();
+    // const [otherUGCourse, setOtherUGCourse] = useState();
+    // const [otherUGField, setOtherUGField] = useState();
+    // const [otherUGBranch, setOtherUGBranch] = useState();
+    // const [otherGradCourse, setOtherGradCourse] = useState();
+    // const [otherGradField, setOtherGradField] = useState();
+    // const [otherGradBranch, setOtherGradBranch] = useState();
+    // const [otherPGCourse, setOtherPGCourse] = useState();
+    // const [otherPGField, setOtherPGField] = useState();
+    // const [otherPGBranch, setOtherPGBranch] = useState();
+    // const [otherDip, setOtherDip] = useState();
+    // const [otherIti, setOtherIti] = useState();
+    // // const arrow = require("../arrow-down-sign-to-navigate.png");
 
-    const [keySkills, setKeySkills] = useState();
-    const [otherKeySkill, setOtherKeySkill] = useState();
-    const [impJob, setImpJob] = useState();
-    const [otherImpJob, setOtherImpJob] = useState();
-
-
+    // const [keySkills, setKeySkills] = useState();
+    // const [otherKeySkill, setOtherKeySkill] = useState();
+    // const [impJob, setImpJob] = useState();
+    // const [otherImpJob, setOtherImpJob] = useState();
 
 
 
+
+    const { userData, setUserData } = useContext(multiStepContext);
+    
     return (
 
         <div className="topIndi empDetails">
@@ -66,7 +68,7 @@ function EdForm() {
                 <label htmlFor="email">What your current Educational Qualification?</label>
                 <div className="customSelect">
 
-                    <select value={edu} onChange={(e) => setEdu(e.target.value)}>
+                    <select value={userData['Qualification']} required onChange={(e) => setUserData({...userData, "Qualification": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="No Formal Education">No Formal Education</option>
@@ -100,13 +102,13 @@ function EdForm() {
                     </span>
                 </div>
                 {
-                    edu === "Other"
+                    userData.Qualification === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherEdu} required onChange={(e) => setOtherEdu(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherQualification']} required onChange={(e) => setUserData({...userData, "OtherQualification": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -117,14 +119,14 @@ function EdForm() {
             <div className='topEd'>
                 <div className='top'>
                     {
-                        edu === "12th Pass"
+                        userData.Qualification === "12th Pass"
                             ?
                             <>
 
                                 <div className="indiDetails">
                                     <label htmlFor="email">Stream</label>
                                     <div className='customSelect'>
-                                        <select value={stream} onChange={(e) => setStream(e.target.value)}>
+                                        <select value={userData['Stream']} required onChange={(e) => setUserData({...userData, "Stream": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Science">Science</option>
@@ -142,13 +144,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        stream === "Other"
+                                        userData.Stream === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherStrm} required onChange={(e) => setOtherStrm(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherStream']} required onChange={(e) => setUserData({...userData, "OtherStream": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -156,11 +158,11 @@ function EdForm() {
                                 <div className="indiDetails">
                                     <label htmlFor="email">Main Subjects</label>
                                     <div className='customSelect'>
-                                        <select value={subject} onChange={(e) => setSubject(e.target.value)}>
+                                        <select value={userData['Subject']} required onChange={(e) => setUserData({...userData, "Subject": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             {
-                                                stream === "Science"
+                                                userData.Stream === "Science"
                                                     ?
                                                     <>
                                                         <option value="PCB">Physics, Chemistry, Biology (PCB)</option>
@@ -174,7 +176,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                stream === "Commerce"
+                                                userData.Stream === "Commerce"
                                                     ?
                                                     <>
                                                         <option value="Accountancy">Accountancy</option>
@@ -188,7 +190,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                stream === "Humanities or Arts"
+                                                userData.Stream === "Humanities or Arts"
                                                     ?
                                                     <>
                                                         <option value="History">History</option>
@@ -218,13 +220,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        subject === "Other"
+                                        userData.Subject === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherSub} required onChange={(e) => setOtherSub(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherSubject']} required onChange={(e) => setUserData({...userData, "OtherSubject": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -233,13 +235,13 @@ function EdForm() {
                             : ""
                     }
                     {
-                        edu === "Under Graduate"
+                        userData.Qualification === "Under Graduate"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Course</label>
                                     <div className='customSelect'>
-                                        <select value={unGradCourse} onChange={(e) => setUnGradCourse(e.target.value)}>
+                                        <select value={userData['UnderGradCourse']} required onChange={(e) => setUserData({...userData, "UnderGradCourse": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
@@ -263,13 +265,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        unGradCourse === "Other"
+                                        userData.UnderGradCourse === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherUGCourse} required onChange={(e) => setOtherUGCourse(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherUnderGradCourse']} required onChange={(e) => setUserData({...userData, "OtherUnderGradCourse": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -277,11 +279,11 @@ function EdForm() {
                                 <div className="indiDetails">
                                     <label htmlFor="email">Field</label>
                                     <div className='customSelect'>
-                                        <select value={unGradField} onChange={(e) => setUnGradField(e.target.value)}>
+                                        <select value={userData['UnderGradField']} required onChange={(e) => setUserData({...userData, "UnderGradField": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             {
-                                                unGradCourse === "Bachelor of Arts (B.A.)"
+                                                userData.UnderGradCourse === "Bachelor of Arts (B.A.)"
                                                     ?
                                                     <>
                                                         <option value="English Literature">English Literature</option>
@@ -308,7 +310,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                unGradCourse === "Bachelor of Science (B.Sc.)"
+                                                userData.UnderGradCourse === "Bachelor of Science (B.Sc.)"
                                                     ?
                                                     <>
                                                         <option value="Mathematics">Mathematics</option>
@@ -339,7 +341,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                unGradCourse === "Bachelor of Commerce (B.Com.)"
+                                                userData.UnderGradCourse === "Bachelor of Commerce (B.Com.)"
                                                     ?
                                                     <>
                                                         <option value="Accountancy">Accountancy</option>
@@ -360,7 +362,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                unGradCourse === "Professional Degrees"
+                                                userData.UnderGradCourse === "Professional Degrees"
                                                     ?
                                                     <>
                                                         <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
@@ -404,13 +406,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        unGradField === "Other"
+                                        userData.UnderGradField === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherUGField} required onChange={(e) => setOtherUGField(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherUnderGradField']} required onChange={(e) => setUserData({...userData, "OtherUnderGradField": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -419,13 +421,13 @@ function EdForm() {
                     }
                     {/* under grad fields */}
                     {
-                        unGradField === "Bachelor of Engineering (B.E.)"
+                        userData.UnderGradField === "Bachelor of Engineering (B.E.)"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Branch</label>
                                     <div className='customSelect'>
-                                        <select value={unGradBranch} onChange={(e) => setUnGradBranch(e.target.value)}>
+                                        <select value={userData['UnderGradBranch']} required onChange={(e) => setUserData({...userData, "UnderGradBranch": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Civil Engineering">Civil Engineering</option>
@@ -482,13 +484,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        unGradBranch === "Other"
+                                        userData.UnderGradBranch === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherUGBranch} required onChange={(e) => setOtherUGBranch(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherUnderGradBranch']} required onChange={(e) => setUserData({...userData, "OtherUnderGradBranch": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -497,13 +499,13 @@ function EdForm() {
                             : ""
                     }
                     {
-                        unGradField === "Bachelor of Technology (B.Tech.)"
+                        userData.UnderGradField === "Bachelor of Technology (B.Tech.)"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Branch</label>
                                     <div className='customSelect'>
-                                        <select value={unGradBranch} onChange={(e) => setUnGradBranch(e.target.value)}>
+                                        <select value={userData['UnderGradBranch']} required onChange={(e) => setUserData({...userData, "UnderGradBranch": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -560,13 +562,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        unGradBranch === "Other"
+                                        userData.UnderGradBranch === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherUGBranch} required onChange={(e) => setOtherUGBranch(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherUnderGradBranch']} required onChange={(e) => setUserData({...userData, "OtherUnderGradBranch": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -575,13 +577,13 @@ function EdForm() {
                             : ""
                     }
                     {
-                        edu === "Graduate"
+                        userData.Qualification === "Graduate"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Course</label>
                                     <div className='customSelect'>
-                                        <select value={GradCourse} onChange={(e) => setGradCourse(e.target.value)}>
+                                        <select value={userData['GradCourse']} required onChange={(e) => setUserData({...userData, "GradCourse": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
@@ -605,13 +607,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        GradCourse === "Other"
+                                        userData.GradCourse === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherGradCourse} required onChange={(e) => setOtherGradCourse(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherGradCourse']} required onChange={(e) => setUserData({...userData, "OtherGradCourse": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -619,11 +621,11 @@ function EdForm() {
                                 <div className="indiDetails">
                                     <label htmlFor="email">Field</label>
                                     <div className='customSelect'>
-                                        <select value={GradField} onChange={(e) => setGradField(e.target.value)}>
+                                        <select value={userData['GradField']} required onChange={(e) => setUserData({...userData, "GradField": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             {
-                                                GradCourse === "Bachelor of Arts (B.A.)"
+                                                userData.GradCourse === "Bachelor of Arts (B.A.)"
                                                     ?
                                                     <>
                                                         <option value="English Literature">English Literature</option>
@@ -650,7 +652,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                GradCourse === "Bachelor of Science (B.Sc.)"
+                                                userData.GradCourse === "Bachelor of Science (B.Sc.)"
                                                     ?
                                                     <>
                                                         <option value="Mathematics">Mathematics</option>
@@ -681,7 +683,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                GradCourse === "Bachelor of Commerce (B.Com.)"
+                                                userData.GradCourse === "Bachelor of Commerce (B.Com.)"
                                                     ?
                                                     <>
                                                         <option value="Accountancy">Accountancy</option>
@@ -702,7 +704,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                GradCourse === "Professional Degrees"
+                                                userData.GradCourse === "Professional Degrees"
                                                     ?
                                                     <>
                                                         <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
@@ -744,13 +746,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        GradField === "Other"
+                                        userData.GradField === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherGradField} required onChange={(e) => setOtherGradField(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherGradField']} required onChange={(e) => setUserData({...userData, "OtherGradField": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -759,13 +761,13 @@ function EdForm() {
                     }
                     {/* under grad fields */}
                     {
-                        GradField === "Bachelor of Engineering (B.E.)"
+                        userData.GradField === "Bachelor of Engineering (B.E.)"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Branch</label>
                                     <div className='customSelect'>
-                                        <select value={GradBranch} onChange={(e) => setGradBranch(e.target.value)}>
+                                        <select value={userData['GradBranch']} required onChange={(e) => setUserData({...userData, "GradBranch": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Civil Engineering">Civil Engineering</option>
@@ -822,13 +824,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        GradBranch === "Other"
+                                        userData.GradBranch === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherGradBranch} required onChange={(e) => setOtherGradBranch(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherGradBranch']} required onChange={(e) => setUserData({...userData, "OtherGradBranch": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -837,13 +839,13 @@ function EdForm() {
                             : ""
                     }
                     {
-                        GradField === "Bachelor of Technology (B.Tech.)"
+                        userData.GradField === "Bachelor of Technology (B.Tech.)"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Branch</label>
                                     <div className='customSelect'>
-                                        <select value={GradBranch} onChange={(e) => setGradBranch(e.target.value)}>
+                                        <select value={userData['GradBranch']} required onChange={(e) => setUserData({...userData, "GradBranch": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -900,13 +902,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        GradBranch === "Other"
+                                        userData.GradBranch === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherGradBranch} required onChange={(e) => setOtherGradBranch(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherGradBranch']} required onChange={(e) => setUserData({...userData, "OtherGradBranch": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -916,13 +918,13 @@ function EdForm() {
                     }
 
                     {
-                        edu === "Post Graduate"
+                        userData.Qualification === "Post Graduate"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Course</label>
                                     <div className='customSelect'>
-                                        <select value={PGCourse} onChange={(e) => setPGradCourse(e.target.value)}>
+                                        <select value={userData['PGCourse']} required onChange={(e) => setUserData({...userData, "PGCourse": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Masters in Arts (M.A.)">Masters in Arts (M.A.)</option>
@@ -946,13 +948,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        PGCourse === "Other"
+                                        userData.PGCourse === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherPGCourse} required onChange={(e) => setOtherPGCourse(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherPGCourse']} required onChange={(e) => setUserData({...userData, "OtherPGCourse": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -960,11 +962,11 @@ function EdForm() {
                                 <div className="indiDetails">
                                     <label htmlFor="email">Field</label>
                                     <div className='customSelect'>
-                                        <select value={PGField} onChange={(e) => setPGradField(e.target.value)}>
+                                        <select value={userData['PGField']} required onChange={(e) => setUserData({...userData, "PGField": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             {
-                                                PGCourse === "Masters in Arts (M.A.)"
+                                                userData.PGCourse === "Masters in Arts (M.A.)"
                                                     ?
                                                     <>
                                                         <option value="English Literature">English Literature</option>
@@ -991,7 +993,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                PGCourse === "Masters in Science (M.Sc.)"
+                                                userData.PGCourse === "Masters in Science (M.Sc.)"
                                                     ?
                                                     <>
                                                         <option value="Mathematics">Mathematics</option>
@@ -1022,7 +1024,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                PGCourse === "Masters in Commerce (M.Com.)"
+                                                userData.PGCourse === "Masters in Commerce (M.Com.)"
                                                     ?
                                                     <>
                                                         <option value="Accountancy">Accountancy</option>
@@ -1043,7 +1045,7 @@ function EdForm() {
                                                     : ""
                                             }
                                             {
-                                                PGCourse === "Professional Degrees"
+                                                userData.PGCourse === "Professional Degrees"
                                                     ?
                                                     <>
                                                         <option value="Masters of Engineering (M.E.)">Masters of Engineering (M.E.)</option>
@@ -1087,13 +1089,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        PGField === "Other"
+                                        userData.PGField === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherPGField} required onChange={(e) => setOtherPGField(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherPGField']} required onChange={(e) => setUserData({...userData, "OtherPGField": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -1102,13 +1104,13 @@ function EdForm() {
                     }
                     {/* under grad fields */}
                     {
-                        PGField === "Masters of Engineering (M.E.)"
+                        userData.PGField === "Masters of Engineering (M.E.)"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Branch</label>
                                     <div className='customSelect'>
-                                        <select value={PGBranch} onChange={(e) => setPGradBranch(e.target.value)}>
+                                        <select value={userData['PGBranch']} required onChange={(e) => setUserData({...userData, "PGBranch": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Civil Engineering">Civil Engineering</option>
@@ -1165,13 +1167,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        PGBranch === "Other"
+                                        userData.PGBranch === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherPGBranch} required onChange={(e) => setOtherPGBranch(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherPGBranch']} required onChange={(e) => setUserData({...userData, "OtherPGBranch": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -1180,13 +1182,13 @@ function EdForm() {
                             : ""
                     }
                     {
-                        PGField === "Masters of Technology (M.Tech.)"
+                        userData.PGField === "Masters of Technology (M.Tech.)"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Branch</label>
                                     <div className='customSelect'>
-                                        <select value={PGBranch} onChange={(e) => setPGradBranch(e.target.value)}>
+                                        <select value={userData['PGBranch']} required onChange={(e) => setUserData({...userData, "PGBranch": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -1243,13 +1245,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        PGBranch === "Other"
+                                        userData.PGBranch === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherPGBranch} required onChange={(e) => setOtherPGBranch(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherPGBranch']} required onChange={(e) => setUserData({...userData, "OtherPGBranch": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -1261,7 +1263,7 @@ function EdForm() {
                 </div>
                 <div className='bottom'>
                     {
-                        edu === "Mphill"
+                        userData.Qualification === "Mphill"
                             ?
                             <>
                                 <div className="indiDetails">
@@ -1269,13 +1271,13 @@ function EdForm() {
                                     <h5>
                                         Specify:
                                     </h5>
-                                    <input type="text" value={mphill} required onChange={(e) => setMphill(e.target.value)} name="name" id="name" />
+                                    <input type="text" value={userData['Mphill']} required onChange={(e) => setUserData({...userData, "Mphill": e.target.value})} name="name" id="name" />
                                 </div>
                             </>
                             : ""
                     }
                     {
-                        edu === "Phd"
+                        userData.Qualification === "Phd"
                             ?
                             <>
                                 <div className="indiDetails">
@@ -1283,13 +1285,13 @@ function EdForm() {
                                     <h5>
                                         Specify:
                                     </h5>
-                                    <input type="text" value={phd} required onChange={(e) => setPhd(e.target.value)} name="name" id="name" />
+                                    <input type="text" value={userData['Phd']} required onChange={(e) => setUserData({...userData, "Phd": e.target.value})} name="name" id="name" />
                                 </div>
                             </>
                             : ""
                     }
                     {
-                        edu === "Proffessional"
+                        userData.Qualification === "Proffessional"
                             ?
                             <>
                                 <div className="indiDetails">
@@ -1297,19 +1299,19 @@ function EdForm() {
                                     <h5>
                                         Specify:
                                     </h5>
-                                    <input type="text" value={pro} required onChange={(e) => setPro(e.target.value)} name="name" id="name" />
+                                    <input type="text" value={userData['Prof']} required onChange={(e) => setUserData({...userData, "Prof": e.target.value})} name="name" id="name" />
                                 </div>
                             </>
                             : ""
                     }
                     {
-                        edu === "Diploma"
+                        userData.Qualification === "Diploma"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Course</label>
                                     <div className='customSelect'>
-                                        <select value={dipCourse} onChange={(e) => setDipCourse(e.target.value)}>
+                                        <select value={userData['DipCourse']} required onChange={(e) => setUserData({...userData, "DipCourse": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Diploma in Civil Engineering">Diploma in Civil Engineering</option>
@@ -1362,13 +1364,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        dipCourse === "Other"
+                                        userData.DipCourse === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherDip} required onChange={(e) => setOtherDip(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherDipCourse']} required onChange={(e) => setUserData({...userData, "OtherDipCourse": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -1377,13 +1379,13 @@ function EdForm() {
                             : ""
                     }
                     {
-                        edu === "ITI"
+                        userData.Qualification === "ITI"
                             ?
                             <>
                                 <div className="indiDetails">
                                     <label htmlFor="email">Course</label>
                                     <div className='customSelect'>
-                                        <select value={itiCourse} onChange={(e) => setItiCourse(e.target.value)}>
+                                        <select value={userData['ItiCourse']} required onChange={(e) => setUserData({...userData, "ItiCourse": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             <option value="Electrician">Electrician</option>
@@ -1436,13 +1438,13 @@ function EdForm() {
                                         </span>
                                     </div>
                                     {
-                                        itiCourse === "Other"
+                                        userData.ItiCourse === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherIti} required onChange={(e) => setOtherIti(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherItiCourse']} required onChange={(e) => setUserData({...userData, "OtherItiCourse": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -1458,7 +1460,7 @@ function EdForm() {
             <div className="indiDetails">
                 <label htmlFor="email">Are you currently Employeed?</label>
                 <div className='customSelect'>
-                    <select value={empd} onChange={(e) => setEmpd(e.target.value)}>
+                    <select value={userData['Employeed']} required onChange={(e) => setUserData({...userData, "Employeed": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Yes">Yes</option>
@@ -1473,13 +1475,13 @@ function EdForm() {
                 </div>
             </div>
             {
-                empd === "Yes"
+                userData.Employeed === "Yes"
                     ?
                     <>
                         <div className="indiDetails">
                             <label htmlFor="email">What is you current employment status?</label>
                             <div className='customSelect'>
-                                <select value={empStatus} onChange={(e) => setEmpStatus(e.target.value)}>
+                                <select value={userData['EmploymentStatus']} required onChange={(e) => setUserData({...userData, "EmploymentStatus": e.target.value})}>
                                     <option value="">Select Option</option>
                                     <hr />
                                     <option value="Govt Employee">Govt Employee</option>
@@ -1513,13 +1515,13 @@ function EdForm() {
                                 </span>
                             </div>
                             {
-                                empStatus === "Other"
+                                userData.EmploymentStatus === "Other"
                                     ?
                                     <div className='other'>
                                         <h5>
                                             Other:
                                         </h5>
-                                        <input type="text" value={OtherEmpStatus} required onChange={(e) => setOtherEmpStatus(e.target.value)} name="name" id="name" />
+                                        <input type="text" value={userData['OtherEmploymentStatus']} required onChange={(e) => setUserData({...userData, "OtherEmploymentStatus": e.target.value})} name="name" id="name" />
                                     </div>
                                     : ""
                             }
@@ -1529,7 +1531,7 @@ function EdForm() {
                         <div className="indiDetails">
                             <label htmlFor="email">How satisfied are you with your current employment/business situation?</label>
                             <div className='customSelect'>
-                                <select value={satisfied} onChange={(e) => setSatisfied(e.target.value)}>
+                                <select value={userData['Satisfaction']} required onChange={(e) => setUserData({...userData, "Satisfaction": e.target.value})}>
                                     <option value="">Select Option</option>
                                     <hr />
                                     <option value="Very satisfied">Very satisfied</option>
@@ -1559,7 +1561,7 @@ function EdForm() {
             <div className="indiDetails">
                 <label htmlFor="email">According to you, what are the key skills/qualities required to secure a good job?</label>
                 <div className='customSelect'>
-                    <select value={keySkills} onChange={(e) => setKeySkills(e.target.value)}>
+                    <select value={userData['KeySkills']} required onChange={(e) => setUserData({...userData, "KeySkills": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Technical qualifications/trade-specific knowledge & skills">Technical qualifications/trade-specific knowledge & skills</option>
@@ -1588,21 +1590,21 @@ function EdForm() {
                     </span>
                 </div>
                 {
-                    keySkills === "Other"
+                    userData.KeySkills === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherKeySkill} required onChange={(e) => setOtherKeySkill(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherKeySkills']} required onChange={(e) => setUserData({...userData, "OtherKeySkills": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
             </div>
             <div className="indiDetails">
-                <label htmlFor="email">Which of the following do you consider to be most important when considering/evaluating/ applying for a job</label>
+                <label htmlFor="email">Which of the following do you consider to be most important when considering/evaluating/applying for a job</label>
                 <div className='customSelect'>
-                    <select value={impJob} onChange={(e) => setImpJob(e.target.value)}>
+                    <select value={userData['JobImp']} required onChange={(e) => setUserData({...userData, "JobImp": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Opportunities for promotion and career development">Opportunities for promotion and career development</option>
@@ -1634,13 +1636,13 @@ function EdForm() {
                     </span>
                 </div>
                 {
-                    impJob === "Other"
+                    userData.JobImp === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherImpJob} required onChange={(e) => setOtherImpJob(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherJobImp']} required onChange={(e) => setUserData({...userData, "OtherJobImp": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -1648,7 +1650,7 @@ function EdForm() {
             <div className="indiDetails">
                 <label htmlFor="email">How would you rate the availability of appropriate wage employment opportunities nowadays in J&K UT?</label>
                 <div className='customSelect'>
-                    <select value={rateAva} onChange={(e) => setRateAva(e.target.value)}>
+                    <select value={userData['RateAva']} required onChange={(e) => setUserData({...userData, "RateAva": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Very inadequate">Very inadequate</option>

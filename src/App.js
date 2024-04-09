@@ -1,11 +1,11 @@
 import React from "react"
-// import Form from "./components/form";
+import Form from "./components/form";
 // import GenForm from "./components/GenForm/GenForm";
 // import EdForm from "./components/EdForm/EdForm";
 // import AspiForm from "./components/AspiForm/AspiForm";
 // import Support from "./components/Support/Support";
 // import MigForm from "./components/MigForm/MigForm";
-import Form from "./components/form";
+// import Form from "./components/form";
 
 
 

@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import "../form.css"
+import { multiStepContext } from '../../StepContext';
 
 function Support() {
-
-    const [bigChal, setBigChal] = useState()
-    const [OtherBigChal, setOtherBigChal] = useState()
+    const { userData, setUserData } = useContext(multiStepContext);
+    // console.log(userData);
+    // const [bigChal, setBigChal] = useState()
+    // const [OtherBigChal, setOtherBigChal] = useState()
     
 
-    const [sor, setSor] = useState()
-    const [otherSor, setOtherSor] = useState()
-    const [sector, setSector] = useState()
-    const [otherSector, setOtherSector] = useState()
-    const [sectorEnterp, setSectorEnterp] = useState()
-    const [otherSectorEnterp, setOtherSectorEnterp] = useState()
-    const [monthIncome, setMonthIncome] = useState()
-    const [sst, setSST] = useState()
-    const [othersst, setOtherSST] = useState()
-    const [chal, setChal] = useState()
-    const [otherChal, setOtherChal] = useState()
+    // const [sor, setSor] = useState()
+    // const [otherSor, setOtherSor] = useState()
+    // const [sector, setSector] = useState()
+    // const [otherSector, setOtherSector] = useState()
+    // const [sectorEnterp, setSectorEnterp] = useState()
+    // const [otherSectorEnterp, setOtherSectorEnterp] = useState()
+    // const [monthIncome, setMonthIncome] = useState()
+    // const [sst, setSST] = useState()
+    // const [othersst, setOtherSST] = useState()
+    // const [chal, setChal] = useState()
+    // const [otherChal, setOtherChal] = useState()
 
 
 
@@ -29,7 +31,7 @@ function Support() {
                 <label htmlFor="email">What are the biggest challenges you face in pursuing your career aspirations?</label>
                 <div className="customSelect">
 
-                    <select value={bigChal} onChange={(e) => setBigChal(e.target.value)}>
+                    <select value={userData['BigChal']} required onChange={(e) => setUserData({...userData, "BigChal": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Lack of financial resources">Lack of financial resources</option>
@@ -49,13 +51,13 @@ function Support() {
                     </span>
                 </div>
                 {
-                    bigChal === "Other"
+                    userData.BigChal === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={OtherBigChal} required onChange={(e) => setOtherBigChal(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherBigChal']} required onChange={(e) => setUserData({...userData, "OtherBigChal": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -65,7 +67,7 @@ function Support() {
                 <label htmlFor="email">What kind of support or resources do you believe would help you achieve your career goals?</label>
                 <div className="customSelect">
 
-                    <select value={sor} onChange={(e) => setSor(e.target.value)}>
+                    <select value={userData['SOR']} required onChange={(e) => setUserData({...userData, "SOR": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Skill Training">Skill Training</option>
@@ -95,13 +97,13 @@ function Support() {
                     </span>
                 </div>
                 {
-                    sor === "Other"
+                    userData.SOR === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherSor} required onChange={(e) => setOtherSor(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherSOR']} required onChange={(e) => setUserData({...userData, "OtherSOR": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -111,7 +113,7 @@ function Support() {
                 <label htmlFor="email">In which sector do you want to get employment (wage/salaried)?</label>
                 <div className="customSelect">
 
-                    <select value={sector} onChange={(e) => setSector(e.target.value)}>
+                    <select value={userData['Sector']} required onChange={(e) => setUserData({...userData, "Sector": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Agro-business">Agro-business</option>
@@ -179,13 +181,13 @@ function Support() {
                     </span>
                 </div>
                 {
-                    sector === "Other"
+                    userData.Sector === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherSector} required onChange={(e) => setOtherSector(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherSector']} required onChange={(e) => setUserData({...userData, "OtherSector": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -195,7 +197,7 @@ function Support() {
                 <label htmlFor="email">In which sector do you want to be an entrepreneur or set up your startup?</label>
                 <div className="customSelect">
 
-                    <select value={sectorEnterp} onChange={(e) => setSectorEnterp(e.target.value)}>
+                    <select value={userData['SectorEnterp']} required onChange={(e) => setUserData({...userData, "SectorEnterp": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Agro-business">Agro-business</option>
@@ -263,13 +265,13 @@ function Support() {
                     </span>
                 </div>
                 {
-                    sectorEnterp === "Other"
+                    userData.SectorEnterp === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherSectorEnterp} required onChange={(e) => setOtherSectorEnterp(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherSectorEnterp']} required onChange={(e) => setUserData({...userData, "OtherSectorEnterp": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -279,7 +281,7 @@ function Support() {
                 <label htmlFor="email">What is your minimum monthly income/wage expectation (Rs)?</label>
                 <div className="customSelect">
 
-                    <select value={monthIncome} onChange={(e) => setMonthIncome(e.target.value)}>
+                    <select value={userData['MinMonthlyIncome']} required onChange={(e) => setUserData({...userData, "MinMonthlyIncome": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Less than 5000">Less than 5000</option>
@@ -313,7 +315,7 @@ function Support() {
                 <label htmlFor="email">Which specific skill do you want the training in?</label>
                 <div className="customSelect">
 
-                    <select value={sst} onChange={(e) => setSST(e.target.value)}>
+                    <select value={userData['SST']} required onChange={(e) => setUserData({...userData, "SST": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Accounting/Financial Management">Accounting/Financial Management</option>
@@ -339,13 +341,13 @@ function Support() {
                     </span>
                 </div>
                 {
-                    sst === "Other"
+                    userData.SST === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={othersst} required onChange={(e) => setOtherSST(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherSST']} required onChange={(e) => setUserData({...userData, "OtherSST": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -355,7 +357,7 @@ function Support() {
                 <label htmlFor="email">What challenges do you foresee in initiating self-employment or establishing your entrepreneurial venture (start/run your own business)?</label>
                 <div className="customSelect">
 
-                    <select value={chal} onChange={(e) => setChal(e.target.value)}>
+                    <select value={userData['Chal']} required onChange={(e) => setUserData({...userData, "Chal": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Lack of funds/ seed funding">Lack of funds/ seed funding</option>
@@ -385,13 +387,13 @@ function Support() {
                     </span>
                 </div>
                 {
-                    chal === "Other"
+                    userData.Chal === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherChal} required onChange={(e) => setOtherChal(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherChal']} required onChange={(e) => setUserData({...userData, "OtherChal": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }

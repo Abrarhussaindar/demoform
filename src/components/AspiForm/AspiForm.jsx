@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import "../form.css"
 
+import { multiStepContext } from '../../StepContext';
+
 function AspiForm() {
-    const [dreamCareer, setDreamCareer] = useState()
-    const [otherDreamCareer, setOtherDreamCareer] = useState()
-    const [dreamCareerField, setDreamCareerField] = useState()
-    const [otherDreamCareerField, setOtherDreamCareerField] = useState()
-    const [influence, setInfluence] = useState()
-    const [otherInfluence, setOtherInfluence] = useState()
-    const [scale, setScale] = useState()
+    // const [dreamCareer, setDreamCareer] = useState()
+    // const [otherDreamCareer, setOtherDreamCareer] = useState()
+    // const [dreamCareerField, setDreamCareerField] = useState()
+    // const [otherDreamCareerField, setOtherDreamCareerField] = useState()
+    // const [influence, setInfluence] = useState()
+    // const [otherInfluence, setOtherInfluence] = useState()
+    // const [scale, setScale] = useState()
 
-    const [suppGov, setSuppGov] = useState()
-    const [GovSchemes, setGovSchemes] = useState()
-    const [formalTraining, setFormalTraining] = useState()
-    const [EdTrainProg, setEdTrainProg] = useState()
-    const [OtherEdTrainProg, setOtherEdTrainProg] = useState()
-    const [FurEdTrain, setFurEdTrain] = useState()
+    // const [suppGov, setSuppGov] = useState()
+    // const [GovSchemes, setGovSchemes] = useState()
+    // const [formalTraining, setFormalTraining] = useState()
+    // const [EdTrainProg, setEdTrainProg] = useState()
+    // const [OtherEdTrainProg, setOtherEdTrainProg] = useState()
+    // const [FurEdTrain, setFurEdTrain] = useState()
 
+    const { userData, setUserData } = useContext(multiStepContext);
+    
 
     return (
 
@@ -25,7 +29,7 @@ function AspiForm() {
                 <label htmlFor="email">What is your dream career or occupation?</label>
                 <div className="customSelect">
 
-                    <select value={dreamCareer} onChange={(e) => setDreamCareer(e.target.value)}>
+                    <select value={userData['DreamCareer']} required onChange={(e) => setUserData({...userData, "DreamCareer": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Tourism and Allied">Tourism and Allied</option>
@@ -61,20 +65,20 @@ function AspiForm() {
                     </span>
                 </div>
                 {
-                    dreamCareer === "Other"
+                    userData.DreamCareer === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherDreamCareer} required onChange={(e) => setOtherDreamCareer(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherDreamCareer']} required onChange={(e) => setUserData({...userData, "OtherDreamCareer": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
 
                 {
-                    dreamCareer
-                        ? dreamCareer === "Other"
+                    userData.DreamCareer
+                        ? userData.DreamCareer === "Other"
                             ?
                             ""
                             :
@@ -83,11 +87,11 @@ function AspiForm() {
                                     <label htmlFor="email">Field</label>
                                     <div className="customSelect">
 
-                                        <select value={dreamCareerField} onChange={(e) => setDreamCareerField(e.target.value)}>
+                                        <select value={userData['DreamCareerField']} required onChange={(e) => setUserData({...userData, "DreamCareerField": e.target.value})}>
                                             <option value="">Select Option</option>
                                             <hr />
                                             {
-                                                dreamCareer === "Tourism and Allied"
+                                                userData.DreamCareer === "Tourism and Allied"
                                                     ?
                                                     <>
                                                         <option value="Tour Guide">Tour Guide</option>
@@ -195,7 +199,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Agriculture and Allied"
+                                                userData.DreamCareer === "Agriculture and Allied"
                                                     ?
                                                     <>
                                                         <hr />
@@ -304,7 +308,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Handlooms and Handicrafts"
+                                                userData.DreamCareer === "Handlooms and Handicrafts"
                                                     ?
                                                     <>
                                                         <hr />
@@ -413,7 +417,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Horticulture and Allied"
+                                                userData.DreamCareer === "Horticulture and Allied"
                                                     ?
                                                     <>
                                                         <hr />
@@ -522,7 +526,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Import & Export"
+                                                userData.DreamCareer === "Import & Export"
                                                     ?
                                                     <>
                                                         <hr />
@@ -632,7 +636,7 @@ function AspiForm() {
                                             }
 
                                             {
-                                                dreamCareer === "Banking and Finance"
+                                                userData.DreamCareer === "Banking and Finance"
                                                     ?
                                                     <>
                                                         <hr />
@@ -741,7 +745,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Transport and allied"
+                                                userData.DreamCareer === "Transport and allied"
                                                     ?
                                                     <>
                                                         <hr />
@@ -848,7 +852,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Manufacturing and allied"
+                                                userData.DreamCareer === "Manufacturing and allied"
                                                     ?
                                                     <>
                                                         <hr />
@@ -955,7 +959,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Construction and Real estate"
+                                                userData.DreamCareer === "Construction and Real estate"
                                                     ?
                                                     <>
                                                         <hr />
@@ -1064,7 +1068,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Healthcare and allied"
+                                                userData.DreamCareer === "Healthcare and allied"
                                                     ?
                                                     <>
                                                         <hr />
@@ -1173,7 +1177,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "ITeS and allied"
+                                                userData.DreamCareer === "ITeS and allied"
                                                     ?
                                                     <>
                                                         <hr />
@@ -1282,7 +1286,7 @@ function AspiForm() {
                                                     : ""
                                             }
                                             {
-                                                dreamCareer === "Hospitality and allied"
+                                                userData.DreamCareer === "Hospitality and allied"
                                                     ?
                                                     <>
                                                         <hr />
@@ -1398,24 +1402,24 @@ function AspiForm() {
 
                                     </div>
                                     {
-                                        dreamCareer === "Distribution and Retail"
+                                        userData.DreamCareer === "Distribution and Retail"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherDreamCareerField} required onChange={(e) => setOtherDreamCareerField(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherDreamCareerField']} required onChange={(e) => setUserData({...userData, "OtherDreamCareerField": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
                                     {
-                                        dreamCareerField === "Other"
+                                        userData.DreamCareerField === "Other"
                                             ?
                                             <div className='other'>
                                                 <h5>
                                                     Specify:
                                                 </h5>
-                                                <input type="text" value={otherDreamCareerField} required onChange={(e) => setOtherDreamCareerField(e.target.value)} name="name" id="name" />
+                                                <input type="text" value={userData['OtherDreamCareerField']} required onChange={(e) => setUserData({...userData, "OtherDreamCareerField": e.target.value})} name="name" id="name" />
                                             </div>
                                             : ""
                                     }
@@ -1435,7 +1439,7 @@ function AspiForm() {
                 <label htmlFor="email">What factors influence your career aspirations?</label>
                 <div className="customSelect">
 
-                    <select value={influence} onChange={(e) => setInfluence(e.target.value)}>
+                    <select value={userData['InfluenceFactor']} required onChange={(e) => setUserData({...userData, "InfluenceFactor": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Personal interests and passions">Personal interests and passions</option>
@@ -1473,13 +1477,13 @@ function AspiForm() {
                     </span>
                 </div>
                 {
-                    influence === "Other"
+                    userData.InfluenceFactor === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={otherInfluence} required onChange={(e) => setOtherInfluence(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherInfluenceFactor']} required onChange={(e) => setUserData({...userData, "OtherInfluenceFactor": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -1490,7 +1494,7 @@ function AspiForm() {
                 <label htmlFor="email">On a scale of 1 to 5, how confident are you in achieving your career goals?</label>
                 <div className="customSelect">
 
-                    <select value={scale} onChange={(e) => setScale(e.target.value)}>
+                    <select value={userData['Scale']} required onChange={(e) => setUserData({...userData, "Scale": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Not confident at all (1)">Not confident at all (1)</option>
@@ -1521,7 +1525,7 @@ function AspiForm() {
                 <label htmlFor="email">How supportive do you think the government and local authorities are in promoting youth employment and entrepreneurship in Jammu and Kashmir?</label>
                 <div className="customSelect">
 
-                    <select value={suppGov} onChange={(e) => setSuppGov(e.target.value)}>
+                    <select value={userData['GovSupport']} required onChange={(e) => setUserData({...userData, "GovSupport": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Very supportive">Very supportive</option>
@@ -1540,13 +1544,13 @@ function AspiForm() {
                 </div>
             </div>
             {
-                suppGov
+                userData.GovSupport
                     ?
                     <div className="indiDetails">
                         <label htmlFor="email">Are you aware of the listed skill development schemes/training programmes?</label>
                         <div className="customSelect">
 
-                            <select value={GovSchemes} onChange={(e) => setGovSchemes(e.target.value)}>
+                            <select value={userData['GovScheme']} required onChange={(e) => setUserData({...userData, "GovScheme": e.target.value})}>
                                 <option value="">Select Option</option>
                                 <hr />
                                 <option value="Pradhan Mantri Kaushal Vikas Yojana (PMKVY)">Pradhan Mantri Kaushal Vikas Yojana (PMKVY)</option>
@@ -1572,7 +1576,7 @@ function AspiForm() {
                 <label htmlFor="email">Have you received any formal training or education related to entrepreneurship or job skills development?</label>
                 <div className="customSelect">
 
-                    <select value={formalTraining} onChange={(e) => setFormalTraining(e.target.value)}>
+                    <select value={userData['FormalTrainEdu']} required onChange={(e) => setUserData({...userData, "FormalTrainEdu": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Yes">Yes</option>
@@ -1592,7 +1596,7 @@ function AspiForm() {
                 <label htmlFor="email">What type of educational or training programs are you interested in pursuing?</label>
                 <div className="customSelect">
 
-                    <select value={EdTrainProg} onChange={(e) => setEdTrainProg(e.target.value)}>
+                    <select value={userData['EduTrainProg']} required onChange={(e) => setUserData({...userData, "EduTrainProg": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Traditional college/university degree programs">Traditional college/university degree programs</option>
@@ -1613,13 +1617,13 @@ function AspiForm() {
                 </div>
 
                 {
-                    EdTrainProg === "Other"
+                    userData.EduTrainProg === "Other"
                         ?
                         <div className='other'>
                             <h5>
                                 Specify:
                             </h5>
-                            <input type="text" value={OtherEdTrainProg} required onChange={(e) => setOtherEdTrainProg(e.target.value)} name="name" id="name" />
+                            <input type="text" value={userData['OtherEduTrainProg']} required onChange={(e) => setUserData({...userData, "OtherEduTrainProg": e.target.value})} name="name" id="name" />
                         </div>
                         : ""
                 }
@@ -1629,7 +1633,7 @@ function AspiForm() {
                 <label htmlFor="email">How important do you think obtaining further education or training is for achieving your career goals?</label>
                 <div className="customSelect">
 
-                    <select value={FurEdTrain} onChange={(e) => setFurEdTrain(e.target.value)}>
+                    <select value={userData['FurEduTrain']} required onChange={(e) => setUserData({...userData, "FurEduTrain": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Not important at all">Not important at all</option>

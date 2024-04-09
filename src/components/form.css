@@ -489,6 +489,9 @@
   .container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv .innerInnerDiv .pincode {
     width: 100%;
   }
+  .container .wrapper form .pdfContainer .mainDetails .indiDetails label {
+    font-size: 14px;
+  }
 }
 @media screen and (width <= 440px) {
   .wrapper {

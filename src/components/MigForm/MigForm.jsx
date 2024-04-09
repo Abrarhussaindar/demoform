@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import "../form.css"
+import { multiStepContext } from '../../StepContext';
 
 function MigForm() {
-    const [WTE, setWTE] = useState()
-    const [wjopp, setWjopp] = useState();
-    const [wmhl, setWmhl] = useState();
-    const [wmoutdis, setWmoutdis] = useState();
-    const [disWm, setDisWm] = useState();
-    const [districtWm, setDistrictWm] = useState();
-    const [wmoutUT, setWmoutUT] = useState();
-    const [cityToMigrate, setCityToMigrate] = useState();
-    const [ReasoncityToMigrate, setReasonCityToMigrate] = useState();
-    const [wmoutInd, setWmoutInd] = useState();
-    const [NotwmoutInd, setNotWmoutInd] = useState();
-    const [countryToMigrate, setCountryToMigrate] = useState();
-    const [ReasonCountryToMigrate, setReasonCountryToMigrate] = useState();
+    // const [WTE, setWTE] = useState()
+    // const [wjopp, setWjopp] = useState();
+    // const [wmhl, setWmhl] = useState();
+    // const [wmoutdis, setWmoutdis] = useState();
+    // const [disWm, setDisWm] = useState();
+    // const [districtWm, setDistrictWm] = useState();
+    // const [wmoutUT, setWmoutUT] = useState();
+    // const [cityToMigrate, setCityToMigrate] = useState();
+    // const [ReasoncityToMigrate, setReasonCityToMigrate] = useState();
+    // const [wmoutInd, setWmoutInd] = useState();
+    // const [NotwmoutInd, setNotWmoutInd] = useState();
+    // const [countryToMigrate, setCountryToMigrate] = useState();
+    // const [ReasonCountryToMigrate, setReasonCountryToMigrate] = useState();
+
+
+    const { userData, setUserData } = useContext(multiStepContext);
+    console.log(userData);
+
     return (
         <div className="topIndi empDetails">
             <div className="indiDetails">
                 <label htmlFor="email">Are you willing to explore your aspirations or job/career opportunities outside Valley?</label>
                 <div className="customSelect">
 
-                    <select value={WTE} onChange={(e) => setWTE(e.target.value)}>
+                    <select value={userData['WTE']} required onChange={(e) => setUserData({...userData, "WTE": e.target.value})}>
                         <option value="">Select Option</option>
                         <hr />
                         <option value="Yes">Yes</option>
@@ -35,13 +41,13 @@ function MigForm() {
                     </span>
                 </div>
                 {
-                    WTE === "Yes"
+                    userData.WTE === "Yes"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Are you willing to explore new and emerging job opportunities even if they are not traditionally associated with Jammu and Kashmir?</label>
                                 <div className='customSelect'>
-                                    <select value={wjopp} onChange={(e) => setWjopp(e.target.value)}>
+                                    <select value={userData['WillJobOpp']} required onChange={(e) => setUserData({...userData, "WillJobOpp": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Yes">Yes</option>
@@ -62,13 +68,13 @@ function MigForm() {
 
                 }
                 {
-                    wjopp === "Yes"
+                    userData.WillJobOpp === "Yes"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Are you willing to migrate from your home location for job opportunities?</label>
                                 <div className='customSelect'>
-                                    <select value={wmhl} onChange={(e) => setWmhl(e.target.value)}>
+                                    <select vvalue={userData['WillMigHome']} required onChange={(e) => setUserData({...userData, "WillMigHome": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Yes">Yes</option>
@@ -88,13 +94,13 @@ function MigForm() {
                         : ""
                 }
                 {
-                    wjopp === "No"
+                    userData.WillJobOpp === "No"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Please state the reason(s) for not willing to migrate for employment opportunities</label>
                                 <div className='customSelect'>
-                                    <select value={NotwmoutInd} onChange={(e) => setNotWmoutInd(e.target.value)}>
+                                    <select value={userData['NotWillMig']} required onChange={(e) => setUserData({...userData, "NotWillMig": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Want to stay close to my family">Want to stay close to my family</option>
@@ -123,13 +129,13 @@ function MigForm() {
                 }
 
                 {
-                    wmhl === "Yes"
+                    userData.WillMigHome === "Yes"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Are you willing to migrate-outside the district of residence but within UT of J&K?</label>
                                 <div className='customSelect'>
-                                    <select value={wmoutdis} onChange={(e) => setWmoutdis(e.target.value)}>
+                                    <select value={userData['OutDisWUT']} required onChange={(e) => setUserData({...userData, "OutDisWUT": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Yes">Yes</option>
@@ -149,13 +155,13 @@ function MigForm() {
                         : ""
                 }
                 {
-                    wmoutdis === "Yes"
+                    userData.OutDisWUT === "Yes"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Which district within the UT of J&K are you willing to migrate to?</label>
                                 <div className='customSelect'>
-                                    <select value={disWm} onChange={(e) => setDisWm(e.target.value)}>
+                                    <select value={userData['WillDis']} required onChange={(e) => setUserData({...userData, "WillDis": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Jammu">Jammu Districts</option>
@@ -173,11 +179,11 @@ function MigForm() {
                             <div className="indiDetails">
                                 <label htmlFor="age">District</label>
                                 <div className="customSelect">
-                                    <select value={districtWm} onChange={(e) => setDistrictWm(e.target.value)}>
+                                    <select value={userData['DisWillToMig']} required onChange={(e) => setUserData({...userData, "DisWillToMig": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         {
-                                            disWm === "Jammu"
+                                            userData.WillDis === "Jammu"
                                                 ?
                                                 <>
                                                     <option value="Doda">Doda</option>
@@ -204,7 +210,7 @@ function MigForm() {
                                         }
 
                                         {
-                                            disWm === "Kashmir"
+                                            userData.WillDis === "Kashmir"
                                                 ?
                                                 <>
                                                     <option value="Anantnag">Anantnag</option>
@@ -243,13 +249,13 @@ function MigForm() {
                 }
 
                 {
-                    wmoutdis === "No"
+                    userData.OutDisWUT === "No"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Are you willing to migrate-outside the UT of J&K but within India?</label>
                                 <div className='customSelect'>
-                                    <select value={wmoutUT} onChange={(e) => setWmoutUT(e.target.value)}>
+                                    <select value={userData['WillMigOutUT']} required onChange={(e) => setUserData({...userData, "WillMigOutUT": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Yes">Yes</option>
@@ -270,13 +276,13 @@ function MigForm() {
                         : ""
                 }
                 {
-                    wmoutUT === "Yes"
+                    userData.WillMigOutUT === "Yes"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Which city do you want to migrate to in India?</label>
                                 <div className='customSelect'>
-                                    <select value={cityToMigrate} onChange={(e) => setCityToMigrate(e.target.value)}>
+                                    <select value={userData['CityToMig']} required onChange={(e) => setUserData({...userData, "CityToMig": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Bangalore (Bengaluru)">Bangalore (Bengaluru)</option>
@@ -316,7 +322,7 @@ function MigForm() {
                             <div className="indiDetails">
                                 <label htmlFor="email">Please state why (s) for your willingness to migrate outside the UT but </label>
                                 <div className='customSelect'>
-                                    <select value={ReasoncityToMigrate} onChange={(e) => setReasonCityToMigrate(e.target.value)}>
+                                    <select value={userData['ReasonCityToMig']} required onChange={(e) => setUserData({...userData, "ReasonCityToMig": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="No suitable job opportunities at UT">No suitable job opportunities at UT</option>
@@ -349,13 +355,13 @@ function MigForm() {
                         : ""
                 }
                 {
-                    wmoutUT === "No"
+                    userData.WillMigOutUT === "No"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Do you want to migrate-outside India?</label>
                                 <div className='customSelect'>
-                                    <select value={wmoutInd} onChange={(e) => setWmoutInd(e.target.value)}>
+                                    <select value={userData['WillMigOutInd']} required onChange={(e) => setUserData({...userData, "WillMigOutInd": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Yes">Yes</option>
@@ -376,13 +382,13 @@ function MigForm() {
                         : ""
                 }
                 {
-                    wmoutInd === "Yes"
+                    userData.WillMigOutInd === "Yes"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Which country do you want to migrate to?</label>
                                 <div className='customSelect'>
-                                    <select value={countryToMigrate} onChange={(e) => setCountryToMigrate(e.target.value)}>
+                                    <select value={userData['CountryToMig']} required onChange={(e) => setUserData({...userData, "CountryToMig": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="USA">USA</option>
@@ -443,7 +449,7 @@ function MigForm() {
                             <div className="indiDetails">
                                 <label htmlFor="email">Please state the reason(s) for your willingness to migrate outside the country.</label>
                                 <div className='customSelect'>
-                                    <select value={ReasonCountryToMigrate} onChange={(e) => setReasonCountryToMigrate(e.target.value)}>
+                                    <select value={userData['ReasonCountryToMig']} required onChange={(e) => setUserData({...userData, "ReasonCountryToMig": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="No suitable job opportunities in the country">No suitable job opportunities in the country</option>
@@ -477,13 +483,13 @@ function MigForm() {
                         : ""
                 }
                 {
-                    wmoutInd === "No"
+                    userData.WillMigOutInd === "No"
                         ?
                         <>
                             <div className="indiDetails">
                                 <label htmlFor="email">Please state the reason(s) for not willing to migrate for employment opportunities</label>
                                 <div className='customSelect'>
-                                    <select value={NotwmoutInd} onChange={(e) => setNotWmoutInd(e.target.value)}>
+                                    <select vvalue={userData['ReasonNotWillOutInd']} required onChange={(e) => setUserData({...userData, "ReasonNotWillOutInd": e.target.value})}>
                                         <option value="">Select Option</option>
                                         <hr />
                                         <option value="Want to stay close to my family">Want to stay close to my family</option>
