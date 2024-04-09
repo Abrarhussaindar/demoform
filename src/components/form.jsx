@@ -10,10 +10,21 @@ import MigForm from "../components/MigForm/MigForm";
 
 import { multiStepContext } from "../StepContext";
 
+
 function Form() {
 
     const { currentStep, setCurrentStep, submitData } = useContext(multiStepContext);
 
+    // const submitUserData = async (e) => {
+    //     e.preventDefault();
+    //     const data = userData
+    //     console.log("data", data);
+    //     try{
+    //         await axios.post("/user/create", data)
+    //     }catch(err){
+    //         console.log(err);
+    //     }
+    // }
     const showStep = (step) => {
         switch (step) {
             case 1:
@@ -139,10 +150,11 @@ function Form() {
                             currentStep === 5
                                 ?
                                 <button type="submit" onClick={submitData}>Finish</button>
-
+                                
                                 :
                                 <button type="submit">Next</button>
-                        }
+                            }
+                            {/* <button type="submit" onClick={submitData}>Finish</button> */}
                     </div>
 
 

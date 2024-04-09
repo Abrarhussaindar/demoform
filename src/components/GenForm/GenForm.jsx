@@ -6,11 +6,14 @@ function GenForm() {
 
     const { userData, setUserData } = useContext(multiStepContext);
 
+    console.log("userData", userData);
+
+
 
     // const [firstName, setFirstName] = useState("");
     // const [lastName, setLastName] = useState("");
     // const [address, setAddress] = useState("");
-    const [pinCode, setPinCode] = useState("");
+    // const [pinCode, setPinCode] = useState("");
     // const [dob, setDob] = useState("");
 
     // const [dis, setDis] = useState();
@@ -27,36 +30,36 @@ function GenForm() {
     // const [ageGroup, setAgeGroup] = useState();
     // const [monthlyIncome, setMonthlyIncome] = useState();
     // const [pinArea, setPinArea] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState(new Array(10).fill(''))
-    const [adhNumber, setAdhNumber] = useState(new Array(12).fill(''))
-    console.log(phoneNumber);
-    const changePhoneFoucs = (target, index) => {
-        if (isNaN(target.value)) {
-            return false
-        }
-        setUserData({...userData, "PhoneNumber": phoneNumber})
-        setPhoneNumber([...phoneNumber.map((v, ind) => (ind === index ? target.value : v))])
-        if (target.nextSibling) {
-            target.nextSibling.focus();
-        }
-        // value={userData['Division']} required onChange={(e) => setUserData({...userData, "Division": e.target.value})}
-        
-    }
-    if (phoneNumber.length === 10 && phoneNumber[phoneNumber.length] === " " ){
+    // const [phoneNumber, setPhoneNumber] = useState(new Array(10).fill(''))
+    // const [adhNumber, setAdhNumber] = useState(new Array(12).fill(''))
+    // console.log(phoneNumber);
+    // const changePhoneFoucs = (target, index) => {
+    //     if (isNaN(target.value)) {
+    //         return false
+    //     }
+    //     setUserData({ ...userData, "PhoneNumber": phoneNumber })
+    //     setPhoneNumber([...phoneNumber.map((v, ind) => (ind === index ? target.value : v))])
+    //     if (target.nextSibling) {
+    //         target.nextSibling.focus();
+    //     }
+    //     // value={userData['Division']} required onChange={(e) => setUserData({...userData, "Division": e.target.value})}
 
-    }
-    const changeAdhFoucs = (target, index) => {
-        if (isNaN(target.value)) {
-            return false
-        }
-        setAdhNumber([...adhNumber.map((v, ind) => (ind === index ? target.value : v))])
-        if (target.nextSibling) {
-            target.nextSibling.focus();
-        }
-        setUserData({...userData, "AdhaarNumber": adhNumber})
-    }
+    // }
+    // if (phoneNumber.length === 10 && phoneNumber[phoneNumber.length] === " ") {
 
-    console.log(pinCode);
+    // }
+    // const changeAdhFoucs = (target, index) => {
+    //     if (isNaN(target.value)) {
+    //         return false
+    //     }
+    //     setAdhNumber([...adhNumber.map((v, ind) => (ind === index ? target.value : v))])
+    //     if (target.nextSibling) {
+    //         target.nextSibling.focus();
+    //     }
+    //     setUserData({ ...userData, "AdhaarNumber": adhNumber })
+    // }
+
+    // console.log(pinCode);
 
 
     // const [email, setEmail] = useState("");
@@ -183,8 +186,8 @@ function GenForm() {
 
     const handleDigitInput = (event) => {
         const digit = event.target.value;
-        setUserData({...userData, "PinCode": event.target.value})
-        setPinCode(digit)
+        setUserData({ ...userData, "PinCode": event.target.value })
+        // setPinCode(digit)
         filterAreas(digit);
         setPinCodes(prevPinCodes => ({
             ...prevPinCodes, "0": "a"
@@ -199,6 +202,28 @@ function GenForm() {
         setFilteredAreas(filteredAreas);
         // setUserData({...userData, "FilterdAreas":})
     };
+    
+    // const [age, setAge] = useState('');
+    const handleDOBChange = (event) => {
+        // const dummuy = event.target.value
+        calculateAge(event.target.value);
+    };
+    
+    const calculateAge = (dob) => {
+        const today = new Date();
+        const birthDate = new Date(dob);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        // setAge(age)
+        setUserData({ ...userData, "DOB": dob, "Age": age});
+        // setUserData({ ...userData, "Age": age });
+    };
+    // calculateAge()
 
     // const logo = require("../Decent Arcadia type 4.jpg");  
     // const arrow = require("../arrow-down-sign-to-navigate.png");
@@ -208,20 +233,20 @@ function GenForm() {
             <div className="topIndi">
                 <div className="indiDetails">
                     <label htmlFor="name">First Name</label>
-                    <input type="text" value={userData['FirstName']} required onChange={(e) => setUserData({...userData, "FirstName": e.target.value})} name="name" id="name" />
+                    <input type="text" value={userData['FirstName']} required onChange={(e) => setUserData({ ...userData, "FirstName": e.target.value })} name="name" id="name" />
                 </div>
                 <div className="indiDetails">
                     <label htmlFor="name">Last Name</label>
-                    <input type="text" value={userData['LastName']} required onChange={(e) => setUserData({...userData, "LastName": e.target.value})} name="name" id="name" />
+                    <input type="text" value={userData['LastName']} required onChange={(e) => setUserData({ ...userData, "LastName": e.target.value })} name="name" id="name" />
                 </div>
                 <div className="indiDetails">
                     <label htmlFor="desig">Address</label>
-                    <input type="text" value={userData['Address']} required onChange={(e) => setUserData({...userData, "Address": e.target.value})} name="desig" id="desig" />
+                    <input type="text" value={userData['Address']} required onChange={(e) => setUserData({ ...userData, "Address": e.target.value })} name="desig" id="desig" />
                 </div>
                 <div className="indiDetails">
                     <label htmlFor="email">Gender</label>
                     <div className="customSelect">
-                        <select value={userData['Gender']} required onChange={(e) => setUserData({...userData, "Gender": e.target.value})}>
+                        <select value={userData['Gender']} required onChange={(e) => setUserData({ ...userData, "Gender": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Male">Male</option>
@@ -237,12 +262,13 @@ function GenForm() {
 
                 <div className="indiDetails">
                     <label htmlFor="dob">DOB</label>
-                    <input className="dob" type="date" value={userData['DOB']} required onChange={(e) => setUserData({...userData, "DOB": e.target.value})} name="dob" id="dob" />
+                    <input className="dob" type="date" value={userData['DOB']} required onChange={handleDOBChange} name="dob" id="dob" />
+                    {/* <input className="dob" type="date" value={userData['DOB']} required onChange={(e) => setUserData({ ...userData, "DOB": e.target.value })} name="dob" id="dob" /> */}
                 </div>
 
                 <div className="indiDetails">
                     <label htmlFor="dob">Age</label>
-                    
+                    {userData && <p>{userData.Age}</p>}
                     {/* <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" /> */}
                 </div>
 
@@ -252,14 +278,14 @@ function GenForm() {
             </div>
             <div className="indiDetails">
                 <label htmlFor="email">Email ID</label>
-                <input className="email" type="email" value={userData['Email']} required onChange={(e) => setUserData({...userData, "Email": e.target.value})} name="email" id="email" />
+                <input className="email" type="email" value={userData['Email']} required onChange={(e) => setUserData({ ...userData, "Email": e.target.value })} name="email" id="email" />
             </div>
             <div className="bottomIndi">
                 <div className="indiDetails">
                     <label htmlFor="age">Division</label>
                     <div className="customSelect">
 
-                        <select value={userData['Division']} required onChange={(e) => setUserData({...userData, "Division": e.target.value})}>
+                        <select value={userData['Division']} required onChange={(e) => setUserData({ ...userData, "Division": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Jammu">Jammu</option>
@@ -276,7 +302,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="age">District</label>
                     <div className="customSelect">
-                        <select value={userData['District']} required onChange={(e) => setUserData({...userData, "District": e.target.value})}>
+                        <select value={userData['District']} required onChange={(e) => setUserData({ ...userData, "District": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             {
@@ -329,7 +355,7 @@ function GenForm() {
                                         <option value="Sopian">Sopian</option>
                                         <hr />
                                         <option value="Srinagar">Srinagar</option>
-                                        
+
                                     </>
                                     : ""
                             }
@@ -342,7 +368,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="age">Block</label>
                     <div className="customSelect">
-                        <select value={userData['Block']} required onChange={(e) => setUserData({...userData, "Block": e.target.value})}>
+                        <select value={userData['Block']} required onChange={(e) => setUserData({ ...userData, "Block": e.target.value })}>
                             <option value="">Select Option</option>
 
                             {/* Jammu District Blocks */}
@@ -379,7 +405,7 @@ function GenForm() {
                                         <option value="Sohanjana">Sohanjana</option>
                                         <hr />
                                         <option value="Suchetgarh">Suchetgarh</option>
-                                        
+
                                     </>
                                     : ""
                             }
@@ -415,7 +441,7 @@ function GenForm() {
                                         <option value="Marmat">Marmat</option>
                                         <hr />
                                         <option value="Thathri">Thathri</option>
-                                        
+
                                     </>
                                     : ""
                             }
@@ -876,12 +902,12 @@ function GenForm() {
                     {/* onChange={(e) => setPinCodes(e.target.value)} */}
                     {/* <input type="text" value={""} maxLength={6} required name="desig" id="desig" /> */}
                     <div className="innerDiv">
-                    
-                        <input type="text" value={userData['PinCode']} required onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
+
+                        <input className="pinInput" type="text" value={userData['PinCode']} required onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
                         <div className="innerInnerDiv">
                             <h4>Filtered Areas:</h4>
                             <div className="customSelect">
-                                <select className="pincode" value={userData['PinArea']} required onChange={(e) => setUserData({...userData, "PinArea": e.target.value})}>
+                                <select className="pincode" value={userData['PinArea']} required onChange={(e) => setUserData({ ...userData, "PinArea": e.target.value })}>
                                     {filteredAreas.map(area => (
                                         <option key={area}>{area}</option>
                                     ))}
@@ -904,20 +930,22 @@ function GenForm() {
                     {userData.PinArea ? userData.PinArea : ""}
                 </div>
             </div>
+            <div className="bet">
 
-            <div className="indiDetails">
-                <label htmlFor="phone">Phone Number (+91)</label>
-                <div className="phoneNumber">
-                    {
+                <div className="indiDetails">
+                    <label htmlFor="phone">Phone Number (+91)</label>
+                    <div>
+                        <input maxLength={10} value={userData['PhoneNumber']} required onChange={(e) => setUserData({ ...userData, "PhoneNumber": e.target.value })} />
+                        {/* {
                         phoneNumber.map((each, index) => {
                             return (
                                 <input value={each} className="phoneInput" key={index} maxLength={1} type="text" onChange={(e) => changePhoneFoucs(e.target, index)} onFocus={e => e.target.select()} />
                             )
                         })
-                    }
-                </div>
-                {/* <p>+91 </p> */}
-                {/* {
+                    } */}
+                    </div>
+                    {/* <p>+91 </p> */}
+                    {/* {
                                     phoneNumber.map((each, index) => {
                                         return (
                                             <select value={each} key={index}  type="text" onChange={(e) => changeFoucs(e.target, index)} onFocus={e => e.target.select()} >
@@ -936,7 +964,7 @@ function GenForm() {
                                         )
                                     })
                                 } */}
-                {/* <div className="phoneNumber">
+                    {/* <div className="phoneNumber">
                                     <select className="phoneVal" value={phVal0} onChange={(e) => setPhVal0(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -1068,13 +1096,13 @@ function GenForm() {
                                         <option value="9">9</option>
                                     </select>
                                 </div> */}
-                {/* <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" /> */}
+                    {/* <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" /> */}
 
-            </div>
-            <div className="indiDetails">
-                <label htmlFor="adh">Adhaar Number</label>
-                {/* <input type="number" value={adhaar} required onChange={handleAdhaarInputChange} maxLength={16} name="adh" id="adh" /> */}
-                {/* <div className="adhNumber">
+                </div>
+                <div className="indiDetails">
+                    <label htmlFor="adh">Adhaar Number</label>
+                    <input maxLength={12} value={userData['AdhaarNumber']} required onChange={(e) => setUserData({ ...userData, "AdhaarNumber": e.target.value })} />
+                    {/* <div className="adhNumber">
                                     <select className="adhVal" value={adVal0} onChange={(e) => setAdVal0(e.target.value)}>
                                         <option value=""></option>
                                         <option value="0">0</option>
@@ -1238,16 +1266,17 @@ function GenForm() {
 
 
                                 </div> */}
-                <div className="adhNumber">
-                    {
+                    <div className="adhNumber">
+                        {/* {
                         adhNumber.map((each, index) => {
                             return (
                                 <input value={each} className="adhInput" key={index} maxLength={1} type="text" onChange={(e) => changeAdhFoucs(e.target, index)} onFocus={e => e.target.select()} />
                             )
                         })
-                    }
-                </div>
+                    } */}
+                    </div>
 
+                </div>
             </div>
 
 
@@ -1255,7 +1284,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Marital Status</label>
                     <div className="customSelect">
-                        <select value={userData['MaritalStatus']} required onChange={(e) => setUserData({...userData, "MaritalStatus": e.target.value})}>
+                        <select value={userData['MaritalStatus']} required onChange={(e) => setUserData({ ...userData, "MaritalStatus": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Married">Married</option>
@@ -1276,7 +1305,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Religion</label>
                     <div className="customSelect">
-                        <select value={userData['Religion']} required onChange={(e) => setUserData({...userData, "Religion": e.target.value})}>
+                        <select value={userData['Religion']} required onChange={(e) => setUserData({ ...userData, "Religion": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Islam">Islam</option>
@@ -1304,7 +1333,7 @@ function GenForm() {
                                 <h5>
                                     Specify:
                                 </h5>
-                                <input type="text" value={userData['OtherReligion']} required onChange={(e) => setUserData({...userData, "OtherReligion": e.target.value})} name="name" id="name" />
+                                <input type="text" value={userData['OtherReligion']} required onChange={(e) => setUserData({ ...userData, "OtherReligion": e.target.value })} name="name" id="name" />
                             </div>
                             : ""
                     }
@@ -1312,7 +1341,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Category</label>
                     <div className="customSelect">
-                        <select value={userData['Category']} required onChange={(e) => setUserData({...userData, "Category": e.target.value})}>
+                        <select value={userData['Category']} required onChange={(e) => setUserData({ ...userData, "Category": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Urban">Urban</option>
@@ -1327,7 +1356,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Social Class</label>
                     <div className="customSelect">
-                        <select className="sc" value={userData['SocailClass']} required onChange={(e) => setUserData({...userData, "SocailClass": e.target.value})}>
+                        <select className="sc" value={userData['SocailClass']} required onChange={(e) => setUserData({ ...userData, "SocailClass": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Gen">General (Gen)</option>
@@ -1372,7 +1401,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Age Group</label>
                     <div className="customSelect">
-                        <select value={userData['AgeGroup']} required onChange={(e) => setUserData({...userData, "AgeGroup": e.target.value})}>
+                        <select value={userData['AgeGroup']} required onChange={(e) => setUserData({ ...userData, "AgeGroup": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Below 15">Below 15</option>
@@ -1396,7 +1425,7 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="email">Mon. Fam. Income</label>
                     <div className="customSelect">
-                        <select value={userData['MFI']} required onChange={(e) => setUserData({...userData, "MFI": e.target.value})}>
+                        <select value={userData['MFI']} required onChange={(e) => setUserData({ ...userData, "MFI": e.target.value })}>
                             <option value="">Select Option</option>
                             <hr />
                             <option value="Below 5000">Below 5000</option>

@@ -107,12 +107,23 @@
   flex-direction: column;
   gap: 10px;
 }
+.container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv .pinInput {
+  width: 92% !important;
+}
 .container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv .innerInnerDiv {
   display: flex;
   flex-direction: column;
 }
 .container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv .innerInnerDiv .pincode {
   width: 170px;
+}
+.container .wrapper form .pdfContainer .mainDetails .bet {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.container .wrapper form .pdfContainer .mainDetails .bet .indiDetails input {
+  width: 92% !important;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails {
   display: flex;
@@ -200,18 +211,6 @@
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .sc {
   width: 190px;
-}
-.container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  background-color: white;
-}
-.container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneInput {
-  text-align: center;
-  padding: 5px 0 !important;
-  width: 50px !important;
-  height: 30px !important;
 }
 .container .wrapper form .pdfContainer .mainDetails .indiDetails .phoneNumber .phoneVal {
   text-align: center;
