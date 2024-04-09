@@ -117,6 +117,11 @@
 .container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .innerDiv .innerInnerDiv .pincode {
   width: 170px;
 }
+.container .wrapper form .pdfContainer .mainDetails .pin .indiDetails .areaDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .container .wrapper form .pdfContainer .mainDetails .bet {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -9,8 +9,9 @@ import Support from "../components/Support/Support";
 import MigForm from "../components/MigForm/MigForm";
 
 import { multiStepContext } from "../StepContext";
-import axios from "axios";
+
 import ThankYou from "./ThankYou/ThankYou";
+import axios from "../axios";
 
 
 

@@ -1588,10 +1588,8 @@ function AspiForm() {
                         {/* <img className="logo" src={arrow} alt="arrow" /> */}
                     </span>
                 </div>
-
-
-
             </div>
+            
             <div className="indiDetails">
                 <label htmlFor="email">What type of educational or training programs are you interested in pursuing?</label>
                 <div className="customSelect">
@@ -3324,7 +3322,7 @@ function AspiForm() {
                         ?
                         <>
                             <div className="indiDetails">
-                                
+
                                 <div className='other'>
                                     <h5>
                                         Specify:

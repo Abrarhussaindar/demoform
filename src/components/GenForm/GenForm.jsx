@@ -30,8 +30,9 @@ function GenForm() {
     // const [ageGroup, setAgeGroup] = useState();
     // const [monthlyIncome, setMonthlyIncome] = useState();
     // const [pinArea, setPinArea] = useState("");
-    // const [phoneNumber, setPhoneNumber] = useState(new Array(10).fill(''))
-    // const [adhNumber, setAdhNumber] = useState(new Array(12).fill(''))
+    const [phoneNumber, setPhoneNumber] = useState("")
+    const [adhNumber, setAdhNumber] = useState("")
+    // const [otherArea, setOtherArea] = useState("")
     // console.log(phoneNumber);
     // const changePhoneFoucs = (target, index) => {
     //     if (isNaN(target.value)) {
@@ -200,31 +201,43 @@ function GenForm() {
             .reduce((acc, pinCode) => acc.concat(pinCodes[pinCode]), []);
 
         setFilteredAreas(filteredAreas);
-        // setUserData({...userData, "FilterdAreas":})
+        setUserData({ ...userData, "FilteredAreas": filteredAreas })
     };
-    
+
     // const [age, setAge] = useState('');
     const handleDOBChange = (event) => {
         // const dummuy = event.target.value
         calculateAge(event.target.value);
     };
-    
+
     const calculateAge = (dob) => {
         const today = new Date();
         const birthDate = new Date(dob);
         let age = today.getFullYear() - birthDate.getFullYear();
         const monthDifference = today.getMonth() - birthDate.getMonth();
-        
+
         if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
             age--;
         }
-        
+
         // setAge(age)
-        setUserData({ ...userData, "DOB": dob, "Age": age});
+        setUserData({ ...userData, "DOB": dob, "Age": age });
         // setUserData({ ...userData, "Age": age });
     };
+    const handleAdhaarInput = (e) => {
+        const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+        const adValue = value.slice(0, 12)
+        setAdhNumber(adValue); // Limit to 10 digits
+        setUserData({ ...userData, "AdhaarNumber": adValue })
+    };
+    const handlePhoneInput = (e) => {
+        const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+        const phValue = value.slice(0, 10)
+        setPhoneNumber(phValue); // Limit to 10 digits
+        setUserData({ ...userData, "PhoneNumber": phValue })
+    };
     // calculateAge()
-
+    console.log(filteredAreas);
     // const logo = require("../Decent Arcadia type 4.jpg");  
     // const arrow = require("../arrow-down-sign-to-navigate.png");
     // const user = require("./user.png");
@@ -268,7 +281,7 @@ function GenForm() {
 
                 <div className="indiDetails">
                     <label htmlFor="dob">Age</label>
-                    {userData && <p>{userData.Age}</p>}
+                    {userData && <p>{userData.Age} Years Old</p>}
                     {/* <input className="dob" type="date" value={dob} required onChange={(e) => setDob(e.target.value)} name="dob" id="dob" /> */}
                 </div>
 
@@ -904,30 +917,54 @@ function GenForm() {
                     <div className="innerDiv">
 
                         <input className="pinInput" type="text" value={userData['PinCode']} required onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
-                        <div className="innerInnerDiv">
-                            <h4>Filtered Areas:</h4>
-                            <div className="customSelect">
-                                <select className="pincode" value={userData['PinArea']} required onChange={(e) => setUserData({ ...userData, "PinArea": e.target.value })}>
-                                    {filteredAreas.map(area => (
-                                        <option key={area}>{area}</option>
-                                    ))}
-                                    {
-                                        filteredAreas.length === 1 ?
+                        {
+                            filteredAreas.length === 0
+                                ?
+                                <>
 
+                                    <h4>Please Specify:</h4>
+                                    <input type="txt" value={userData["OtherPinArea"]} required onChange={(e) => setUserData({ ...userData, "OtherPinArea": e.target.value })} />
+
+
+                                </>
+                                : <div className="innerInnerDiv">
+                                    <h4>Filtered Areas:</h4>
+                                    <div className="customSelect">
+                                        <select className="pincode" value={userData['PinArea']} required onChange={(e) => setUserData({ ...userData, "PinArea": e.target.value })}>
                                             <option value="">Select Option</option>
-                                            : ""
-                                    }
+                                            {
+                                                filteredAreas.map(area => (
+                                                    <option key={area}>{area}</option>
+                                                ))
+                                            }
 
-                                </select>
-                                <span className="customArrow"></span>
-                            </div>
-                        </div>
+                                        </select>
+
+                                        <span className="customArrow"></span>
+                                    </div>
+
+                                </div>
+                        }
+
+
                     </div>
                 </div>
 
                 <div className="indiDetails">
                     <label htmlFor="desig">Area</label>
-                    {userData.PinArea ? userData.PinArea : ""}
+
+
+                    <p>
+
+                        {
+                            userData.PinArea 
+                            ?   userData.PinArea 
+                            :   userData.OtherPinArea 
+                                ? userData.OtherPinArea
+                                : ""
+                        }
+                    </p>
+
                 </div>
             </div>
             <div className="bet">
@@ -935,347 +972,14 @@ function GenForm() {
                 <div className="indiDetails">
                     <label htmlFor="phone">Phone Number (+91)</label>
                     <div>
-                        <input maxLength={10} value={userData['PhoneNumber']} required onChange={(e) => setUserData({ ...userData, "PhoneNumber": e.target.value })} />
-                        {/* {
-                        phoneNumber.map((each, index) => {
-                            return (
-                                <input value={each} className="phoneInput" key={index} maxLength={1} type="text" onChange={(e) => changePhoneFoucs(e.target, index)} onFocus={e => e.target.select()} />
-                            )
-                        })
-                    } */}
+                        <input maxLength={10} type="number" value={phoneNumber} required onChange={handlePhoneInput} />
+                        {/* <input maxLength={10} type="Number" value={userData['PhoneNumber']} required onChange={(e) => setUserData({ ...userData, "PhoneNumber": e.target.value })} /> */}
                     </div>
-                    {/* <p>+91 </p> */}
-                    {/* {
-                                    phoneNumber.map((each, index) => {
-                                        return (
-                                            <select value={each} key={index}  type="text" onChange={(e) => changeFoucs(e.target, index)} onFocus={e => e.target.select()} >
-                                                <option value=""></option>
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                            </select>
-                                        )
-                                    })
-                                } */}
-                    {/* <div className="phoneNumber">
-                                    <select className="phoneVal" value={phVal0} onChange={(e) => setPhVal0(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal1} onChange={(e) => setPhVal1(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal2} onChange={(e) => setPhVal2(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal3} onChange={(e) => setPhVal3(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal4} onChange={(e) => setPhVal4(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal5} onChange={(e) => setPhVal5(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal6} onChange={(e) => setPhVal6(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal7} onChange={(e) => setPhVal7(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal8} onChange={(e) => setPhVal8(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="phoneVal" value={phVal9} onChange={(e) => setPhVal9(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                </div> */}
-                    {/* <input type="tel" value={phoneNumber} maxLength={13} required onChange={handlephoneInputChange} name="phone" id="phone" /> */}
-
                 </div>
                 <div className="indiDetails">
                     <label htmlFor="adh">Adhaar Number</label>
-                    <input maxLength={12} value={userData['AdhaarNumber']} required onChange={(e) => setUserData({ ...userData, "AdhaarNumber": e.target.value })} />
-                    {/* <div className="adhNumber">
-                                    <select className="adhVal" value={adVal0} onChange={(e) => setAdVal0(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal1} onChange={(e) => setAdVal1(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal2} onChange={(e) => setAdVal2(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal3} onChange={(e) => setAdVal3(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-
-                                    <select className="adhVal" value={adVal4} onChange={(e) => setAdVal4(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal5} onChange={(e) => setAdVal5(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal6} onChange={(e) => setAdVal6(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal7} onChange={(e) => setAdVal7(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-
-                                    <select className="adhVal" value={adVal8} onChange={(e) => setAdVal8(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal9} onChange={(e) => setAdVal9(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal10} onChange={(e) => setAdVal10(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-                                    <select className="adhVal" value={adVal11} onChange={(e) => setAdVal11(e.target.value)}>
-                                        <option value=""></option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                    </select>
-
-
-
-
-                                </div> */}
-                    <div className="adhNumber">
-                        {/* {
-                        adhNumber.map((each, index) => {
-                            return (
-                                <input value={each} className="adhInput" key={index} maxLength={1} type="text" onChange={(e) => changeAdhFoucs(e.target, index)} onFocus={e => e.target.select()} />
-                            )
-                        })
-                    } */}
-                    </div>
-
+                    <input maxLength={12} type="number" value={adhNumber} required onChange={handleAdhaarInput} />
+                    {/* <input maxLength={12} type="Number" value={userData['AdhaarNumber']} required onChange={(e) => setUserData({ ...userData, "AdhaarNumber": e.target.value })} /> */}
                 </div>
             </div>
 
