@@ -6,7 +6,7 @@ function GenForm() {
 
     const { userData, setUserData } = useContext(multiStepContext);
 
-    console.log("userData", userData);
+    // console.log("userData", userData);
 
 
 

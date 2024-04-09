@@ -19,7 +19,7 @@ function MigForm() {
 
 
     const { userData, setUserData } = useContext(multiStepContext);
-    console.log(userData);
+    // console.log(userData);
 
     return (
         <div className="topIndi empDetails">

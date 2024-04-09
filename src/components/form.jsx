@@ -19,10 +19,11 @@ function Form() {
 
     const { currentStep, userData, setCurrentStep } = useContext(multiStepContext);
 
-    const submitUserData = async () => {
+    const submitUserData = async (e) => {
         // e.preventDefault();
+        e.currentTarget.disabled = true;
         const data = userData
-        console.log("data: ", data);
+        // console.log("data: ", data);
         try {
             await axios.post("/user/create", data)
             setCurrentStep(6)
