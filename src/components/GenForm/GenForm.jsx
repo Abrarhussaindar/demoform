@@ -187,8 +187,6 @@ function GenForm() {
 
     const handleDigitInput = (event) => {
         const digit = event.target.value;
-        setUserData({ ...userData, "PinCode": event.target.value })
-        // setPinCode(digit)
         filterAreas(digit);
         setPinCodes(prevPinCodes => ({
             ...prevPinCodes, "0": "a"
@@ -201,7 +199,7 @@ function GenForm() {
             .reduce((acc, pinCode) => acc.concat(pinCodes[pinCode]), []);
 
         setFilteredAreas(filteredAreas);
-        setUserData({ ...userData, "FilteredAreas": filteredAreas })
+        setUserData({ ...userData, "FilteredAreas": filteredAreas, "PinCode": digit })
     };
 
     // const [age, setAge] = useState('');
@@ -236,6 +234,7 @@ function GenForm() {
         setPhoneNumber(phValue); // Limit to 10 digits
         setUserData({ ...userData, "PhoneNumber": phValue })
     };
+
     // calculateAge()
     console.log(filteredAreas);
     // const logo = require("../Decent Arcadia type 4.jpg");  
@@ -916,13 +915,13 @@ function GenForm() {
                     {/* <input type="text" value={""} maxLength={6} required name="desig" id="desig" /> */}
                     <div className="innerDiv">
 
-                        <input className="pinInput" type="text" value={userData['PinCode']} required onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
+                        <input className="pinInput" type="text" value={userData["PinCode"]} required onChange={handleDigitInput} maxLength={6} placeholder="Enter a digit" />
                         {
                             filteredAreas.length === 0
                                 ?
                                 <>
 
-                                    <h4>Please Specify:</h4>
+                                    <h4>Please Specify Area:</h4>
                                     <input type="txt" value={userData["OtherPinArea"]} required onChange={(e) => setUserData({ ...userData, "OtherPinArea": e.target.value })} />
 
 
