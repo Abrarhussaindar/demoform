@@ -576,6 +576,9 @@
             .btns{
                 display: flex;
                 gap: 10px;
+                .finishBtn{
+                    // cursor: not-allowed;
+                }
 
                 button {
                     margin-top: 20px;

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./form.css";
 
 
@@ -18,14 +18,24 @@ import axios from "../axios";
 function Form() {
 
     const { currentStep, userData, setCurrentStep } = useContext(multiStepContext);
+    const [clicked, setClicked] = useState(false)
+    
 
+    const handleClick = () =>{
+        setClicked(true)
+        
+        
+    }
     const submitUserData = async (e) => {
         // e.preventDefault();
+        handleClick();
         e.currentTarget.disabled = true;
         const data = userData
         // console.log("data: ", data);
         try {
+            
             await axios.post("/user/create", data)
+            
             setCurrentStep(6)
         } catch (err) {
             console.log(err);
@@ -166,7 +176,7 @@ function Form() {
                                     {
                                         currentStep === 5
                                             ?
-                                            <button type="submit" onClick={submitUserData}>Finish</button>
+                                            <button type="submit" disabled={clicked} className="finishBtn" onClick={submitUserData}>Finish</button>
 
                                             :
                                             <button type="submit">Next</button>
