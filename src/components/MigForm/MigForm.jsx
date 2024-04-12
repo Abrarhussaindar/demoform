@@ -242,6 +242,38 @@ function MigForm() {
                                 </div>
                                 {/* <input type="number" value={age} required onChange={handleAgeInputChange} name="age" id="age" /> */}
                             </div>
+                            <div className="indiDetails">
+                                <label htmlFor="email">Please state why (s) for your willingness to migrate to different District within the UT</label>
+                                <div className='customSelect'>
+                                    <select value={userData['ReasonDisToMig']} required onChange={(e) => setUserData({...userData, "ReasonDisToMig": e.target.value})}>
+                                        <option value="">Select Option</option>
+                                        <hr />
+                                        <option value="No suitable job opportunities at UT">No suitable job opportunities at UT</option>
+                                        <hr />
+                                        <option value="Better Salary">Better Salary</option>
+                                        <hr />
+                                        <option value="Better work culture">Better work culture</option>
+                                        <hr />
+                                        <option value="Job as per skill attainment">Job as per skill attainment</option>
+                                        <hr />
+                                        <option value="Job relevant to my career aspiration">Job relevant to my career aspiration</option>
+                                        <hr />
+                                        <option value="It is easier to get a job in other states">It is easier to get a job in other states</option>
+                                        <hr />
+                                        <option value="The presence of extended family or friends">The presence of extended family or friends</option>
+                                        <hr />
+                                        <option value="Better exposure and learning environment">Better exposure and learning environment</option>
+                                        <hr />
+                                        <option value="Others">Others (please specify)</option>
+
+
+
+                                    </select>
+                                    <span className="customArrow">
+                                        {/* <img className="logo" src={arrow} alt="arrow" /> */}
+                                    </span>
+                                </div>
+                            </div>
                         </>
                         :
                         ""
@@ -320,7 +352,7 @@ function MigForm() {
                                 </div>
                             </div>
                             <div className="indiDetails">
-                                <label htmlFor="email">Please state why (s) for your willingness to migrate outside the UT but </label>
+                                <label htmlFor="email">Please state why (s) for your willingness to migrate outside the UT but within India</label>
                                 <div className='customSelect'>
                                     <select value={userData['ReasonCityToMig']} required onChange={(e) => setUserData({...userData, "ReasonCityToMig": e.target.value})}>
                                         <option value="">Select Option</option>
