@@ -23,8 +23,6 @@ function Form() {
 
     const handleClick = () =>{
         setClicked(true)
-        
-        
     }
     const submitUserData = async (e) => {
         // e.preventDefault();
