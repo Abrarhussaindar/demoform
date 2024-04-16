@@ -1643,7 +1643,7 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Course</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTUnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTUnderGradCourseProg": e.target.value })}>
+                                                            <select value={userData['FTCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTCourseProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
@@ -1667,13 +1667,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTUnderGradCourseProg === "Other"
+                                                            userData.FTCourseProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTUnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTUnderGradCourseProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTCourseProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -1681,7 +1681,7 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Field</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTUnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTUnderGradFieldProg": e.target.value })}>
+                                                            <select value={userData['FTFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTFieldProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 {
@@ -1712,7 +1712,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTUnderGradCourseProg === "Bachelor of Science (B.Sc.)"
+                                                                    userData.FTCourseProg === "Bachelor of Science (B.Sc.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Mathematics">Mathematics</option>
@@ -1743,7 +1743,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTUnderGradCourseProg === "Bachelor of Commerce (B.Com.)"
+                                                                    userData.FTCourseProg === "Bachelor of Commerce (B.Com.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Accountancy">Accountancy</option>
@@ -1764,7 +1764,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTUnderGradCourseProg === "Professional Degrees"
+                                                                    userData.FTCourseProg === "Professional Degrees"
                                                                         ?
                                                                         <>
                                                                             <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
@@ -1808,28 +1808,30 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTUnderGradFieldProg === "Other"
+                                                            userData.FTFieldProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTUnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTUnderGradFieldProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTFieldProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
-                                                    </div></>
+                                                    </div>
+                                                    
+                                                    </>
                                                 : ""
                                         }
                                         {/* under grad fields */}
                                         {
-                                            userData.FTUnderGradFieldProg === "Bachelor of Engineering (B.E.)"
+                                            userData.FTFieldProg === "Bachelor of Engineering (B.E.)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTUnderGradBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Civil Engineering">Civil Engineering</option>
@@ -1886,13 +1888,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTUnderGradBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -1901,13 +1903,13 @@ function AspiForm() {
                                                 : ""
                                         }
                                         {
-                                            userData.FTUnderGradFieldProg === "Bachelor of Technology (B.Tech.)"
+                                            userData.FTFieldProg === "Bachelor of Technology (B.Tech.)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTUnderGradBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -1964,13 +1966,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTUnderGradBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -1985,7 +1987,7 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Course</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTPGCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTPGCourseProg": e.target.value })}>
+                                                            <select value={userData['FTCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTCourseProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Masters in Arts (M.A.)">Masters in Arts (M.A.)</option>
@@ -2009,13 +2011,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTPGCourseProg === "Other"
+                                                            userData.FTCourseProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTPGCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTPGCourseProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTCourseProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -2023,11 +2025,11 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Field</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTPGFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTPGFieldProg": e.target.value })}>
+                                                            <select value={userData['FTFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTFieldProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 {
-                                                                    userData.FTPGCourseProg === "Masters in Arts (M.A.)"
+                                                                    userData.FTCourseProg === "Masters in Arts (M.A.)"
                                                                         ?
                                                                         <>
                                                                             <option value="English Literature">English Literature</option>
@@ -2054,7 +2056,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTPGCourseProg === "Masters in Science (M.Sc.)"
+                                                                    userData.FTCourseProg === "Masters in Science (M.Sc.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Mathematics">Mathematics</option>
@@ -2085,7 +2087,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTPGCourseProg === "Masters in Commerce (M.Com.)"
+                                                                    userData.FTCourseProg === "Masters in Commerce (M.Com.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Accountancy">Accountancy</option>
@@ -2106,12 +2108,12 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTPGCourseProg === "Professional Degrees"
+                                                                    userData.FTCourseProg === "Professional Degrees"
                                                                         ?
                                                                         <>
-                                                                            <option value="Masters of Engineering (M.E.)">Masters of Engineering (M.E.)</option>
+                                                                            <option value="Masters of Engineering (M.E)">Masters of Engineering (M.E.)</option>
                                                                             <hr />
-                                                                            <option value="Masters of Technology (M.Tech.)">Masters of Technology (M.Tech.)</option>
+                                                                            <option value="Masters of Technology (M.Tech)">Masters of Technology (M.Tech.)</option>
                                                                             <hr />
                                                                             <option value="Masters of Computer Applications (MCA)">Masters of Computer Applications (MCA)</option>
                                                                             <hr />
@@ -2150,28 +2152,30 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTPGFieldProg === "Other"
+                                                            userData.FTFieldProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTPGFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTPGFieldProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTFieldProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
-                                                    </div></>
+                                                    </div>
+                                                    
+                                                    </>
                                                 : ""
                                         }
                                         {/* under grad fields */}
                                         {
-                                            userData.FTPGFieldProg === "Masters of Engineering (M.E.)"
+                                            userData.FTFieldProg === "Masters of Engineering (M.E)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTPGBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Civil Engineering">Civil Engineering</option>
@@ -2228,13 +2232,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTPGBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTPGBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -2243,13 +2247,13 @@ function AspiForm() {
                                                 : ""
                                         }
                                         {
-                                            userData.FTPGFieldProg === "Masters of Technology (M.Tech.)"
+                                            userData.FTFieldProg === "Masters of Technology (M.Tech)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTPGBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -2306,13 +2310,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTPGBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTPGBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -2547,7 +2551,7 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Course</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCUnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCUnderGradCourseProg": e.target.value })}>
+                                                            <select value={userData['FTCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTCourseProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
@@ -2571,13 +2575,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCUnderGradCourseProg === "Other"
+                                                            userData.FTCourseProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCUnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCUnderGradCourseProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTCourseProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -2585,11 +2589,11 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Field</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCUnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCUnderGradFieldProg": e.target.value })}>
+                                                            <select value={userData['FTFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTFieldProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 {
-                                                                    userData.FTOCCUnderGradCourseProg === "Bachelor of Arts (B.A.)"
+                                                                    userData.FTUnderGradCourseProg === "Bachelor of Arts (B.A.)"
                                                                         ?
                                                                         <>
                                                                             <option value="English Literature">English Literature</option>
@@ -2616,7 +2620,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTOCCUnderGradCourseProg === "Bachelor of Science (B.Sc.)"
+                                                                    userData.FTCourseProg === "Bachelor of Science (B.Sc.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Mathematics">Mathematics</option>
@@ -2647,7 +2651,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTOCCUnderGradCourseProg === "Bachelor of Commerce (B.Com.)"
+                                                                    userData.FTCourseProg === "Bachelor of Commerce (B.Com.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Accountancy">Accountancy</option>
@@ -2668,7 +2672,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTOCCUnderGradCourseProg === "Professional Degrees"
+                                                                    userData.FTCourseProg === "Professional Degrees"
                                                                         ?
                                                                         <>
                                                                             <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
@@ -2712,28 +2716,30 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCUnderGradFieldProg === "Other"
+                                                            userData.FTFieldProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCUnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCUnderGradFieldProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTFieldProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
-                                                    </div></>
+                                                    </div>
+                                                    
+                                                    </>
                                                 : ""
                                         }
                                         {/* under grad fields */}
                                         {
-                                            userData.FTOCCUnderGradFieldProg === "Bachelor of Engineering (B.E.)"
+                                            userData.FTFieldProg === "Bachelor of Engineering (B.E.)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCUnderGradBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Civil Engineering">Civil Engineering</option>
@@ -2790,13 +2796,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCUnderGradBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -2805,13 +2811,13 @@ function AspiForm() {
                                                 : ""
                                         }
                                         {
-                                            userData.FTOCCUnderGradFieldProg === "Bachelor of Technology (B.Tech.)"
+                                            userData.FTFieldProg === "Bachelor of Technology (B.Tech.)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCUnderGradBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -2868,13 +2874,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCUnderGradBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -2889,7 +2895,7 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Course</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCPGCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCPGCourseProg": e.target.value })}>
+                                                            <select value={userData['FTCourseProg']} required onChange={(e) => setUserData({ ...userData, "FTCourseProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Masters in Arts (M.A.)">Masters in Arts (M.A.)</option>
@@ -2913,13 +2919,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCPGCourseProg === "Other"
+                                                            userData.FTCourseProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCPGCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCPGCourseProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTCourseProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -2927,11 +2933,11 @@ function AspiForm() {
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Field</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCPGFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCPGFieldProg": e.target.value })}>
+                                                            <select value={userData['FTFieldProg']} required onChange={(e) => setUserData({ ...userData, "FTFieldProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 {
-                                                                    userData.FTOCCPGCourseProg === "Masters in Arts (M.A.)"
+                                                                    userData.FTCourseProg === "Masters in Arts (M.A.)"
                                                                         ?
                                                                         <>
                                                                             <option value="English Literature">English Literature</option>
@@ -2958,7 +2964,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTOCCPGCourseProg === "Masters in Science (M.Sc.)"
+                                                                    userData.FTCourseProg === "Masters in Science (M.Sc.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Mathematics">Mathematics</option>
@@ -2989,7 +2995,7 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTOCCPGCourseProg === "Masters in Commerce (M.Com.)"
+                                                                    userData.FTCourseProg === "Masters in Commerce (M.Com.)"
                                                                         ?
                                                                         <>
                                                                             <option value="Accountancy">Accountancy</option>
@@ -3010,12 +3016,12 @@ function AspiForm() {
                                                                         : ""
                                                                 }
                                                                 {
-                                                                    userData.FTOCCPGCourseProg === "Professional Degrees"
+                                                                    userData.FTCourseProg === "Professional Degrees"
                                                                         ?
                                                                         <>
-                                                                            <option value="Masters of Engineering (M.E.)">Masters of Engineering (M.E.)</option>
+                                                                            <option value="Masters of Engineering (M.E)">Masters of Engineering (M.E.)</option>
                                                                             <hr />
-                                                                            <option value="Masters of Technology (M.Tech.)">Masters of Technology (M.Tech.)</option>
+                                                                            <option value="Masters of Technology (M.Tech)">Masters of Technology (M.Tech.)</option>
                                                                             <hr />
                                                                             <option value="Masters of Computer Applications (MCA)">Masters of Computer Applications (MCA)</option>
                                                                             <hr />
@@ -3054,28 +3060,30 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCPGFieldProg === "Other"
+                                                            userData.FTFieldProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCPGFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCPGFieldProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTFieldProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
-                                                    </div></>
+                                                    </div>
+                                                    
+                                                    </>
                                                 : ""
                                         }
                                         {/* under grad fields */}
                                         {
-                                            userData.FTOCCPGFieldProg === "Masters of Engineering (M.E.)"
+                                            userData.FTFieldProg === "Masters of Engineering (M.E.)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCPGBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Civil Engineering">Civil Engineering</option>
@@ -3132,13 +3140,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCPGBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCPGBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -3147,13 +3155,13 @@ function AspiForm() {
                                                 : ""
                                         }
                                         {
-                                            userData.FTOCCPGFieldProg === "Masters of Technology (M.Tech.)"
+                                            userData.FTFieldProg === "Masters of Technology (M.Tech.)"
                                                 ?
                                                 <>
                                                     <div className="indiDetails">
                                                         <label htmlFor="email">Branch</label>
                                                         <div className='customSelect'>
-                                                            <select value={userData['FTOCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTOCCPGBranchProg": e.target.value })}>
+                                                            <select value={userData['FTBranchProg']} required onChange={(e) => setUserData({ ...userData, "FTBranchProg": e.target.value })}>
                                                                 <option value="">Select Option</option>
                                                                 <hr />
                                                                 <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -3210,13 +3218,13 @@ function AspiForm() {
                                                             </span>
                                                         </div>
                                                         {
-                                                            userData.FTOCCPGBranchProg === "Other"
+                                                            userData.FTBranchProg === "Other"
                                                                 ?
                                                                 <div className='other'>
                                                                     <h5>
                                                                         Specify:
                                                                     </h5>
-                                                                    <input type="text" value={userData['OtherFTOCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTOCCPGBranchProg": e.target.value })} name="name" id="name" />
+                                                                    <input type="text" value={userData['OtherFTBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherFTBranchProg": e.target.value })} name="name" id="name" />
                                                                 </div>
                                                                 : ""
                                                         }
@@ -3401,7 +3409,7 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Course</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['UnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "UnderGradCourseProg": e.target.value })}>
+                                                    <select value={userData['IntCourseProg']} required onChange={(e) => setUserData({ ...userData, "IntCourseProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
@@ -3425,13 +3433,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.UnderGradCourseProg === "Other"
+                                                    userData.IntCourseProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherUnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherUnderGradCourseProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntCourseProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -3439,11 +3447,11 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Field</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['UnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "UnderGradFieldProg": e.target.value })}>
+                                                    <select value={userData['IntFieldProg']} required onChange={(e) => setUserData({ ...userData, "IntFieldProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         {
-                                                            userData.UnderGradCourseProg === "Bachelor of Arts (B.A.)"
+                                                            userData.IntCourseProg === "Bachelor of Arts (B.A.)"
                                                                 ?
                                                                 <>
                                                                     <option value="English Literature">English Literature</option>
@@ -3470,7 +3478,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.UnderGradCourseProg === "Bachelor of Science (B.Sc.)"
+                                                            userData.IntCourseProg === "Bachelor of Science (B.Sc.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Mathematics">Mathematics</option>
@@ -3501,7 +3509,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.UnderGradCourseProg === "Bachelor of Commerce (B.Com.)"
+                                                            userData.IntCourseProg === "Bachelor of Commerce (B.Com.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Accountancy">Accountancy</option>
@@ -3522,7 +3530,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.UnderGradCourseProg === "Professional Degrees"
+                                                            userData.IntCourseProg === "Professional Degrees"
                                                                 ?
                                                                 <>
                                                                     <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
@@ -3566,28 +3574,30 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.UnderGradFieldProg === "Other"
+                                                    userData.IntFieldProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherUnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherUnderGradFieldProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntFieldProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
-                                            </div></>
+                                            </div>
+                                            
+                                            </>
                                         : ""
                                 }
                                 {/* under grad fields */}
                                 {
-                                    userData.UnderGradFieldProg === "Bachelor of Engineering (B.E.)"
+                                    userData.IntFieldProg === "Bachelor of Engineering (B.E.)"
                                         ?
                                         <>
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Branch</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['UnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "UnderGradBranchProg": e.target.value })}>
+                                                    <select value={userData['IntBranchProg']} required onChange={(e) => setUserData({ ...userData, "IntBranchProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Civil Engineering">Civil Engineering</option>
@@ -3644,13 +3654,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.UnderGradBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -3659,13 +3669,13 @@ function AspiForm() {
                                         : ""
                                 }
                                 {
-                                    userData.UnderGradFieldProg === "Bachelor of Technology (B.Tech.)"
+                                    userData.IntFieldProg === "Bachelor of Technology (B.Tech.)"
                                         ?
                                         <>
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Branch</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['UnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "UnderGradBranchProg": e.target.value })}>
+                                                    <select value={userData['IntBranchProg']} required onChange={(e) => setUserData({ ...userData, "IntBranchProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -3722,13 +3732,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.UnderGradBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -3743,7 +3753,7 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Course</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['PGCourseProg']} required onChange={(e) => setUserData({ ...userData, "PGCourseProg": e.target.value })}>
+                                                    <select value={userData['IntCourseProg']} required onChange={(e) => setUserData({ ...userData, "IntCourseProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Masters in Arts (M.A.)">Masters in Arts (M.A.)</option>
@@ -3767,13 +3777,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.PGCourseProg === "Other"
+                                                    userData.IntCourseProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherPGCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherPGCourseProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntCourseProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -3781,11 +3791,11 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Field</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['PGFieldProg']} required onChange={(e) => setUserData({ ...userData, "PGFieldProg": e.target.value })}>
+                                                    <select value={userData['IntFieldProg']} required onChange={(e) => setUserData({ ...userData, "IntFieldProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         {
-                                                            userData.PGCourseProg === "Masters in Arts (M.A.)"
+                                                            userData.IntCourseProg === "Masters in Arts (M.A.)"
                                                                 ?
                                                                 <>
                                                                     <option value="English Literature">English Literature</option>
@@ -3812,7 +3822,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.PGCourseProg === "Masters in Science (M.Sc.)"
+                                                            userData.IntCourseProg === "Masters in Science (M.Sc.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Mathematics">Mathematics</option>
@@ -3843,7 +3853,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.PGCourseProg === "Masters in Commerce (M.Com.)"
+                                                            userData.IntCourseProg === "Masters in Commerce (M.Com.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Accountancy">Accountancy</option>
@@ -3864,12 +3874,12 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.PGCourseProg === "Professional Degrees"
+                                                            userData.IntCourseProg === "Professional Degrees"
                                                                 ?
                                                                 <>
-                                                                    <option value="Masters of Engineering (M.E.)">Masters of Engineering (M.E.)</option>
+                                                                    <option value="Masters of Engineering (M.E)">Masters of Engineering (M.E.)</option>
                                                                     <hr />
-                                                                    <option value="Masters of Technology (M.Tech.)">Masters of Technology (M.Tech.)</option>
+                                                                    <option value="Masters of Technology (M.Tech)">Masters of Technology (M.Tech.)</option>
                                                                     <hr />
                                                                     <option value="Masters of Computer Applications (MCA)">Masters of Computer Applications (MCA)</option>
                                                                     <hr />
@@ -3908,28 +3918,30 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.PGFieldProg === "Other"
+                                                    userData.IntFieldProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherPGFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherPGFieldProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntFieldProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
-                                            </div></>
+                                            </div>
+                                            
+                                            </>
                                         : ""
                                 }
                                 {/* under grad fields */}
                                 {
-                                    userData.PGFieldProg === "Masters of Engineering (M.E.)"
+                                    userData.IntFieldProg === "Masters of Engineering (M.E)"
                                         ?
                                         <>
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Branch</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['PGBranchProg']} required onChange={(e) => setUserData({ ...userData, "PGBranchProg": e.target.value })}>
+                                                    <select value={userData['IntBranchProg']} required onChange={(e) => setUserData({ ...userData, "IntBranchProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Civil Engineering">Civil Engineering</option>
@@ -3986,13 +3998,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.PGBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherPGBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -4001,7 +4013,7 @@ function AspiForm() {
                                         : ""
                                 }
                                 {
-                                    userData.PGFieldProg === "Masters of Technology (M.Tech.)"
+                                    userData.IntFieldProg === "Masters of Technology (M.Tech)"
                                         ?
                                         <>
                                             <div className="indiDetails">
@@ -4064,13 +4076,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.PGBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherPGBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -4305,7 +4317,7 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Course</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCUnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "OCCUnderGradCourseProg": e.target.value })}>
+                                                    <select value={userData['IntCourseProg']} required onChange={(e) => setUserData({ ...userData, "IntCourseProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
@@ -4329,13 +4341,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCUnderGradCourseProg === "Other"
+                                                    userData.IntCourseProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCUnderGradCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCUnderGradCourseProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntCourseProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -4343,11 +4355,11 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Field</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCUnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "OCCUnderGradFieldProg": e.target.value })}>
+                                                    <select value={userData['IntFieldProg']} required onChange={(e) => setUserData({ ...userData, "IntFieldProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         {
-                                                            userData.OCCUnderGradCourseProg === "Bachelor of Arts (B.A.)"
+                                                            userData.IntCourseProg === "Bachelor of Arts (B.A.)"
                                                                 ?
                                                                 <>
                                                                     <option value="English Literature">English Literature</option>
@@ -4374,7 +4386,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.OCCUnderGradCourseProg === "Bachelor of Science (B.Sc.)"
+                                                            userData.IntCourseProg === "Bachelor of Science (B.Sc.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Mathematics">Mathematics</option>
@@ -4405,7 +4417,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.OCCUnderGradCourseProg === "Bachelor of Commerce (B.Com.)"
+                                                            userData.IntCourseProg === "Bachelor of Commerce (B.Com.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Accountancy">Accountancy</option>
@@ -4426,7 +4438,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.OCCUnderGradCourseProg === "Professional Degrees"
+                                                            userData.IntCourseProg === "Professional Degrees"
                                                                 ?
                                                                 <>
                                                                     <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
@@ -4470,28 +4482,30 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCUnderGradFieldProg === "Other"
+                                                    userData.IntFieldProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCUnderGradFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCUnderGradFieldProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntFieldProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
-                                            </div></>
+                                            </div>
+                                            
+                                            </>
                                         : ""
                                 }
                                 {/* under grad fields */}
                                 {
-                                    userData.OCCUnderGradFieldProg === "Bachelor of Engineering (B.E.)"
+                                    userData.IntFieldProg === "Bachelor of Engineering (B.E.)"
                                         ?
                                         <>
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Branch</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OCCUnderGradBranchProg": e.target.value })}>
+                                                    <select value={userData['IntBranchProg']} required onChange={(e) => setUserData({ ...userData, "IntBranchProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Civil Engineering">Civil Engineering</option>
@@ -4548,13 +4562,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCUnderGradBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -4563,13 +4577,13 @@ function AspiForm() {
                                         : ""
                                 }
                                 {
-                                    userData.OCCUnderGradFieldProg === "Bachelor of Technology (B.Tech.)"
+                                    userData.IntFieldProg === "Bachelor of Technology (B.Tech.)"
                                         ?
                                         <>
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Branch</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OCCUnderGradBranchProg": e.target.value })}>
+                                                    <select value={userData['IntBranchProg']} required onChange={(e) => setUserData({ ...userData, "IntBranchProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -4626,13 +4640,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCUnderGradBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCUnderGradBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCUnderGradBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -4647,7 +4661,7 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Course</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCPGCourseProg']} required onChange={(e) => setUserData({ ...userData, "OCCPGCourseProg": e.target.value })}>
+                                                    <select value={userData['IntCourseProg']} required onChange={(e) => setUserData({ ...userData, "IntCourseProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Masters in Arts (M.A.)">Masters in Arts (M.A.)</option>
@@ -4671,13 +4685,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCPGCourseProg === "Other"
+                                                    userData.IntCourseProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCPGCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCPGCourseProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntCourseProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntCourseProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -4685,11 +4699,11 @@ function AspiForm() {
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Field</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCPGFieldProg']} required onChange={(e) => setUserData({ ...userData, "OCCPGFieldProg": e.target.value })}>
+                                                    <select value={userData['IntFieldProg']} required onChange={(e) => setUserData({ ...userData, "IntFieldProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         {
-                                                            userData.OCCPGCourseProg === "Masters in Arts (M.A.)"
+                                                            userData.IntCourseProg === "Masters in Arts (M.A.)"
                                                                 ?
                                                                 <>
                                                                     <option value="English Literature">English Literature</option>
@@ -4716,7 +4730,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.OCCPGCourseProg === "Masters in Science (M.Sc.)"
+                                                            userData.IntCourseProg === "Masters in Science (M.Sc.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Mathematics">Mathematics</option>
@@ -4747,7 +4761,7 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.OCCPGCourseProg === "Masters in Commerce (M.Com.)"
+                                                            userData.IntCourseProg === "Masters in Commerce (M.Com.)"
                                                                 ?
                                                                 <>
                                                                     <option value="Accountancy">Accountancy</option>
@@ -4768,12 +4782,12 @@ function AspiForm() {
                                                                 : ""
                                                         }
                                                         {
-                                                            userData.OCCPGCourseProg === "Professional Degrees"
+                                                            userData.IntCourseProg === "Professional Degrees"
                                                                 ?
                                                                 <>
-                                                                    <option value="Masters of Engineering (M.E.)">Masters of Engineering (M.E.)</option>
+                                                                    <option value="Masters of Engineering (M.E)">Masters of Engineering (M.E.)</option>
                                                                     <hr />
-                                                                    <option value="Masters of Technology (M.Tech.)">Masters of Technology (M.Tech.)</option>
+                                                                    <option value="Masters of Technology (M.Tech)">Masters of Technology (M.Tech.)</option>
                                                                     <hr />
                                                                     <option value="Masters of Computer Applications (MCA)">Masters of Computer Applications (MCA)</option>
                                                                     <hr />
@@ -4812,28 +4826,30 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCPGFieldProg === "Other"
+                                                    userData.IntFieldProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCPGFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCPGFieldProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntFieldProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntFieldProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
-                                            </div></>
+                                            </div>
+                                            
+                                        </>
                                         : ""
                                 }
                                 {/* under grad fields */}
                                 {
-                                    userData.OCCPGFieldProg === "Masters of Engineering (M.E.)"
+                                    userData.IntFieldProg === "Masters of Engineering (M.E.)"
                                         ?
                                         <>
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Branch</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OCCPGBranchProg": e.target.value })}>
+                                                    <select value={userData['IntBranchProg']} required onChange={(e) => setUserData({ ...userData, "IntBranchProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Civil Engineering">Civil Engineering</option>
@@ -4890,13 +4906,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCPGBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCPGBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
@@ -4905,13 +4921,13 @@ function AspiForm() {
                                         : ""
                                 }
                                 {
-                                    userData.OCCPGFieldProg === "Masters of Technology (M.Tech.)"
+                                    userData.IntFieldProg === "Masters of Technology (M.Tech.)"
                                         ?
                                         <>
                                             <div className="indiDetails">
                                                 <label htmlFor="email">Branch</label>
                                                 <div className='customSelect'>
-                                                    <select value={userData['OCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OCCPGBranchProg": e.target.value })}>
+                                                    <select value={userData['PGBranchProg']} required onChange={(e) => setUserData({ ...userData, "PGBranchProg": e.target.value })}>
                                                         <option value="">Select Option</option>
                                                         <hr />
                                                         <option value="Computer Science and Engineering (CSE)">Computer Science and Engineering (CSE)</option>
@@ -4968,13 +4984,13 @@ function AspiForm() {
                                                     </span>
                                                 </div>
                                                 {
-                                                    userData.OCCPGBranchProg === "Other"
+                                                    userData.IntBranchProg === "Other"
                                                         ?
                                                         <div className='other'>
                                                             <h5>
                                                                 Specify:
                                                             </h5>
-                                                            <input type="text" value={userData['OtherOCCPGBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherOCCPGBranchProg": e.target.value })} name="name" id="name" />
+                                                            <input type="text" value={userData['OtherIntBranchProg']} required onChange={(e) => setUserData({ ...userData, "OtherIntBranchProg": e.target.value })} name="name" id="name" />
                                                         </div>
                                                         : ""
                                                 }
